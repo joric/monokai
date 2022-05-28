@@ -8,10 +8,6 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
 
-  <prototype name="html-glsl" group="extras" description="HTML+GLSL (*.html)">
-    <filename weight="4">/\.html$/i</filename>
-  </prototype>
-
   <prototype name="glsl" group="other" description="GLSL (*.glsl)">
     <filename weight="4">/\.glsl$/i</filename>
   </prototype>
@@ -77,6 +73,10 @@
     </scheme>
 
   </type>
+
+  <prototype name="html-glsl" group="extras" description="HTML+GLSL (*.html)">
+    <filename weight="4">/\.html$/i</filename>
+  </prototype>
 
   <type name="html-glsl">
     <import type="html"/>

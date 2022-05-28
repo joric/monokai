@@ -8,88 +8,49 @@
 >
 
   <prototype name="protobuf" group="other" description="Protocol Buffers (*.proto)">
-    <filename weight="2">/\.proto$/i</filename>
+    <filename weight="4">/\.proto$/i</filename>
   </prototype>
 
   <type name='protobuf'>
-    <annotation>
-      <documentation>Protobuf syntax description</documentation>
-      <contributors>
-        <![CDATA[
-        by Joric
-      ]]>
-      </contributors>
-    </annotation>
+
+    <import type="c"/>
 
     <scheme name="protobuf">
-
-      <regexp match="/\/\*\*\//" region="def:CommentDoc"/>
-      <block start="/\/\/\//" end="/$/" scheme="doxygen:doxygen" region="def:CommentDoc"/>
-
-      <block start="/\/\*\*/" end="/\*\//" scheme="doxygen:doxygen" region="def:CommentDoc"
-             region00="def:PairStart" region10="def:PairEnd"/>
-
-      <block start="/\/\//" end="/$/" scheme="def:Comment" region="def:LineComment"/>
-      <block scheme="def:Comment" region="def:Comment">
-        <start region0="def:PairStart"><![CDATA[/\/\*/]]></start>
-        <end region0="def:PairEnd"><![CDATA[/\*\//]]></end>
-      </block>
-
-      <block start="/\/\*\*/" end="/\*\//" scheme="doxygen:doxygen" region="def:CommentDoc"
-             region00="def:PairStart" region10="def:PairEnd"/>
-
-      <block start="/(\{)/" end="/(\})/" scheme="protobuf"
-            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
-
-      <block start="/(\()/" end="/(\))/" scheme="protobuf"
-            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
 
       <block start="/(\[)/" end="/(\])/" scheme="protobuf"
             region00="def:Comment" region01="def:PairStart" region="def:Comment" region10="def:Comment" region11="def:PairEnd"/>
 
-      <block start="/(\&lt;)/" end="/(\&gt;)/" scheme="protobuf"
-            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+      <inherit scheme="c">
+        <virtual scheme="c" subst-scheme="protobuf"/>
+      </inherit>
 
       <keywords region="def:Keyword">
-        <word name='enum'/>
+        <word name='rpc'/>
+        <word name='returns'/>
         <word name='message'/>
         <word name='service'/>
-        <word name='rpc'/>
-        <word name='bool'/>
-        <word name='string'/>
-        <word name='int64'/>
-        <word name='uint64'/>
-        <word name='oneof'/>
-        <word name='int32'/>
-        <word name='uint32'/>
+        <word name='repeated'/>
         <word name='package'/>
         <word name='option'/>
-        <word name='import'/>
         <word name='syntax'/>
+        <word name='oneof'/>
         <word name='map'/>
-        <word name='repeated'/>
-        <word name='Timestamp'/>
-        <word name='Int64Value'/>
+
+        <word name='string'/>
+        <word name='bool'/>
+        <word name='int64'/>
+        <word name='uint64'/>
+        <word name='int32'/>
+        <word name='uint32'/>
+      </keywords>
+
+      <keywords region="def:StructKeyword">
         <word name='google'/>
         <word name='protobuf'/>
+        <word name='Timestamp'/>
+        <word name='Int64Value'/>
       </keywords>
 
-      <keywords region="def:Symbol">
-        <symb name="." />
-        <symb name="#" />
-        <symb name="[" />
-        <symb name="]" />
-        <symb name="(" />
-        <symb name=")" />
-        <symb name="{" />
-        <symb name="}" />
-        <symb name="," />
-        <symb name=";" />
-        <symb name="=" />
-      </keywords>
-
-      <inherit scheme="def:Number"/>
-      <inherit scheme="def:StandardString"/>
     </scheme>
   </type>
 </hrc>
