@@ -21,14 +21,13 @@
       <block start="/(\()/" end="/(\))/" scheme="glsl"
             region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
 
-      <inherit scheme="c">
-        <virtual scheme="c" subst-scheme="glsl"/>
-      </inherit>
-
       <keywords region="def:Keyword">
         <word name="vec2"/>
         <word name="vec3"/>
         <word name="vec4"/>
+        <word name="ivec2"/>
+        <word name="ivec3"/>
+        <word name="ivec4"/>
         <word name="mat4"/>
         <word name="sampler2D"/>
         <word name="discard"/>
@@ -44,11 +43,15 @@
         <word name="attribute"/>
         <word name="cross"/>
         <word name="dot"/>
+        <word name="mod"/>
+        <word name="atan"/>
+        <word name="atan2"/>
         <word name="normalize"/>
         <word name="texture2D"/>
       </keywords>
 
       <keywords region="def:StructKeyword">
+        <word name="a"/>
         <word name="x"/>
         <word name="y"/>
         <word name="z"/>
@@ -69,6 +72,10 @@
         <word name="gl_Position"/>
         <word name="gl_FragColor"/>
       </keywords>
+
+      <inherit scheme="c">
+        <virtual scheme="c" subst-scheme="glsl"/>
+      </inherit>
 
     </scheme>
 
