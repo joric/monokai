@@ -68,8 +68,8 @@
         <word name='syntax'/>
         <word name='map'/>
         <word name='repeated'/>
-        <word name='Timestamp'/>e
-        <word name='Int64Value'/>e
+        <word name='Timestamp'/>
+        <word name='Int64Value'/>
         <word name='google'/>
         <word name='protobuf'/>
       </keywords>
