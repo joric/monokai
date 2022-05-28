@@ -34,7 +34,7 @@
         <word name="discard"/>
       </keywords>
 
-      <keywords region="c:KeywordStdio">
+      <keywords region="def:ClassKeyword">
         <word name="in"/>
         <word name="out"/>
         <word name="varying"/>

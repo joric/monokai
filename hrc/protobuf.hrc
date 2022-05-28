@@ -25,6 +25,17 @@
       </inherit>
 
       <keywords region="def:Keyword">
+        <word name='string'/>
+        <word name='bool'/>
+        <word name='int64'/>
+        <word name='uint64'/>
+        <word name='int32'/>
+        <word name='uint32'/>
+        <word name='true'/>
+        <word name='false'/>
+      </keywords>
+
+      <keywords region="def:ClassKeyword">
         <word name='rpc'/>
         <word name='returns'/>
         <word name='message'/>
@@ -35,13 +46,7 @@
         <word name='syntax'/>
         <word name='oneof'/>
         <word name='map'/>
-
-        <word name='string'/>
-        <word name='bool'/>
-        <word name='int64'/>
-        <word name='uint64'/>
-        <word name='int32'/>
-        <word name='uint32'/>
+        <word name='deprecated'/>
       </keywords>
 
       <keywords region="def:StructKeyword">
