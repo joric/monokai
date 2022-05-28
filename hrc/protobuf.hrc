@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hrc PUBLIC "-//Cail Lomecb//DTD Colorer HRC take5//EN"
+  "http://colorer.sf.net/2003/hrc.dtd"[
+]>
+<hrc version="take5" xmlns="http://colorer.sf.net/2003/hrc"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd"
+>
+
+  <prototype name="protobuf" group="other" description="Protocol Buffers (*.proto)">
+    <filename weight="2">/\.proto$/i</filename>
+  </prototype>
+
+  <type name='protobuf'>
+    <annotation>
+      <documentation>Protobuf syntax description</documentation>
+      <contributors>
+        <![CDATA[
+        by Joric
+      ]]>
+      </contributors>
+    </annotation>
+
+    <scheme name="protobuf">
+
+      <regexp match="/\/\*\*\//" region="def:CommentDoc"/>
+      <block start="/\/\/\//" end="/$/" scheme="doxygen:doxygen" region="def:CommentDoc"/>
+
+      <block start="/\/\*\*/" end="/\*\//" scheme="doxygen:doxygen" region="def:CommentDoc"
+             region00="def:PairStart" region10="def:PairEnd"/>
+
+      <block start="/\/\//" end="/$/" scheme="def:Comment" region="def:LineComment"/>
+      <block scheme="def:Comment" region="def:Comment">
+        <start region0="def:PairStart"><![CDATA[/\/\*/]]></start>
+        <end region0="def:PairEnd"><![CDATA[/\*\//]]></end>
+      </block>
+
+      <block start="/\/\*\*/" end="/\*\//" scheme="doxygen:doxygen" region="def:CommentDoc"
+             region00="def:PairStart" region10="def:PairEnd"/>
+
+      <block start="/(\{)/" end="/(\})/" scheme="protobuf"
+            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\()/" end="/(\))/" scheme="protobuf"
+            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\[)/" end="/(\])/" scheme="protobuf"
+            region00="def:Comment" region01="def:PairStart" region="def:Comment" region10="def:Comment" region11="def:PairEnd"/>
+
+      <block start="/(\&lt;)/" end="/(\&gt;)/" scheme="protobuf"
+            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region="def:Keyword">
+        <word name='enum'/>
+        <word name='message'/>
+        <word name='service'/>
+        <word name='rpc'/>
+        <word name='bool'/>
+        <word name='string'/>
+        <word name='int64'/>
+        <word name='uint64'/>
+        <word name='oneof'/>
+        <word name='int32'/>
+        <word name='uint32'/>
+        <word name='package'/>
+        <word name='option'/>
+        <word name='import'/>
+        <word name='syntax'/>
+        <word name='map'/>
+        <word name='repeated'/>
+        <word name='Timestamp'/>e
+        <word name='Int64Value'/>e
+        <word name='google'/>
+        <word name='protobuf'/>
+      </keywords>
+
+      <keywords region="def:Symbol">
+        <symb name="." />
+        <symb name="#" />
+        <symb name="[" />
+        <symb name="]" />
+        <symb name="(" />
+        <symb name=")" />
+        <symb name="{" />
+        <symb name="}" />
+        <symb name="," />
+        <symb name=";" />
+        <symb name="=" />
+      </keywords>
+
+      <inherit scheme="def:Number"/>
+      <inherit scheme="def:StandardString"/>
+    </scheme>
+  </type>
+</hrc>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hrd PUBLIC "-//Cail Lomecb//DTD Colorer HRD take5//EN"
+    "http://colorer.sf.net/2003/hrd.dtd">
+
+<hrd xmlns="http://colorer.sf.net/2003/hrd">
+
+<!--
+    def:Text defines whitespace color also
+
+    looks like whitespace is buggy, hex color is inverted
+    e.g. text color #75715e whitespace displays as #5e7175
+
+    <assign name="def:Text" fore="#ff8000" back="#272822"/>
+    <assign name="def:Text" fore="#5e7175" back="#272822"/>
+-->
+
+<assign name="def:Text" fore="#f8f8f2" back="#272822"/>
+
+
+<assign name="def:HorzCross" fore="#e1ebe0" back="#272822"/>
+<assign name="def:VertCross" fore="#e1ebe0" back="#272822"/>
+<assign name="def:Intersect" fore="#e1ebe0" back="#272822"/>
+<assign name="def:Mark" fore="#444444" back="#ff3B6F"/>
+
+<assign name="def:Number" fore="#be84ff"/>
+<assign name="def:NumberSuffix" fore="#8e54cf"/>
+
+<assign name="def:String" fore="#E6DB74"/>
+<assign name="def:StringContent" fore="#be84ff"/>
+<assign name="def:StringEdge" fore="#E6DB74"/>
+
+<assign name="def:Comment" fore="#75715e"/>
+<assign name="def:CommentContent" fore="#7c7865"/>
+<assign name="def:CommentEdge" fore="#606060"/>
+<assign name="def:CommentDoc" fore="#7FbFDF"/>
+<assign name="def:CommentDocEdge" fore="#7FbFDF"/>
+
+<assign name="def:Symbol" fore="#ffffff"/>
+<assign name="def:SymbolStrong" fore="#ffffff"/>
+<assign name="def:Prefix" fore="#00a6FF"/> <!-- blue def:prefix -->
+
+<assign name="def:Operator" fore="#ffffff"/>
+<assign name="def:Keyword" fore="#66D9EF" /> <!-- int, const int, etc. -->
+<assign name="def:KeywordStrong" fore="#ffffff" style='0'/> <!-- warning disable comment lib etc. -->
+<assign name="def:FunctionKeyword" fore="#66D9EF"/> <!--gluint, gl reserved keywords-->
+
+<assign name="def:DeprecatedKeyword" fore="#5BC7FF"/>
+<assign name="def:InterfaceKeyword" fore="#5BC7FF"/>
+<assign name="def:ClassKeyword" fore="#a6e22e"/>
+<assign name="def:StructKeyword" fore="#FFC58A"/>
+
+<assign name="def:TypeKeyword" fore="#66D9EF"/>
+
+<assign name="def:Function" fore="#a6e22e"/>
+<assign name="def:Register" fore="#9191ff"/>
+<assign name="def:Constant" fore="#be84ff"/>
+
+<assign name="def:Var" fore="#ffffff"/>
+<assign name="def:VarStrong" fore="#1089A7"/>
+<assign name="def:Identifier" fore="#005fd2"/>
+<assign name="def:BooleanConstant" fore="#be84ff"/>
+
+<assign name="def:Directive" fore="#f92672"/>
+<assign name="def:DirectiveContent" fore="#A6E22E"/>
+<assign name="def:DirectiveEdge" fore="#f8f8f2"/>
+<assign name="def:Parameter" fore="#64FF64"/>
+
+<assign name="def:Tag" fore="#f92672"/>
+<assign name="def:OpenTag" fore="#FFEBC6"/>
+<assign name="def:CloseTag" fore="#FFEBC6"/>
+
+<assign name="def:Label" fore="#e34adc"/>
+<assign name="def:LabelStrong" fore="#000000" back="#a8a800"/>
+
+<assign name="def:Insertion" back="#272822"/>
+<assign name="def:InsertionStart" fore="#800000" back="#ffffa4"/>
+<assign name="def:InsertionEnd" fore="#800000" back="#ffffa4"/>
+
+<assign name="def:Error" fore="#00ff00" back="#dd0000"/>
+<assign name="def:ErrorText" fore="#FFFFFF"/>
+
+<assign name="def:TODO" fore="#ffffff" back="#B91515"/>
+<assign name="def:Debug" fore="#C4D8FE" back="#0A4C7A"/>
+
+<assign name="def:Path" fore="#e6db74"/>
+<assign name="def:URL" fore="#8787E7"/>
+<assign name="def:EMail" fore="#A386D9"/>
+
+<assign name="def:Date" fore="#FFFF00"/>
+<assign name="def:Time" fore="#35FF35"/>
+
+<assign name="def:PairStart" fore="#ff0000"/>
+<assign name="def:PairEnd" fore="#ff0000"/>
+
+<assign name="def:PairStrongStart" fore="#FFFF70"/>
+<assign name="def:PairStrongEnd" fore="#FFFF70"/>
+
+<!--
+    Some language-specific fixes
+    <assign name="c:Whitespace" fore="#00ff00" back="#000000"/>
+    <assign name="def:Outlined" fore="#A6E22E" />
+    <assign name="php:php.keyword" fore="#f92672" />
+-->
+
+<assign name="c:KeywordANSI" fore="#f92672" /> <!-- red - for, etc. -->
+<assign name="c:KeywordANSI.typenames" fore="#66D9EF" /> <!-- blue - int, float, etc. -->
+<assign name="c:Symbol" fore="#c0c0c0" />
+<!--assign name="def:Symbol" fore="#f92672" /-->
+<!--assign name="jScript:ES5ReservedWord" fore="#f92672" /--> <!-- red - for, etc. -->
+<assign name="xml:CDStart" fore="#E6DB74" />
+<assign name="xml:CDEnd" fore="#E6DB74" />
+<assign name="Batch:ntVarEnv" fore="#64FF64" />
+<assign name="regexp:SymbClass" fore="#1089A7"/>
+<assign name="regexp:MetaSymb" fore="#66D9EF"/>
+<assign name="regexp:Operator" fore="#1089A7"/>
+<assign name="regexp:MetaSymbStrong" fore="#f92672"/>
+<assign name="regexp:Quote" fore="#EEFF8A"/>
+
+</hrd>
