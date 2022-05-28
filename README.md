@@ -12,7 +12,7 @@ copy *.hrc %FARHOME%\Plugins\FarColorer\base\auto\
 ### HRD
 
 ```
-copy *.hrd %FARHOME%\Plugins\FarColorer\base\auto
+copy *.hrd %FARHOME%\Plugins\FarColorer\base
 copy *.xml %FARHOME%\Plugins\FarColorer\base
 
 ```
