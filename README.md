@@ -23,4 +23,4 @@ copy *.xml %FARHOME%\Plugins\FarColorer\base
 * Select "Monokai (RGB)" in TrueMod schemes.
 
 
-Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the files.
+Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the files (or restart Far).
