@@ -133,11 +133,11 @@
     </scheme>
   </type>
 
-  <prototype name="htmlShaders" group="extras" description="HTML shaders (*.html)">
+  <prototype name="htmlExt" group="extras" description="HTML Extended (*.html)">
     <filename weight="4">/\.html$/i</filename>
   </prototype>
 
-  <type name="htmlShaders">
+  <type name="htmlExt">
     <import type="html"/>
     <import type="glsl"/>
     <import type="hlsl"/>
@@ -150,7 +150,7 @@
       <inherit scheme="hlsl" />
     </scheme>
 
-    <scheme name="htmlShaders">
+    <scheme name="htmlExt">
 
       <!--use wrapped glslScript scheme here-->
       <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
@@ -159,7 +159,7 @@
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
       <inherit scheme="html">
-        <virtual scheme="html" subst-scheme="htmlShaders"/>
+        <virtual scheme="html" subst-scheme="htmlExt"/>
       </inherit>
 
     </scheme>

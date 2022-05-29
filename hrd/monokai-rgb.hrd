@@ -47,7 +47,7 @@
 <assign name="def:Operator" fore="#ffffff"/>
 <assign name="def:Keyword" fore="#66D9EF" /> <!-- int, const int, etc. -->
 <assign name="def:KeywordStrong" fore="#ffffff" style='0'/> <!-- warning disable comment lib etc. -->
-<assign name="def:FunctionKeyword" fore="#66D9EF"/> <!--gluint, gl reserved keywords-->
+<assign name="def:FunctionKeyword" fore="#fc9523"/> <!--gluint, gl reserved keywords-->
 
 <assign name="def:DeprecatedKeyword" fore="#5BC7FF"/>
 <assign name="def:InterfaceKeyword" fore="#5BC7FF"/>
@@ -118,8 +118,9 @@
 
 <assign name="python:pyDelimiter" fore="#f8f8f2" /> <!-- white delimeters -->
 <assign name="python:pyOperator" fore="#f92672" /> <!-- red operators -->
-<assign name="python:pyFunction" fore="#64FF64" /> <!-- green reduce, enumerate etc-->
-<assign name="python:pyKeyword" fore="#66D9EF" /> <!-- cyan for, in, etc -->
 <assign name="python:pySpecialName" fore="#be84ff" /> <!-- purple True/False -->
+<assign name="python:pyFunction" fore="#66D9EF" /> <!-- blue operators -->
+
+<assign name="python:pyFunction" fore="#a6e22e"/> <!--green-->
 
 </hrd>
