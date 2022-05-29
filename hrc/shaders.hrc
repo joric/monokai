@@ -42,6 +42,7 @@
         <word name="atan2"/>
         <word name="normalize"/>
         <word name="texture2D"/>
+        <word name="clamp"/>
       </keywords>
 
       <keywords region="def:Parameter">
@@ -100,6 +101,9 @@
         <word name="float2"/>
         <word name="float3"/>
         <word name="float4"/>
+        <word name="int2"/>
+        <word name="int3"/>
+        <word name="int4"/>
       </keywords>
 
       <keywords region="def:FunctionKeyword">
