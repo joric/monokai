@@ -47,7 +47,7 @@
 <assign name="def:Operator" fore="#ffffff"/>
 <assign name="def:Keyword" fore="#66D9EF" /> <!-- int, const int, etc. -->
 <assign name="def:KeywordStrong" fore="#ffffff" style='0'/> <!-- warning disable comment lib etc. -->
-<assign name="def:FunctionKeyword" fore="#fc9523"/> <!--gluint, gl reserved keywords-->
+<assign name="def:FunctionKeyword" fore="#a6e22e"/> <!--gluint, gl reserved keywords-->
 
 <assign name="def:DeprecatedKeyword" fore="#5BC7FF"/>
 <assign name="def:InterfaceKeyword" fore="#5BC7FF"/>
@@ -62,7 +62,7 @@
 
 <assign name="def:Var" fore="#ffffff"/>
 <assign name="def:VarStrong" fore="#1089A7"/>
-<assign name="def:Identifier" fore="#005fd2"/>
+<assign name="def:Identifier" fore="#fc9523"/>
 <assign name="def:BooleanConstant" fore="#be84ff"/>
 
 <assign name="def:Directive" fore="#f92672"/>
@@ -121,6 +121,7 @@
 <assign name="python:pySpecialName" fore="#be84ff" /> <!-- purple True/False -->
 <assign name="python:pyFunction" fore="#66D9EF" /> <!-- blue operators -->
 
-<assign name="python:pyFunction" fore="#a6e22e"/> <!--green-->
+
+<!--assign name="python:pyFunction" fore="#a6e22e"/--> <!--green-->
 
 </hrd>
