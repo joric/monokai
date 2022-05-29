@@ -100,18 +100,10 @@
 <assign name="def:PairStrongStart" fore="#FFFF70"/>
 <assign name="def:PairStrongEnd" fore="#FFFF70"/>
 
-<!--
-    Some language-specific fixes
-    <assign name="c:Whitespace" fore="#00ff00" back="#000000"/>
-    <assign name="def:Outlined" fore="#A6E22E" />
-    <assign name="php:php.keyword" fore="#f92672" />
--->
+<!-- language-specific fixes -->
 
-<assign name="c:KeywordANSI" fore="#f92672" /> <!-- red - for, etc. -->
+<assign name="c:Symbol" fore="#ffffff" />
 <assign name="c:KeywordANSI.typenames" fore="#66D9EF" /> <!-- blue - int, float, etc. -->
-<assign name="c:Symbol" fore="#c0c0c0" />
-<!--assign name="def:Symbol" fore="#f92672" /-->
-<!--assign name="jScript:ES5ReservedWord" fore="#f92672" /--> <!-- red - for, etc. -->
 <assign name="xml:CDStart" fore="#E6DB74" />
 <assign name="xml:CDEnd" fore="#E6DB74" />
 <assign name="Batch:ntVarEnv" fore="#64FF64" />
@@ -120,5 +112,12 @@
 <assign name="regexp:Operator" fore="#1089A7"/>
 <assign name="regexp:MetaSymbStrong" fore="#f92672"/>
 <assign name="regexp:Quote" fore="#EEFF8A"/>
+
+<assign name="def:Outlined" fore="#A6E22E" />
+<assign name="php:php.keyword" fore="#f92672" />
+<assign name="jScript:ES5ReservedWord" fore="#f92672"/> <!-- red - for, etc. -->
+
+<assign name="python:pyDelimiter" fore="#f92672" />
+<assign name="python:pyOperator" fore="#f92672" />
 
 </hrd>
