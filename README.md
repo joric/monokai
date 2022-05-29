@@ -29,4 +29,4 @@ Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the
 Note that whitespace is buggy in the stock colorer.
 It uses inverted (RGB->BGR) `def:Text` colors and can't be redefined.
 You may download patched colorer with `def:Whitespace` support in the releases section.
-
+My schemes already support this feature.
