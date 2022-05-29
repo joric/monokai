@@ -23,9 +23,12 @@
 <assign name="def:Text" fore="#f8f8f2" back="#272822"/>
 <assign name="def:HorzCross" fore="#000001" back="#313b30"/>
 <assign name="def:VertCross" fore="#000001" back="#313b30"/>
+
+<!--
 <assign name="def:Intersect" fore="#000001" back="#313b30"/>
 
-<assign name="def:Mark" fore="#444444" back="#ff3B6F"/>
+<assign name="def:Mark" back="#000000"/>
+-->
 
 <assign name="def:Number" fore="#be84ff"/>
 <assign name="def:NumberSuffix" fore="#8e54cf"/>

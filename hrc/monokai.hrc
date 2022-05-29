@@ -18,23 +18,6 @@
 
     <scheme name="pythonExt">
 
-      <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pythonExt"
-        region01="def:Keyword"
-        region02="def:ClassKeyword"
-        region10="def:Symbol"
-      />
-
-      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExt"
-        region01="def:Keyword"
-        region02="def:FunctionKeyword"
-        region03="def:Symbol"
-        region04="def:PairStart"
-        region="def:Identifier"
-        region10="def:Symbol"
-        region11="def:PairEnd"
-        region12="def:Symbol"
-      />
-
       <keywords region="python:pyOperator">
         <word name="return"/>
         <word name="if"/>
@@ -51,14 +34,33 @@
         <word name="*"/>
       </keywords>
 
-      <block start="/(\,|\;|\:)/" end="//" scheme="pythonExt"
-        region01="python:pySymbol"
+      <regexp match='/[\,\;\:]+/' region0="python:pySymbol"/>
+
+      <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pythonExt"
+        region01="def:Keyword"
+        region02="def:ClassKeyword"
+        region10="def:Symbol"
+      />
+
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExtDef"
+        region01="def:Keyword"
+        region02="def:FunctionKeyword"
+        region03="def:Symbol"
+        region04="def:PairStart"
+        region10="def:Symbol"
+        region11="def:PairEnd"
+        region12="def:Symbol"
       />
 
       <inherit scheme="python">
         <virtual scheme="python" subst-scheme="pythonExt"/>
       </inherit>
 
+    </scheme>
+
+    <scheme name="pythonExtDef">
+      <inherit scheme="pythonExt"/>
+      <regexp match='/\w+/' region0="def:Identifier"/>
     </scheme>
 
   </type>
