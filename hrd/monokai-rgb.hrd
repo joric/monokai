@@ -102,7 +102,6 @@
 
 <!-- language-specific fixes -->
 
-<assign name="c:Symbol" fore="#f92672" />
 <assign name="c:KeywordANSI.typenames" fore="#66D9EF" /> <!-- blue - int, float, etc. -->
 <assign name="xml:CDStart" fore="#E6DB74" />
 <assign name="xml:CDEnd" fore="#E6DB74" />
@@ -117,7 +116,10 @@
 <assign name="php:php.keyword" fore="#f92672" />
 <assign name="jScript:ES5ReservedWord" fore="#f92672"/> <!-- red - for, etc. -->
 
-<assign name="python:pyDelimiter" fore="#f92672" />
-<assign name="python:pyOperator" fore="#f92672" />
+<assign name="python:pyDelimiter" fore="#f8f8f2" /> <!-- white delimeters -->
+<assign name="python:pyOperator" fore="#f92672" /> <!-- red operators -->
+<assign name="python:pyFunction" fore="#64FF64" /> <!-- green reduce, enumerate etc-->
+<assign name="python:pyKeyword" fore="#66D9EF" /> <!-- cyan for, in, etc -->
+<assign name="python:pySpecialName" fore="#be84ff" /> <!-- purple True/False -->
 
 </hrd>
