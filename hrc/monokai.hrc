@@ -18,6 +18,10 @@
 
     <scheme name="pythonExt">
 
+      <inherit scheme="def:PairedBrackets">
+        <virtual scheme="def:PairedBrackets" subst-scheme="pythonExt"/>
+      </inherit>
+
       <keywords region="python:pyOperator">
         <word name="return"/>
         <word name="if"/>
@@ -30,11 +34,10 @@
         <word name="import"/>
       </keywords>
 
-      <keywords region="python:pySpecialName">
-        <word name="*"/>
-      </keywords>
-
-      <regexp match='/[\,\;\:]+/' region0="python:pySymbol"/>
+      <block start="/(lambda)\s+/" end="/\s*(\:)/" scheme="pythonExtArgs"
+        region01="def:Keyword"
+        region10="def:Symbol"
+      />
 
       <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pythonExt"
         region01="def:Keyword"
@@ -42,7 +45,15 @@
         region10="def:Symbol"
       />
 
-      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExtDef"
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pythonExtFn"
+        region01="def:Keyword"
+        region02="def:Symbol"
+        region03="def:PairStart"
+        region10="def:Symbol"
+        region11="def:PairEnd"
+      />
+
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExtArgs"
         region01="def:Keyword"
         region02="def:FunctionKeyword"
         region03="def:Symbol"
@@ -52,15 +63,34 @@
         region12="def:Symbol"
       />
 
+      <keywords region="python:pyDelimiter">
+        <symb name=":="/>
+      </keywords>
+
+      <keywords region= "def:Symbol">
+        <symb name=","/>
+        <symb name=":"/>
+        <symb name="."/>
+        <symb name="`"/>
+      </keywords>
+
+      <keywords region="python:pySpecialName">
+        <symb name="*"/>
+      </keywords>
+
       <inherit scheme="python">
         <virtual scheme="python" subst-scheme="pythonExt"/>
       </inherit>
 
     </scheme>
 
-    <scheme name="pythonExtDef">
-      <inherit scheme="pythonExt"/>
+    <scheme name="pythonExtArgs">
       <regexp match='/\w+/' region0="def:Identifier"/>
+      <inherit scheme="pythonExt"/>
+    </scheme>
+
+    <scheme name="pythonExtFn">
+      <inherit scheme="pythonExt"/>
     </scheme>
 
   </type>
