@@ -132,6 +132,7 @@
       <block start="/~/" end="/[?%]?~1(&gt;)/" 
         scheme="htmlCore" region="htmlUnknowParam" region11="htmlTagBr"/>
       <inherit scheme="glsl" />
+      <inherit scheme="hlsl" />
     </scheme>
 
     <scheme name="htmlShaders">
