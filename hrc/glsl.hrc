@@ -20,7 +20,7 @@
 
       <!--fixes () brackets content in void main(...)  -->
       <block start="/(\()/" end="/(\))/" scheme="glsl"
-            region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+        region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
 
       <keywords region="def:Keyword">
         <word name="vec2"/>
@@ -93,10 +93,15 @@
     <import type="html"/>
     <import type="glsl"/>
 
-    <scheme name="html-glsl">
+    <scheme name="glslScript">
+      <block start="/~/" end="/[?%]?~1(&gt;)/" 
+        scheme="htmlCore" region="htmlUnknowParam" region11="htmlTagBr"/>
+      <inherit scheme="glsl" />
+    </scheme>
 
+    <scheme name="html-glsl">
       <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
-        scheme="glsl"
+        scheme="glslScript"
         region01="PairStrongStart" region10="PairStrongEnd"
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 

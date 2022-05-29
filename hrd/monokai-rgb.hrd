@@ -102,7 +102,7 @@
 
 <!-- language-specific fixes -->
 
-<assign name="c:Symbol" fore="#ffffff" />
+<assign name="c:Symbol" fore="#f92672" />
 <assign name="c:KeywordANSI.typenames" fore="#66D9EF" /> <!-- blue - int, float, etc. -->
 <assign name="xml:CDStart" fore="#E6DB74" />
 <assign name="xml:CDEnd" fore="#E6DB74" />
