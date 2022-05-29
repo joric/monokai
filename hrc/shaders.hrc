@@ -85,31 +85,65 @@
 
   </type>
 
-  <prototype name="html-glsl" group="extras" description="HTML+GLSL (*.html)">
+  <prototype name="hlsl" group="other" description="HLSL (*.hlsl)">
+    <filename weight="4">/\.hlsl$/i</filename>
+  </prototype>
+
+  <type name="hlsl">
+    <import type="glsl"/>
+
+    <scheme name="hlsl">
+
+      <keywords region="def:Keyword">
+        <word name="sampler"/>
+        <word name="register"/>
+        <word name="float2"/>
+        <word name="float3"/>
+        <word name="float4"/>
+      </keywords>
+
+      <keywords region="def:FunctionKeyword">
+        <word name="tex2D"/>
+      </keywords>
+
+      <keywords region="def:Directive">
+        <word name="TEXCOORD0"/>
+        <word name="COLOR"/>
+      </keywords>
+
+      <inherit scheme="glsl">
+        <virtual scheme="glsl" subst-scheme="hlsl"/>
+      </inherit>
+
+    </scheme>
+  </type>
+
+  <prototype name="htmlShaders" group="extras" description="HTML shaders (*.html)">
     <filename weight="4">/\.html$/i</filename>
   </prototype>
 
-  <type name="html-glsl">
+  <type name="htmlShaders">
     <import type="html"/>
     <import type="glsl"/>
+    <import type="hlsl"/>
 
     <!--we need an extra scheme to preserve html tags-->
-    <scheme name="glslScript">
+    <scheme name="shaderScript">
       <block start="/~/" end="/[?%]?~1(&gt;)/" 
         scheme="htmlCore" region="htmlUnknowParam" region11="htmlTagBr"/>
       <inherit scheme="glsl" />
     </scheme>
 
-    <scheme name="html-glsl">
+    <scheme name="htmlShaders">
 
       <!--use wrapped glslScript scheme here-->
       <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
-        scheme="glslScript"
+        scheme="shaderScript"
         region01="PairStrongStart" region10="PairStrongEnd"
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
       <inherit scheme="html">
-        <virtual scheme="html" subst-scheme="html-glsl"/>
+        <virtual scheme="html" subst-scheme="htmlShaders"/>
       </inherit>
 
     </scheme>
