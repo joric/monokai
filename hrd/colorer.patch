@@ -1,0 +1,40 @@
+diff --git a/src/colorer/editor/BaseEditor.cpp b/src/colorer/editor/BaseEditor.cpp
+index 4474038..67d19a5 100644
+--- a/src/colorer/editor/BaseEditor.cpp
++++ b/src/colorer/editor/BaseEditor.cpp
+@@ -47,7 +47,7 @@ BaseEditor::BaseEditor(ParserFactory* parserFactory_, LineSource* lineSource_)
+ 
+   setRegionCompact(regionCompact);
+ 
+-  rd_def_Text = rd_def_HorzCross = rd_def_VertCross = nullptr;
++  rd_def_Text = rd_def_HorzCross = rd_def_VertCross = rd_def_Whitespace = nullptr;
+ }
+ 
+ BaseEditor::~BaseEditor()
+@@ -103,11 +103,12 @@ void BaseEditor::remapLRS(bool recreate)
+   lrSupport->setRegionMapper(regionMapper);
+   lrSupport->setSpecialRegion(def_Special);
+   invalidLine = 0;
+-  rd_def_Text = rd_def_HorzCross = rd_def_VertCross = nullptr;
++  rd_def_Text = rd_def_HorzCross = rd_def_VertCross = rd_def_Whitespace = nullptr;
+   if (regionMapper != nullptr) {
+     rd_def_Text = regionMapper->getRegionDefine("def:Text");
+     rd_def_HorzCross = regionMapper->getRegionDefine("def:HorzCross");
+     rd_def_VertCross = regionMapper->getRegionDefine("def:VertCross");
++    rd_def_Whitespace = regionMapper->getRegionDefine("def:Whitespace");
+   }
+ }
+ 
+diff --git a/src/colorer/editor/BaseEditor.h b/src/colorer/editor/BaseEditor.h
+index bd6789e..b34c534 100644
+--- a/src/colorer/editor/BaseEditor.h
++++ b/src/colorer/editor/BaseEditor.h
+@@ -231,7 +231,7 @@ class BaseEditor : public RegionHandler
+   const Region* def_PairEnd;
+ 
+   /** Basic HRC region mapping */
+-  const RegionDefine *rd_def_Text, *rd_def_HorzCross, *rd_def_VertCross;
++  const RegionDefine *rd_def_Text, *rd_def_HorzCross, *rd_def_VertCross, *rd_def_Whitespace;
+ 
+   void startParsing(size_t lno) override;
+   void endParsing(size_t lno) override;

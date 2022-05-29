@@ -1,0 +1,63 @@
+diff --git a/.gitmodules b/.gitmodules
+index 3c49e13..b092134 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -1,4 +1,4 @@
+ [submodule "external/colorer"]
+ 	path = external/colorer
+-	url = https://github.com/colorer/Colorer-library
++	url = https://github.com/joric/Colorer-library
+ 	branch = master
+diff --git a/external/colorer b/external/colorer
+index 587599f..81a0cb0 160000
+--- a/external/colorer
++++ b/external/colorer
+@@ -1 +1 @@
+-Subproject commit 587599f361cead69063a6768259df1301897503b
++Subproject commit 81a0cb0fdbd55451f967844888564c4d0291a5a2
+diff --git a/src/FarEditor.cpp b/src/FarEditor.cpp
+index ce7ad6d..718488f 100644
+--- a/src/FarEditor.cpp
++++ b/src/FarEditor.cpp
+@@ -190,6 +190,7 @@ void FarEditor::setRegionMapper(RegionMapper* rs)
+   rdBackground = StyledRegion::cast(baseEditor->rd_def_Text);
+   horzCrossColor = convert(StyledRegion::cast(baseEditor->rd_def_HorzCross));
+   vertCrossColor = convert(StyledRegion::cast(baseEditor->rd_def_VertCross));
++  whitespaceColor = convert(StyledRegion::cast(baseEditor->rd_def_Whitespace));
+ 
+   if (!horzCrossColor.BackgroundColor && !horzCrossColor.ForegroundColor) {
+     horzCrossColor.ForegroundColor = 0xE;
+@@ -197,6 +198,9 @@ void FarEditor::setRegionMapper(RegionMapper* rs)
+   if (!vertCrossColor.BackgroundColor && !vertCrossColor.ForegroundColor) {
+     vertCrossColor.ForegroundColor = 0xE;
+   }
++  if (!whitespaceColor.BackgroundColor && !whitespaceColor.ForegroundColor) {
++    whitespaceColor.ForegroundColor = 0xE;
++  }
+ }
+ 
+ void FarEditor::matchPair()
+@@ -645,8 +649,10 @@ int FarEditor::editorEvent(intptr_t event, void* param)
+           }
+ 
+           if (whitespace) {
+-            col1.ForegroundColor = rdBackground->fore;
++            col1.ForegroundColor = whitespaceColor.ForegroundColor;
++            col1.BackgroundColor = whitespaceColor.BackgroundColor;
+           }
++
+           // horizontal cross
+           if (lno == ei.CurLine && showHorizontalCross) {
+             if (crossZOrder != 0 && !whitespace) {
+diff --git a/src/FarEditor.h b/src/FarEditor.h
+index a2f1aac..58e00a9 100644
+--- a/src/FarEditor.h
++++ b/src/FarEditor.h
+@@ -132,6 +132,7 @@ class FarEditor : public LineSource
+   int crossZOrder = 0;
+   FarColor horzCrossColor{};
+   FarColor vertCrossColor{};
++  FarColor whitespaceColor{};
+ 
+   bool drawPairs = true;
+   bool drawSyntax = true;

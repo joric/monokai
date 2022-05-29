@@ -22,5 +22,11 @@ copy *.xml %FARHOME%\Plugins\FarColorer\base
 * Check "TrueMod enabled"
 * Select "Monokai (RGB)" in TrueMod schemes.
 
-
 Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the files (or restart Far).
+
+## Whitespace
+
+Note that whitespace is buggy in the stock colorer.
+It uses inverted (RGB->BGR) `def:Text` colors and can't be redefined.
+You may download patched colorer with `def:Whitespace` support in the releases section.
+

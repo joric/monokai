@@ -11,16 +11,20 @@
     looks like whitespace is buggy, hex color is inverted
     e.g. text color #75715e whitespace displays as #5e7175
 
+    examples:
     <assign name="def:Text" fore="#ff8000" back="#272822"/>
     <assign name="def:Text" fore="#5e7175" back="#272822"/>
+
+    We need patched colorer to define whitespace, see readme.
 -->
 
+<assign name="def:Whitespace" fore="#75715e" back="#272822"/> <!-- needs patched colorer-->
+
 <assign name="def:Text" fore="#f8f8f2" back="#272822"/>
+<assign name="def:HorzCross" fore="#000001" back="#313b30"/>
+<assign name="def:VertCross" fore="#000001" back="#313b30"/>
+<assign name="def:Intersect" fore="#000001" back="#313b30"/>
 
-
-<assign name="def:HorzCross" fore="#e1ebe0" back="#272822"/>
-<assign name="def:VertCross" fore="#e1ebe0" back="#272822"/>
-<assign name="def:Intersect" fore="#e1ebe0" back="#272822"/>
 <assign name="def:Mark" fore="#444444" back="#ff3B6F"/>
 
 <assign name="def:Number" fore="#be84ff"/>
