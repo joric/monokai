@@ -36,32 +36,19 @@
 
       <block start="/(lambda)\s+/" end="/(\:)/" scheme="pythonExtArgs"
         region01="def:Keyword"
-        region10="def:Symbol"
-      />
+        region10="def:Symbol"/>
 
       <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pythonExt"
-        region01="def:Keyword"
-        region02="def:ClassKeyword"
-        region10="def:Symbol"
-      />
+        region01="def:Keyword" region02="def:ClassKeyword"
+        region10="def:Symbol"/>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pythonExtFn"
-        region01="def:Keyword"
-        region02="def:Symbol"
-        region03="def:PairStart"
-        region10="def:Symbol"
-        region11="def:PairEnd"
-      />
+        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
 
       <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExtArgs"
-        region01="def:Keyword"
-        region02="def:FunctionKeyword"
-        region03="def:Symbol"
-        region04="def:PairStart"
-        region10="def:Symbol"
-        region11="def:PairEnd"
-        region12="def:Symbol"
-      />
+        region01="def:Keyword" region02="def:FunctionKeyword" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd" region12="def:Symbol"/>
 
       <keywords region="python:pyDelimiter">
         <symb name=":="/>
