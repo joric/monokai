@@ -70,7 +70,7 @@
 
 <assign name="def:Directive" fore="#f92672"/>
 <assign name="def:DirectiveContent" fore="#A6E22E"/>
-<assign name="def:DirectiveEdge" fore="#f8f8f2"/>
+<assign name="def:DirectiveEdge" fore="#f92672"/>
 <assign name="def:Parameter" fore="#64FF64"/>
 
 <assign name="def:Tag" fore="#f92672"/>
