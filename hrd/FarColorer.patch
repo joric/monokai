@@ -1,20 +1,3 @@
-diff --git a/.gitmodules b/.gitmodules
-index 3c49e13..b092134 100644
---- a/.gitmodules
-+++ b/.gitmodules
-@@ -1,4 +1,4 @@
- [submodule "external/colorer"]
- 	path = external/colorer
--	url = https://github.com/colorer/Colorer-library
-+	url = https://github.com/joric/Colorer-library
- 	branch = master
-diff --git a/external/colorer b/external/colorer
-index 587599f..81a0cb0 160000
---- a/external/colorer
-+++ b/external/colorer
-@@ -1 +1 @@
--Subproject commit 587599f361cead69063a6768259df1301897503b
-+Subproject commit 81a0cb0fdbd55451f967844888564c4d0291a5a2
 diff --git a/src/FarEditor.cpp b/src/FarEditor.cpp
 index ce7ad6d..718488f 100644
 --- a/src/FarEditor.cpp
