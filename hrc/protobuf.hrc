@@ -20,6 +20,28 @@
       <block start="/(\[)/" end="/(\])/" scheme="protobuf"
             region00="def:Comment" region01="def:PairStart" region="def:Comment" region10="def:Comment" region11="def:PairEnd"/>
 
+
+      <keywords region="def:Directive">
+        <word name='syntax'/>
+        <word name='package'/>
+        <word name='returns'/>
+        <word name='import'/>
+      </keywords>
+
+
+      <keywords region="def:Keyword">
+        <word name='option'/>
+        <word name='go_package'/>
+        <word name='rpc'/>
+        <word name='message'/>
+        <word name='service'/>
+        <word name='repeated'/>
+        <word name='syntax'/>
+        <word name='oneof'/>
+        <word name='map'/>
+        <word name='deprecated'/>
+      </keywords>
+
       <keywords region="def:Keyword">
         <word name='string'/>
         <word name='bool'/>
@@ -31,19 +53,6 @@
         <word name='false'/>
       </keywords>
 
-      <keywords region="def:ClassKeyword">
-        <word name='rpc'/>
-        <word name='returns'/>
-        <word name='message'/>
-        <word name='service'/>
-        <word name='repeated'/>
-        <word name='package'/>
-        <word name='option'/>
-        <word name='syntax'/>
-        <word name='oneof'/>
-        <word name='map'/>
-        <word name='deprecated'/>
-      </keywords>
 
       <keywords region="def:StructKeyword">
         <word name='google'/>
