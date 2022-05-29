@@ -116,12 +116,10 @@
 <assign name="php:php.keyword" fore="#f92672" />
 <assign name="jScript:ES5ReservedWord" fore="#f92672"/> <!-- red - for, etc. -->
 
-<assign name="python:pyDelimiter" fore="#f8f8f2" /> <!-- white delimeters -->
+<assign name="python:pySymbol" fore="#ffffff" /> <!-- white symbols -->
 <assign name="python:pyOperator" fore="#f92672" /> <!-- red operators -->
 <assign name="python:pySpecialName" fore="#be84ff" /> <!-- purple True/False -->
 <assign name="python:pyFunction" fore="#66D9EF" /> <!-- blue operators -->
-
-
-<!--assign name="python:pyFunction" fore="#a6e22e"/--> <!--green-->
+<assign name="python:pyDelimiter" fore="#f92672" /> <!-- red symbols -->
 
 </hrd>
