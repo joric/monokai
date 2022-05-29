@@ -18,6 +18,11 @@
 
     <scheme name="pyExt">
 
+      <block start="/(from)\s+(\w+)\s+(import)/" end="/$/" scheme="pyExtImport"
+        region01="def:Directive" region02="def:Symbol" region03="def:Directive"
+        region="python:pySpecialName"
+        region10="def:Directive"/>
+
       <inherit scheme="def:PairedBrackets">
         <virtual scheme="def:PairedBrackets" subst-scheme="pyExt"/>
       </inherit>
@@ -61,10 +66,6 @@
         <symb name="`"/>
       </keywords>
 
-      <keywords region="python:pySpecialName">
-        <symb name="*"/>
-      </keywords>
-
       <inherit scheme="python">
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
@@ -77,6 +78,13 @@
     </scheme>
 
     <scheme name="pyExtFn">
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtImport">
+      <keywords region= "python:pySpecialName">
+        <symb name="*"/>
+      </keywords>
       <inherit scheme="pyExt"/>
     </scheme>
 

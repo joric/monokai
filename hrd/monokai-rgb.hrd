@@ -121,7 +121,7 @@
 
 <assign name="python:pySymbol" fore="#ffffff" /> <!-- white symbols -->
 <assign name="python:pyOperator" fore="#f92672" /> <!-- red operators -->
-<assign name="python:pySpecialName" fore="#be84ff" /> <!-- purple True/False -->
+<assign name="python:pySpecialName" fore="#be84ff" /> <!-- purple True/False and import * -->
 <assign name="python:pyFunction" fore="#66D9EF" /> <!-- blue operators -->
 <assign name="python:pyDelimiter" fore="#f92672" /> <!-- red symbols -->
 
