@@ -34,7 +34,7 @@
         <word name="import"/>
       </keywords>
 
-      <block start="/(lambda)\s+/" end="/\s*(\:)/" scheme="pythonExtArgs"
+      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pythonExtArgs"
         region01="def:Keyword"
         region10="def:Symbol"
       />
