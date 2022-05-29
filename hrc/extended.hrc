@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding='utf-8'?>
+
+<!DOCTYPE hrc PUBLIC
+  "-//Cail Lomecb//DTD Colorer HRC take5//EN"
+  "http://colorer.sf.net/2003/hrc.dtd">
+
+<hrc version="take5" xmlns="http://colorer.sf.net/2003/hrc"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
+
+  <prototype name="pythonExt" group="other" description="Python ext. (*.py)">
+    <filename weight="5">/\.py$/i</filename>
+  </prototype>
+
+  <type name="pythonExt">
+
+    <import type="python"/>
+
+    <scheme name="pythonExt">
+
+      <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pythonExt"
+        region01="def:Keyword"
+        region02="def:ClassKeyword"
+        region10="def:Symbol"
+      />
+
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExt"
+        region01="def:Keyword"
+        region02="def:FunctionKeyword"
+        region03="def:Symbol"
+        region04="def:PairStart"
+        region="def:Identifier"
+        region10="def:Symbol"
+        region11="def:PairEnd"
+        region12="def:Symbol"
+      />
+
+      <keywords region="python:pyOperator">
+        <word name="return"/>
+        <word name="if"/>
+        <word name="else"/>
+        <word name="for"/>
+        <word name="and"/>
+        <word name="or"/>
+        <word name="in"/>
+        <word name="from"/>
+        <word name="import"/>
+      </keywords>
+
+      <keywords region="python:pySpecialName">
+        <word name="*"/>
+      </keywords>
+
+      <block start="/(\,|\;|\:)/" end="//" scheme="pythonExt"
+        region01="python:pySymbol"
+      />
+
+      <inherit scheme="python">
+        <virtual scheme="python" subst-scheme="pythonExt"/>
+      </inherit>
+
+    </scheme>
+
+  </type>
+
+</hrc>
