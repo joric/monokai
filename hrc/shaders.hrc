@@ -96,9 +96,11 @@
     <scheme name="hlsl">
 
       <keywords region="def:Keyword">
+        <word name="float1"/>
         <word name="float2"/>
         <word name="float3"/>
         <word name="float4"/>
+        <word name="int1"/>
         <word name="int2"/>
         <word name="int3"/>
         <word name="int4"/>
@@ -107,6 +109,7 @@
       <keywords region="def:Parameter">
         <word name="sampler"/>
         <word name="register"/>
+        <word name="packoffset"/>
       </keywords>
 
       <keywords region="def:FunctionKeyword">
@@ -116,6 +119,11 @@
       <keywords region="def:Directive">
         <word name="TEXCOORD0"/>
         <word name="COLOR"/>
+        <word name="NORMAL"/>
+        <word name="BINORMAL"/>
+        <word name="POSITION"/>
+        <word name="TANGENT"/>
+        <word name="DEPTH"/>
       </keywords>
 
       <inherit scheme="glsl">
