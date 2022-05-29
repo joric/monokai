@@ -77,7 +77,7 @@
     </scheme>
 
     <scheme name="pyExtHintedArgs">
-      <block start="/\s*(\w+)(\:*)/" end="/(\,|\))/" scheme="pyExt"
+      <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="pyExt"
         region01="def:Identifier"/>
       <inherit scheme="pyExt"/>
     </scheme>
