@@ -44,7 +44,7 @@
         <word name="texture2D"/>
       </keywords>
 
-      <keywords region="def:Register">
+      <keywords region="def:Parameter">
         <word name="in"/>
         <word name="out"/>
         <word name="varying"/>
