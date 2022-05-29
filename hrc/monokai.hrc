@@ -8,18 +8,18 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
 
-  <prototype name="pythonExt" group="other" description="Python ext. (*.py)">
+  <prototype name="pyExt" group="other" description="Python ext. (*.py)">
     <filename weight="5">/\.py$/i</filename>
   </prototype>
 
-  <type name="pythonExt">
+  <type name="pyExt">
 
     <import type="python"/>
 
-    <scheme name="pythonExt">
+    <scheme name="pyExt">
 
       <inherit scheme="def:PairedBrackets">
-        <virtual scheme="def:PairedBrackets" subst-scheme="pythonExt"/>
+        <virtual scheme="def:PairedBrackets" subst-scheme="pyExt"/>
       </inherit>
 
       <keywords region="python:pyOperator">
@@ -34,19 +34,19 @@
         <word name="import"/>
       </keywords>
 
-      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pythonExtArgs"
+      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtArgs"
         region01="def:Keyword"
         region10="def:Symbol"/>
 
-      <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pythonExt"
+      <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pyExt"
         region01="def:Keyword" region02="def:ClassKeyword"
         region10="def:Symbol"/>
 
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pythonExtFn"
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExtFn"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pythonExtArgs"
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pyExtArgs"
         region01="def:Keyword" region02="def:FunctionKeyword" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd" region12="def:Symbol"/>
 
@@ -66,18 +66,18 @@
       </keywords>
 
       <inherit scheme="python">
-        <virtual scheme="python" subst-scheme="pythonExt"/>
+        <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
 
     </scheme>
 
-    <scheme name="pythonExtArgs">
+    <scheme name="pyExtArgs">
       <regexp match='/\w+/' region0="def:Identifier"/>
-      <inherit scheme="pythonExt"/>
+      <inherit scheme="pyExt"/>
     </scheme>
 
-    <scheme name="pythonExtFn">
-      <inherit scheme="pythonExt"/>
+    <scheme name="pyExtFn">
+      <inherit scheme="pyExt"/>
     </scheme>
 
   </type>

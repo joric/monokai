@@ -48,7 +48,7 @@
         <word name="discard"/>
       </keywords>
 
-      <keywords region="def:UndefFunctionKeyword">
+      <keywords region="c:KeywordMacro">
         <word name="cross"/>
         <word name="dot"/>
         <word name="mod"/>
@@ -63,7 +63,6 @@
         <word name="gl_Position"/>
         <word name="gl_FragColor"/>
       </keywords>
-
       
 
       <inherit scheme="c">
