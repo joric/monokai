@@ -46,9 +46,9 @@
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))\s*(\:)/" scheme="pyExtArgs"
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))/" scheme="pyExtArgs"
         region01="def:Keyword" region02="def:FunctionKeyword" region03="def:Symbol" region04="def:PairStart"
-        region10="def:Symbol" region11="def:PairEnd" region12="def:Symbol"/>
+        region10="def:Symbol" region11="def:PairEnd"/>
 
       <keywords region="python:pyDelimiter">
         <symb name=":="/>
