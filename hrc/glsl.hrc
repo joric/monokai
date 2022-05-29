@@ -93,6 +93,7 @@
     <import type="html"/>
     <import type="glsl"/>
 
+    <!--we need an extra scheme to preserve html tags-->
     <scheme name="glslScript">
       <block start="/~/" end="/[?%]?~1(&gt;)/" 
         scheme="htmlCore" region="htmlUnknowParam" region11="htmlTagBr"/>
@@ -100,6 +101,8 @@
     </scheme>
 
     <scheme name="html-glsl">
+
+      <!--use wrapped glslScript scheme here-->
       <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
         scheme="glslScript"
         region01="PairStrongStart" region10="PairStrongEnd"
