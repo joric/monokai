@@ -1,5 +1,8 @@
     <hrd-sets>
-      <hrd class="rgb" name="monokai"   description="Monokai (RGB)">
+      <hrd class="rgb" name="monokai" description="Monokai (RGB)">
         <location link="monokai-rgb.hrd"/>
+      </hrd>
+      <hrd class="console" name="monokai"  description="Monokai (console)">
+        <location link="monokai.hrd"/>
       </hrd>
     </hrd-sets>
