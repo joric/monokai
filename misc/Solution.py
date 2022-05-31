@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# URL https://leetcode.com/problems/palindrome-pairs mail leetcode@leetcode.com
-
 from typing import *
 from collections import *
 from functools import *
