@@ -33,7 +33,7 @@ With conemu you can use monokai colors both in a console and in an RGB mode. Con
 * Use Far.exe /import far-colors.farconfig to import color settings
 * Copy/paste conemu-colors.xml to conemu xml (you should try conemu)
 
-It's also possible to adjust console colors in the windows application shortcut.
+It's also possible to adjust console colors in the Far Manager application shortcut.
 
 ## Whitespace
 
