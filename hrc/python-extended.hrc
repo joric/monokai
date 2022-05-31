@@ -18,9 +18,7 @@
 
     <scheme name="pyExt">
 
-      <inherit scheme="def:PairedBrackets">
-        <virtual scheme="def:PairedBrackets" subst-scheme="pyExt"/>
-      </inherit>
+      <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtComment"/>
 
       <block start="/(from)\s+(\w+)\s+(import)/" end="/$/" scheme="pyExtDirective"
         region01="def:Directive" region02="def:Symbol" region03="def:Directive"
@@ -62,13 +60,13 @@
       <keywords region="def:Operator">
         <symb name=":="/>
         <symb name="="/>
-        <symb name="pass"/>
+        <word name="pass"/>
       </keywords>
 
       <keywords region= "def:TypeKeyword">
-        <symb name="True"/>
-        <symb name="False"/>
-        <symb name="None"/>
+        <word name="True"/>
+        <word name="False"/>
+        <word name="None"/>
       </keywords>
 
       <keywords region= "def:Symbol">
@@ -104,6 +102,14 @@
         <symb name="*"/>
       </keywords>
       <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtComment">
+      <keywords region="def:TypeKeyword">
+        <symb name="python"/>
+        <symb name="python3"/>
+      </keywords>
+      <inherit scheme="def:Comment"/>
     </scheme>
 
   </type>
