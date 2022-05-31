@@ -3,22 +3,21 @@
   "http://colorer.sf.net/2003/hrd.dtd">
 <hrd xmlns="http://colorer.sf.net/2003/hrd">
 
-  <assign name="def:Whitespace" fore="#6" back="#8"/>
-  <assign name="def:Text" fore="#7" back="#8"/>
+  <assign name="def:Text" fore="#F" back="#8"/>
   <assign name="def:HorzCross"  fore="#f" back="#0"/>
   <assign name="def:VertCross" fore="#f" back="#0"/>
   <assign name="def:Syntax"/>
 
-  <assign name="def:Number"    fore="#B"/>
+  <assign name="def:Number"    fore="#D"/>
   <assign name="def:NumberSuffix" fore="#3"/>
 
   <assign name="def:String" fore="#E"/>
   <assign name="def:StringContent" fore="#4"/>
-  <assign name="def:StringEdge" fore="#D"/>
+  <assign name="def:StringEdge" fore="#E"/>
   <assign name="def:Character" fore="#C"/>
   <assign name="def:CharacterContent" fore="#C"/>
 
-  <assign name="def:Comment" fore="#3"/>
+  <assign name="def:Comment" fore="#6"/>
   <assign name="def:CommentContent" fore="#B"/>
   <assign name="def:CommentEdge"    fore="#3"/>
   <assign name="def:CommentDoc"     fore="#3"/>
@@ -26,24 +25,36 @@
   <assign name="def:CommentDocEdge" fore="#3"/>
 
   <assign name="def:Symbol" fore="#F"/>
-  <assign name="def:SymbolStrong" fore="#E"/>
+  <assign name="def:SymbolStrong" fore="#F"/>
   <assign name="def:Prefix" fore="#F"/>
   <assign name="def:PrefixStrong" fore="#E"/>
 
-  <assign name="def:Keyword"         fore="#F"/>
-  <assign name="def:TypeKeyword"   fore="#7"/>
+  <assign name="def:Operator" fore="#C"/>
 
-  <assign name="def:Function"/>
+  <assign name="def:Keyword"       fore="#B"/>
+  <assign name="def:FunctionKeyword" fore="#B"/>
+  <assign name="def:DeprecatedKeyword" fore="#8"/>
+  <assign name="def:InterfaceKeyword" fore="#7"/>
+  <assign name="def:ClassKeyword" fore="#B"/>
+  <assign name="def:StructKeyword" fore="#F"/>
+  <assign name="def:TypeKeyword" fore="#D"/>
+
+  <assign name="def:Function" fore="#B" />
   <assign name="def:Register" fore="#E"/>
   <assign name="def:Constant" fore="#E"/>
-  <assign name="def:BooleanConstant" fore="#F"/>
   <assign name="def:Var" fore="#7"/>
   <assign name="def:VarStrong" fore="#E"/>
+  <assign name="def:Identifier" fore="#A"/>
+  <assign name="def:BooleanConstant" fore="#F"/>
 
-  <assign name="def:Directive" fore="#5"/>
+  <assign name="def:Directive" fore="#C"/>
+  <assign name="def:DirectiveContent" fore="#F"/>
+  <assign name="def:DirectiveEdge" fore="#C"/>
   <assign name="def:Parameter" fore="#A"/>
+  <assign name="def:ParameterStrong" fore="#5"/>
+  <assign name="def:ParameterUnknown" fore="#B"/>
 
-  <assign name="def:Tag" fore="#7"/>
+  <assign name="def:Tag" fore="#C"/>
   <assign name="def:OpenTag" fore="#F"/>
   <assign name="def:CloseTag" fore="#F"/>
 
@@ -58,7 +69,9 @@
   <assign name="def:TODO" fore="#C" back="#6"/>
   <assign name="def:Debug" fore="#C" back="#6"/>
 
-  <assign name="def:URI" fore="#C"/>
+  <assign name="def:URI" fore="#A"/>
+  <assign name="def:Path" fore="#C"/>
+  <assign name="def:URL" fore="#A"/>
   <assign name="def:EMail" fore="#E"/>
 
   <assign name="def:Date" fore="#E"/>
@@ -69,4 +82,5 @@
   <assign name="def:PairStrongStart" fore="#D" back="#0"/>
   <assign name="def:PairStrongEnd" fore="#D" back="#0"/>
 
+  <assign name="def:Whitespace" fore="#6" back="#8"/>
 </hrd>

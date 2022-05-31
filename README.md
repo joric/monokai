@@ -1,5 +1,8 @@
 # Colorer Schemes
 
+Monokai-like color schemes for Far Manager.
+
+![python](misc/solution.png)
 
 ## Installation
 
@@ -24,9 +27,19 @@ copy *.xml %FARHOME%\Plugins\FarColorer\base
 
 Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the files (or restart Far).
 
+### Color settings
+
+With conemu you can use monokai colors both in a console and in an RGB mode. Console is recommended.
+
+* Use Far.exe /import far-colors.farconfig to import color settings
+* Copy/paste conemu-colors.xml to conemu xml (you should try conemu)
+
+It's also possible to adjust console colors in the windows application shortcut.
+
 ## Whitespace
 
 Note that whitespace is buggy in the stock colorer.
 It uses inverted (RGB->BGR) `def:Text` colors and can't be redefined.
-You may download patched colorer with `def:Whitespace` support in the releases section.
+You may download patched colorer with `def:Whitespace` support
+in the [releases](https://github.com/joric/colorer-schemes/releases) section.
 My schemes already support this feature.

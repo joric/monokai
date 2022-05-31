@@ -8,7 +8,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
 
-  <prototype name="pyExt" group="other" description="Python ext. (*.py)">
+  <prototype name="pyExt" group="other" description="Python extended (*.py)">
     <filename weight="5">/\.py$/i</filename>
   </prototype>
 
@@ -18,16 +18,16 @@
 
     <scheme name="pyExt">
 
-      <block start="/(from)\s+(\w+)\s+(import)/" end="/$/" scheme="pyExtImport"
-        region01="def:Directive" region02="def:Symbol" region03="def:Directive"
-        region="python:pySpecialName"
-        region10="def:Directive"/>
-
       <inherit scheme="def:PairedBrackets">
         <virtual scheme="def:PairedBrackets" subst-scheme="pyExt"/>
       </inherit>
 
-      <keywords region="python:pyOperator">
+      <block start="/(from)\s+(\w+)\s+(import)/" end="/$/" scheme="pyExtDirective"
+        region01="def:Directive" region02="def:Symbol" region03="def:Directive"
+        region="def:StrongKeyword"
+        region10="def:Directive"/>
+
+      <keywords region="def:Operator">
         <word name="return"/>
         <word name="if"/>
         <word name="else"/>
@@ -39,28 +39,35 @@
         <word name="import"/>
       </keywords>
 
-      <keywords region= "def:Identifier">
+      <keywords region= "def:ParameterStrong">
         <word name="self"/>
       </keywords>
 
-      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))/" scheme="pyExtHintedArgs"
-        region01="def:Keyword" region02="def:FunctionKeyword" region03="def:Symbol" region04="def:PairStart"
-        region10="def:Symbol" region11="def:PairEnd"/>
-
-      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtArgs"
+      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtLambda"
         region01="def:Keyword"
         region10="def:Symbol"/>
 
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))/" scheme="pyExtFunctionDefine"
+        region01="def:Keyword" region02="def:Identifier" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
       <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pyExt"
-        region01="def:Keyword" region02="def:ClassKeyword"
+        region01="def:ClassKeyword" region02="def:Identifier"
         region10="def:Symbol"/>
 
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExtFn"
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExt"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <keywords region="python:pyDelimiter">
+      <keywords region="def:Operator">
         <symb name=":="/>
+        <symb name="="/>
+        <symb name="pass"/>
+      </keywords>
+
+      <keywords region= "def:TypeKeyword">
+        <symb name="True"/>
+        <symb name="False"/>
       </keywords>
 
       <keywords region= "def:Symbol">
@@ -76,23 +83,23 @@
 
     </scheme>
 
-    <scheme name="pyExtHintedArgs">
+    <scheme name="pyExtFunctionDefine">
       <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="pyExt"
-        region01="def:Identifier"/>
+        region01="def:ParameterStrong"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
-    <scheme name="pyExtArgs">
-      <regexp match='/\w+/' region0="def:Identifier"/>
+    <scheme name="pyExtLambda">
+      <regexp match='/\w+/' region0="def:ParameterStrong"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
-    <scheme name="pyExtFn">
+    <scheme name="pyExtFunctionCall">
       <inherit scheme="pyExt"/>
     </scheme>
 
-    <scheme name="pyExtImport">
-      <keywords region= "python:pySpecialName">
+    <scheme name="pyExtDirective">
+      <keywords region= "def:TypeKeyword">
         <symb name="*"/>
       </keywords>
       <inherit scheme="pyExt"/>
