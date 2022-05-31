@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# this is url http://test.com this is email: test@test.com
+# URL https://leetcode.com/problems/palindrome-pairs mail leetcode@leetcode.com
 
 from typing import *
 from collections import *
@@ -20,10 +20,9 @@ class Solution:
 
 class SolutionOneliner:
     def palindromePairs(self, words):
-        return [(g:=lambda d,a,b,f,i:set([(d[b],i) if f
-            else (i,d[b])]) if a==a[::-1]
-            and b in d and d[b]!=i else set(), fn:=lambda a,b:(a[0],a[1]|
-            g(a[0],b[0],b[1][::-1],0,b[2])|g(a[0],b[1],b[0][::-1],1,b[2]))),
+        return [(g:=lambda d,a,b,f,i:set([(d[b],i) if f else (i,d[b])]) if a==
+            a[::-1]and b in d and d[b]!=i else set(),fn:=lambda a,b:(a[0],a[1]
+            |g(a[0],b[0],b[1][::-1],0,b[2])|g(a[0],b[1],b[0][::-1], 1,b[2]))),
             reduce(fn, ((w[j:], w[:j],i) for i,w in enumerate(words) for j in
             range(len(w)+1)),[{w:i for i,w in enumerate(words)},set()])][1][1]
 
