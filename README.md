@@ -1,6 +1,6 @@
 # Colorer Schemes
 
-Monokai-like color schemes for Far Manager.
+Monokai-like Far Manager color schemes
 
 ![python](misc/solution.png)
 
