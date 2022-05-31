@@ -9,5 +9,5 @@ for s in open('conemu-colors.xml').read().splitlines():
 out = open('../hrd/monokai-rgb.hrd','w')
 
 for s in open('../hrd/monokai.hrd').read().splitlines(True):
-    out.write(re.sub(r'(#\w)', lambda x:c.get(x.group(0),'#0'), s))
+    out.write(re.sub(r'(#\w)', lambda x:c.get(x.group(0).upper(),'#0'), s))
 

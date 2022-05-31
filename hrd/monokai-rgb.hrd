@@ -4,8 +4,8 @@
 <hrd xmlns="http://colorer.sf.net/2003/hrd">
 
   <assign name="def:Text" fore="#f8f8f2" back="#282923"/>
-  <assign name="def:HorzCross"  fore="#0" back="#000000"/>
-  <assign name="def:VertCross" fore="#0" back="#000000"/>
+  <assign name="def:HorzCross"  fore="#f8f8f2" back="#000000"/>
+  <assign name="def:VertCross" fore="#f8f8f2" back="#000000"/>
   <assign name="def:Syntax"/>
 
   <assign name="def:Number"    fore="#ac80ff"/>
