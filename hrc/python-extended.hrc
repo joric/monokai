@@ -27,18 +27,6 @@
         region="def:StrongKeyword"
         region10="def:Directive"/>
 
-      <keywords region="def:Operator">
-        <word name="return"/>
-        <word name="if"/>
-        <word name="else"/>
-        <word name="for"/>
-        <word name="and"/>
-        <word name="or"/>
-        <word name="in"/>
-        <word name="from"/>
-        <word name="import"/>
-      </keywords>
-
       <keywords region= "def:ParameterStrong">
         <word name="self"/>
       </keywords>
@@ -58,6 +46,18 @@
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExt"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region="def:Operator">
+        <word name="return"/>
+        <word name="if"/>
+        <word name="else"/>
+        <word name="for"/>
+        <word name="and"/>
+        <word name="or"/>
+        <word name="in"/>
+        <word name="from"/>
+        <word name="import"/>
+      </keywords>
 
       <keywords region="def:Operator">
         <symb name=":="/>

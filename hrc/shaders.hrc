@@ -48,18 +48,16 @@
         <word name="discard"/>
       </keywords>
 
-      <keywords region="def:Keyword">
+      <keywords region="def:Directive">
+        <word name="pow"/>
         <word name="cross"/>
         <word name="dot"/>
         <word name="mod"/>
-        <word name="atan"/>
-        <word name="atan2"/>
         <word name="normalize"/>
-        <word name="texture2D"/>
         <word name="clamp"/>
       </keywords>
 
-      <keywords region="def:Directive">
+      <keywords region="def:Identifier">
         <word name="gl_Position"/>
         <word name="gl_FragColor"/>
       </keywords>
