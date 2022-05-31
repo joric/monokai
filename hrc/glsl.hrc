@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding='utf-8'?>
+
+<!DOCTYPE hrc PUBLIC
+  "-//Cail Lomecb//DTD Colorer HRC take5//EN"
+  "http://colorer.sf.net/2003/hrc.dtd">
+
+<hrc version="take5" xmlns="http://colorer.sf.net/2003/hrc"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
+
+  <prototype name="glsl" group="other" description="GLSL (*.glsl)">
+    <filename weight="4">/\.glsl$/i</filename>
+  </prototype>
+
+  <type name="glsl">
+
+    <import type="c"/>
+
+    <scheme name="glsl">
+
+      <!--fixes () brackets content in void main(...)  -->
+      <block start="/(\()/" end="/(\))/" scheme="glsl"
+        region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region="def:Directive">
+        <word name='ifdef'/>
+        <word name='endif'/>
+        <word name='else'/>
+        <word name='uniform'/>
+        <word name="in"/>
+        <word name="out"/>
+        <word name="varying"/>
+        <word name="mediump"/>
+        <word name="attribute"/>
+        <word name="precision"/>
+        <word name="highp"/>
+      </keywords>
+
+      <keywords region="def:Keyword">
+        <word name="vec2"/>
+        <word name="vec3"/>
+        <word name="vec4"/>
+        <word name="ivec2"/>
+        <word name="ivec3"/>
+        <word name="ivec4"/>
+        <word name="mat4"/>
+        <word name="sampler2D"/>
+        <word name="discard"/>
+      </keywords>
+
+      <keywords region="def:Directive">
+        <word name="pow"/>
+        <word name="cross"/>
+        <word name="dot"/>
+        <word name="mod"/>
+        <word name="normalize"/>
+        <word name="clamp"/>
+      </keywords>
+
+      <keywords region="def:Identifier">
+        <word name="gl_Position"/>
+        <word name="gl_FragColor"/>
+      </keywords>
+      
+
+      <inherit scheme="c">
+        <virtual scheme="c" subst-scheme="glsl"/>
+      </inherit>
+
+    </scheme>
+
+  </type>
+
+</hrc>
