@@ -48,7 +48,7 @@
         <word name="discard"/>
       </keywords>
 
-      <keywords region="c:KeywordMacro">
+      <keywords region="def:Keyword">
         <word name="cross"/>
         <word name="dot"/>
         <word name="mod"/>

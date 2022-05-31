@@ -68,6 +68,7 @@
       <keywords region= "def:TypeKeyword">
         <symb name="True"/>
         <symb name="False"/>
+        <symb name="None"/>
       </keywords>
 
       <keywords region= "def:Symbol">
