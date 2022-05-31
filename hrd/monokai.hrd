@@ -33,7 +33,7 @@
 
   <assign name="def:Keyword"       fore="#B"/>
   <assign name="def:FunctionKeyword" fore="#B"/>
-  <assign name="def:DeprecatedKeyword" fore="#8"/>
+  <assign name="def:DeprecatedKeyword" fore="#7"/>
   <assign name="def:InterfaceKeyword" fore="#7"/>
   <assign name="def:ClassKeyword" fore="#B"/>
   <assign name="def:StructKeyword" fore="#F"/>
