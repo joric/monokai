@@ -8,7 +8,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
 
-  <prototype name="textExt" group="other" description="plain text extended">
+  <prototype name="textExt" group="other" description="plain text (extended)">
       <filename weight="4">/(\.txt$|\.rus|\.nfo|\.log|.*install.*|.*ChangeLog.*|AUTHORS|COPYING|FAQ|LICENSE|TODO$)/i</filename>
       <filename weight="4">/\.spo/ix</filename>
   </prototype>
@@ -28,6 +28,7 @@
     </scheme>
 
     <scheme name="textExtAll">
+      <!-- number  -->
       <regexp match="/\b(\d{0,10}[\,\.]?\d{0,10}([eE][\-\+]?\d+)?)\b/" region0="def:Keyword"/>
       <inherit scheme="text"/>
     </scheme>

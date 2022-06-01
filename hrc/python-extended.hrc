@@ -8,7 +8,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
 
-  <prototype name="pyExt" group="other" description="Python extended (*.py)">
+  <prototype name="pyExt" group="other" description="Python (extended)">
     <filename weight="5">/\.py$/i</filename>
   </prototype>
 
@@ -21,20 +21,15 @@
       <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtComment"/>
 
       <block start="/(from)\s+(\w+)\s+(import)/" end="/$/" scheme="pyExtDirective"
-        region01="def:Directive" region02="def:Symbol" region03="def:Directive"
-        region="def:StrongKeyword"
+        region01="def:Directive" region02="def:DirectiveContent" region03="def:Directive"
         region10="def:Directive"/>
-
-      <keywords region= "def:ParameterStrong">
-        <word name="self"/>
-      </keywords>
 
       <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtLambda"
         region01="def:Keyword"
         region10="def:Symbol"/>
 
       <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))/" scheme="pyExtFunctionDefine"
-        region01="def:Keyword" region02="def:Identifier" region03="def:Symbol" region04="def:PairStart"
+        region01="def:FunctionKeyword" region02="def:Identifier" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
       <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pyExt"
@@ -45,25 +40,24 @@
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
+      <keywords region= "def:ParameterStrong">
+        <word name="self"/>
+      </keywords>
+
       <keywords region="def:Operator">
+        <word name="and"/>
+        <word name="or"/>
+        <word name="in"/>
         <word name="return"/>
         <word name="if"/>
         <word name="else"/>
         <word name="for"/>
-        <word name="and"/>
-        <word name="or"/>
-        <word name="in"/>
-        <word name="from"/>
-        <word name="import"/>
-      </keywords>
-
-      <keywords region="def:Operator">
+        <word name="pass"/>
         <symb name=":="/>
         <symb name="="/>
-        <word name="pass"/>
       </keywords>
 
-      <keywords region= "def:TypeKeyword">
+      <keywords region= "def:BooleanConstant">
         <word name="True"/>
         <word name="False"/>
         <word name="None"/>
@@ -98,16 +92,16 @@
     </scheme>
 
     <scheme name="pyExtDirective">
-      <keywords region= "def:TypeKeyword">
+      <keywords region= "def:Constant">
         <symb name="*"/>
       </keywords>
       <inherit scheme="pyExt"/>
     </scheme>
 
     <scheme name="pyExtComment">
-      <keywords region="def:TypeKeyword">
-        <symb name="python"/>
-        <symb name="python3"/>
+      <keywords region="def:Constant">
+        <word name="python"/>
+        <word name="python3"/>
       </keywords>
       <inherit scheme="def:Comment"/>
     </scheme>

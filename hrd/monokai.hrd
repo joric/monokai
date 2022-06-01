@@ -4,8 +4,8 @@
 <hrd xmlns="http://colorer.sf.net/2003/hrd">
 
   <assign name="def:Text" fore="#F" back="#8"/>
-  <assign name="def:HorzCross"  fore="#f" back="#0"/>
-  <assign name="def:VertCross" fore="#f" back="#0"/>
+  <assign name="def:HorzCross"  fore="#F" back="#0"/>
+  <assign name="def:VertCross" fore="#F" back="#0"/>
   <assign name="def:Syntax"/>
 
   <assign name="def:Number"    fore="#D"/>
@@ -32,6 +32,7 @@
   <assign name="def:Operator" fore="#C"/>
 
   <assign name="def:Keyword"       fore="#B"/>
+  <assign name="def:KeywordStrong" fore="#C"/>
   <assign name="def:FunctionKeyword" fore="#B"/>
   <assign name="def:DeprecatedKeyword" fore="#7"/>
   <assign name="def:InterfaceKeyword" fore="#7"/>
@@ -40,12 +41,12 @@
   <assign name="def:TypeKeyword" fore="#D"/>
 
   <assign name="def:Function" fore="#B" />
-  <assign name="def:Register" fore="#E"/>
-  <assign name="def:Constant" fore="#E"/>
-  <assign name="def:Var" fore="#7"/>
+  <assign name="def:Register" fore="#C"/>
+  <assign name="def:Constant" fore="#D"/>
+  <assign name="def:Var" fore="#F"/>
   <assign name="def:VarStrong" fore="#E"/>
   <assign name="def:Identifier" fore="#A"/>
-  <assign name="def:BooleanConstant" fore="#F"/>
+  <assign name="def:BooleanConstant" fore="#D"/>
 
   <assign name="def:Directive" fore="#C"/>
   <assign name="def:DirectiveContent" fore="#F"/>
@@ -71,7 +72,7 @@
 
   <assign name="def:URI" fore="#A"/>
   <assign name="def:Path" fore="#C"/>
-  <assign name="def:URL" fore="#A"/>
+  <assign name="def:URL" fore="#B"/>
   <assign name="def:EMail" fore="#E"/>
 
   <assign name="def:Date" fore="#E"/>

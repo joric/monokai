@@ -32,6 +32,7 @@
   <assign name="def:Operator" fore="#f92472"/>
 
   <assign name="def:Keyword"       fore="#9be7ff"/>
+  <assign name="def:KeywordStrong" fore="#f92472"/>
   <assign name="def:FunctionKeyword" fore="#9be7ff"/>
   <assign name="def:DeprecatedKeyword" fore="#c8c8c8"/>
   <assign name="def:InterfaceKeyword" fore="#c8c8c8"/>
@@ -40,12 +41,12 @@
   <assign name="def:TypeKeyword" fore="#ac80ff"/>
 
   <assign name="def:Function" fore="#9be7ff" />
-  <assign name="def:Register" fore="#fff871"/>
-  <assign name="def:Constant" fore="#fff871"/>
-  <assign name="def:Var" fore="#c8c8c8"/>
+  <assign name="def:Register" fore="#f92472"/>
+  <assign name="def:Constant" fore="#ac80ff"/>
+  <assign name="def:Var" fore="#f8f8f2"/>
   <assign name="def:VarStrong" fore="#fff871"/>
   <assign name="def:Identifier" fore="#55ff55"/>
-  <assign name="def:BooleanConstant" fore="#f8f8f2"/>
+  <assign name="def:BooleanConstant" fore="#ac80ff"/>
 
   <assign name="def:Directive" fore="#f92472"/>
   <assign name="def:DirectiveContent" fore="#f8f8f2"/>
@@ -71,7 +72,7 @@
 
   <assign name="def:URI" fore="#55ff55"/>
   <assign name="def:Path" fore="#f92472"/>
-  <assign name="def:URL" fore="#55ff55"/>
+  <assign name="def:URL" fore="#9be7ff"/>
   <assign name="def:EMail" fore="#fff871"/>
 
   <assign name="def:Date" fore="#fff871"/>

@@ -16,19 +16,6 @@
     <import type="glsl"/>
     <scheme name="hlsl">
 
-      <keywords region="def:Directive">
-        <word name="sampler"/>
-        <word name="register"/>
-        <word name="packoffset"/>
-        <word name="TEXCOORD0"/>
-        <word name="COLOR"/>
-        <word name="NORMAL"/>
-        <word name="BINORMAL"/>
-        <word name="POSITION"/>
-        <word name="TANGENT"/>
-        <word name="DEPTH"/>
-      </keywords>
-
       <keywords region="def:Keyword">
         <word name="float1"/>
         <word name="float2"/>
@@ -40,7 +27,17 @@
         <word name="int4"/>
       </keywords>
 
-      <keywords region="def:FunctionKeyword">
+      <keywords region="def:KeywordStrong">
+        <word name="register"/>
+        <word name="sampler"/>
+        <word name="packoffset"/>
+        <word name="TEXCOORD0"/>
+        <word name="COLOR"/>
+        <word name="NORMAL"/>
+        <word name="BINORMAL"/>
+        <word name="POSITION"/>
+        <word name="TANGENT"/>
+        <word name="DEPTH"/>
         <word name="tex2D"/>
       </keywords>
 
