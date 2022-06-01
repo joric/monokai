@@ -3,7 +3,7 @@
   "http://colorer.sf.net/2003/hrd.dtd">
 <hrd xmlns="http://colorer.sf.net/2003/hrd">
 
-  <assign name="def:Text" fore="#F" back="#8"/>
+  <assign name="def:Text" fore="#7" back="#8"/>
   <assign name="def:HorzCross"  fore="#F" back="#0"/>
   <assign name="def:VertCross" fore="#F" back="#0"/>
   <assign name="def:Syntax"/>

@@ -70,6 +70,8 @@
         <symb name="`"/>
       </keywords>
 
+      <regexp match='/\w/' region0="def:Symbol"/>
+
       <inherit scheme="python">
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
