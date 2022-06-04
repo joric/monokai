@@ -71,6 +71,8 @@
         <virtual scheme="c" subst-scheme="glsl"/>
       </inherit>
 
+      <regexp match='/\w/' region0="def:Symbol"/>
+
     </scheme>
 
   </type>
