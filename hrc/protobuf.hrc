@@ -23,30 +23,16 @@
 
     <scheme name="protobuf">
 
-      <block start="/(\[)/" end="/((\]))/" scheme="protobuf"
-         region00="def:Comment" region01="def:PairStart"
-         region="def:Comment"
-         region10="def:Comment" region11="def:PairEnd"/>
+      <block start="/^\s*(enum)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobufEnum"
+        region01="def:Keyword" region02="def:Identifier"
+        region03="def:PairStart" region04="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
 
-      <block start="/^\s*(message|service)\s+(\w+)\s*(\{)/" end="/\}/" scheme="protobuf"
-        region01="def:Keyword" region02="def:Identifier" region03="def:PairStart"
-        region10="def:PairEnd"/>
+      <block start="/^\s*(\w+)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobuf"
+        region01="def:Keyword" region02="def:Identifier"
+        region03="def:PairStart" region04="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
 
-      <block start="/^\s*(enum)\s+(\w+)\s*(\{)/" end="/\}/" scheme="protobufEnum"
-        region01="def:Keyword" region02="def:Identifier" region03="def:PairStart"
-        region10="def:PairEnd"/>
-
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="protobuf"
-        region01="def:Identifier" region02="def:Symbol" region03="def:PairStart"
-        region = "def:Keyword"
-        region10="def:Symbol" region11="def:PairEnd"/>
-
-
-<!--
-      <block start="/^\s*(enum|message|service)\s+(\w+)(\s*\(\s*(\w+)\s*\))*\s*(\{)/" end="/\}/" scheme="protobuf"
-        region01="def:ClassKeyword" region02="def:Identifier" region03="def:PairStart"
-        region10="def:PairEnd"/>
--->
       <keywords region="def:Directive">
         <word name='syntax'/>
         <word name='package'/>
@@ -80,6 +66,8 @@
       <inherit scheme="c">
         <virtual scheme="c" subst-scheme="protobuf"/>
       </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
 
     </scheme>
   </type>
