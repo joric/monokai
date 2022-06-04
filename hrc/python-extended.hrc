@@ -18,9 +18,9 @@
 
     <scheme name="pyExt">
 
-      <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtComment"/>
+      <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtLineComment"/>
 
-      <block start="/(from)\s+(\w+)\s+(import)/" end="/$/" scheme="pyExtDirective"
+      <block start="/(?:(from)\s+(\w+)\s+)*(import)/" end="/$/" scheme="pyExtDirective"
         region01="def:Directive" region02="def:DirectiveContent" region03="def:Directive"
         region10="def:Directive"/>
 
@@ -70,11 +70,11 @@
         <symb name="`"/>
       </keywords>
 
-      <regexp match='/\w/' region0="def:Symbol"/>
-
       <inherit scheme="python">
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
 
     </scheme>
 
@@ -97,10 +97,11 @@
       <keywords region= "def:Constant">
         <symb name="*"/>
       </keywords>
+      <regexp match='/\w/' region0="def:DirectiveContent"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
-    <scheme name="pyExtComment">
+    <scheme name="pyExtLineComment">
       <keywords region="def:Constant">
         <word name="python"/>
         <word name="python3"/>
