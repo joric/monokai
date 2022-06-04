@@ -15,12 +15,6 @@
 
     <import type="c"/>
 
-    <scheme name="protobufEnum">
-      <block start="/\s*(\w+)\s*\=/" end="/\;/" scheme="protobuf"
-        region01="def:TypeKeyword"/>
-      <inherit scheme="protobuf"/>
-    </scheme>
-
     <scheme name="protobuf">
 
       <block start="/^\s*(enum)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobufEnum"
@@ -28,16 +22,33 @@
         region03="def:PairStart" region04="def:Symbol"
         region10="def:PairEnd" region11="def:Symbol"/>
 
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="protobufParam"
+        region01="def:Identifier" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
       <block start="/^\s*(\w+)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobuf"
         region01="def:Keyword" region02="def:Identifier"
         region03="def:PairStart" region04="def:Symbol"
         region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/(\[|\()/" end="/(\]|\))/" scheme="protobuf"
+        region00="def:PairStart" region01="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <keywords region="def:Operator">
+        <symb name="="/>
+      </keywords>
 
       <keywords region="def:Directive">
         <word name='syntax'/>
         <word name='package'/>
         <word name='returns'/>
         <word name='import'/>
+      </keywords>
+
+      <keywords region="def:BooleanConstant">
+        <word name='true'/>
+        <word name='false'/>
       </keywords>
 
       <keywords region="def:Keyword">
@@ -61,6 +72,7 @@
         <word name='false'/>
         <word name='Timestamp'/>
         <word name='Int64Value'/>
+        <word name='Empty'/>
       </keywords>
 
       <inherit scheme="c">
@@ -70,5 +82,24 @@
       <regexp match='/\w/' region0="def:Symbol"/>
 
     </scheme>
+
+    <scheme name="protobufEnum">
+      <block start="/\s*(\w+)\s*(\=)/" end="/\;/" scheme="protobuf"
+        region01="def:TypeKeyword"
+        region02="def:Operator"
+        />
+      <inherit scheme="protobuf"/>
+    </scheme>
+
+    <scheme name="protobufParam">
+      <keywords region="def:Symbol">
+        <word name='google'/>
+        <word name='protobuf'/>
+      </keywords>
+      <regexp match='/\w/' region0="def:Keyword"/>
+      <inherit scheme="protobuf"/>
+    </scheme>
+
+
   </type>
 </hrc>
