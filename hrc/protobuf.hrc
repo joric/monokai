@@ -17,6 +17,9 @@
 
     <scheme name="protobuf">
 
+      <block start="/^\s*(package)\s+(\w+)/" end="/(\;)/" scheme="protobuf"
+        region01="def:KeywordStrong" region02="def:Identifier" region11="def:Symbol"/>
+
       <block start="/^\s*(enum)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobufEnum"
         region01="def:Keyword" region02="def:Identifier"
         region03="def:PairStart" region04="def:Symbol"
