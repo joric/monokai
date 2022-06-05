@@ -102,7 +102,7 @@
 
     <scheme name="protobufEnum">
       <block start="/\s*(\w+)\s*(\=)/" end="/\;/" scheme="protobuf"
-        region01="def:TypeKeyword"
+        region01="def:Constant"
         region02="def:Operator"
         />
       <inherit scheme="protobuf"/>

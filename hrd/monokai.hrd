@@ -38,7 +38,7 @@
   <assign name="def:InterfaceKeyword" fore="#7"/>
   <assign name="def:ClassKeyword" fore="#B"/>
   <assign name="def:StructKeyword" fore="#F"/>
-  <assign name="def:TypeKeyword" fore="#D"/>
+  <assign name="def:TypeKeyword" fore="#B"/>
 
   <assign name="def:Function" fore="#B" />
   <assign name="def:Register" fore="#C"/>
