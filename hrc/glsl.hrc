@@ -34,6 +34,7 @@
         <word name='uniform'/>
         <word name="in"/>
         <word name="out"/>
+        <word name="return"/>
       </keywords>
 
       <keywords region="def:Keyword">
