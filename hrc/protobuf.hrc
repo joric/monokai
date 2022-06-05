@@ -22,7 +22,11 @@
         region03="def:PairStart" region04="def:Symbol"
         region10="def:PairEnd" region11="def:Symbol"/>
 
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="protobufParam"
+      <block start="/(returns)\s*((\())/" end="/(\))/" scheme="protobufArgs"
+        region01="def:KeywordStrong" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="protobufArgs"
         region01="def:Identifier" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
@@ -47,6 +51,11 @@
         <word name='import'/>
         <word name='repeated'/>
         <word name='oneof'/>
+      </keywords>
+
+      <keywords region="def:Symbol">
+        <word name='google'/>
+        <word name='protobuf'/>
       </keywords>
 
       <keywords region="def:Operator">
@@ -96,11 +105,12 @@
       <inherit scheme="protobuf"/>
     </scheme>
 
+    <scheme name="protobufArgs">
+      <regexp match='/\w/' region0="def:Keyword"/>
+      <inherit scheme="protobuf"/>
+    </scheme>
+
     <scheme name="protobufParam">
-      <keywords region="def:Symbol">
-        <word name='google'/>
-        <word name='protobuf'/>
-      </keywords>
       <block start="/\s*(\w+)\s+(\w+)\s*(\=)/" end="/\;/" scheme="protobuf"
         region01="def:Keyword"
         region02="def:Symbol"
