@@ -81,6 +81,7 @@
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
 
+      <regexp match='/(f|b)\s*(&quot;|&apos;)?=/' region0="def:Keyword"/>
       <regexp match='/\w/' region0="def:Symbol"/>
 
     </scheme>
