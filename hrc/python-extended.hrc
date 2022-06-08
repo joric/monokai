@@ -19,7 +19,8 @@
     <scheme name="pyExt">
 
       <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtLineComment"/>
-      <block start="/(\=)\s*(&quot;{3}|&apos;{3})/" end="/\y2/" region="def:String" scheme="pyExtMultilineString"/>
+
+      <block start="/(\=)\s*(&quot;{3}|&apos;{3})/" end="/\y2/" region01='def:Operator' region="def:String" scheme="pyExtMultilineString"/>
 
       <block start="/(?:(from)\s+(\w+)\s+)*(import)/" end="/(\s+(as)\s+)*$/" scheme="pyExtDirective"
         region01="def:Directive" region02="def:DirectiveContent" region03="def:Directive"
@@ -123,9 +124,6 @@
       <inherit scheme="def:Comment"/>
     </scheme>
 
-    <scheme name="pyExtMultilineString">
-    </scheme>
-
     <region name="pyStringEscape" parent="def:BooleanConstant"/>
 
     <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?[SsCcsuidopxXnEefgGaAZ]'/>
@@ -134,6 +132,11 @@
       <regexp match="/\%(%format;|\%)/" region="pyStringEscape"/>
       <regexp match="/\\./" region="pyStringEscape" />
     </scheme>
+
+    <scheme name="pyExtMultilineString">
+      <inherit scheme="StringCommon" />
+    </scheme>
+
 
     <scheme name="RawStringSingle"> <!-- single-quoted strings should end with slash if span multiple lines -->
       <regexp match="/[^\\']$/" region="def:Error" />   <!-- error if end of line is not quote or escape -->
