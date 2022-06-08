@@ -77,7 +77,13 @@
         <symb name="`"/>
       </keywords>
 
+
+
       <inherit scheme="python">
+        <virtual scheme="python:StringSingle" subst-scheme="StringSingle"/>
+        <virtual scheme="python:StringDouble" subst-scheme="StringDouble"/>
+        <virtual scheme="python:RawStringSingle" subst-scheme="RawStringSingle"/>
+        <virtual scheme="python:RawStringDouble" subst-scheme="RawStringDouble"/>
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
 
@@ -119,6 +125,42 @@
 
     <scheme name="pyExtMultilineString">
     </scheme>
+
+    <region name="pyStringEscape" parent="def:BooleanConstant"/>
+
+    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?[SsCcsuidopxXnEefgGaAZ]'/>
+
+    <scheme name="StringCommon">
+      <regexp match="/\%(%format;|\%)/" region="pyStringEscape"/>
+      <regexp match="/\\./" region="pyStringEscape" />
+    </scheme>
+
+    <scheme name="RawStringSingle"> <!-- single-quoted strings should end with slash if span multiple lines -->
+      <regexp match="/[^\\']$/" region="def:Error" />   <!-- error if end of line is not quote or escape -->
+      <regexp match="/\\$/" region="pyStringEscape" />  <!-- highlight escape at end of line -->
+      <regexp match="/\\'/" region="pyStringEscape" priority="low"/>  <!-- highlight escape quoted in the middle -->
+      <inherit scheme="StringCommon" />
+    </scheme>
+
+    <scheme name="RawStringDouble">
+      <regexp match="/[^\\&quot;]$/" region="def:Error" />
+      <regexp match="/\\$/" region="pyStringEscape" />
+      <regexp match="/\\&quot;/" region="pyStringEscape" priority="low"/>
+      <inherit scheme="StringCommon" />
+    </scheme>
+
+    <scheme name="StringSingle">
+      <regexp match="/(\\).$/" region="def:Error" region1="pyStringEscape" />
+      <inherit scheme="RawStringSingle" />
+      <inherit scheme="StringCommon" />
+    </scheme>
+
+    <scheme name="StringDouble">
+      <regexp match="/(\\).$/" region="def:Error" region1="pyStringEscape" />
+      <inherit scheme="RawStringDouble" />
+      <inherit scheme="StringCommon" />
+    </scheme>
+
 
   </type>
 
