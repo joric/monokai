@@ -1,4 +1,4 @@
-<key name="Palette4" modified="2022-06-05 21:07:35" build="150813g">
+<key name="Palette4" modified="2022-06-09 02:01:58" build="150813g">
 					<value name="Name" type="string" data="Joric Monokai" />
 					<value name="ExtendColors" type="hex" data="00" />
 					<value name="ExtendColorIdx" type="hex" data="0e" />
@@ -20,7 +20,7 @@
 					<value name="ColorTable11" type="dword" data="00ffe79b" />
 					<value name="ColorTable12" type="dword" data="007224f9" />
 					<value name="ColorTable13" type="dword" data="00ff80ac" />
-					<value name="ColorTable14" type="dword" data="0071f8ff" />
+					<value name="ColorTable14" type="dword" data="0074eff5" />
 					<value name="ColorTable15" type="dword" data="00f2f8f8" />
 					<value name="ColorTable16" type="dword" data="00000000" />
 					<value name="ColorTable17" type="dword" data="00800000" />
