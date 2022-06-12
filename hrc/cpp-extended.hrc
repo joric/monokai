@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding='utf-8'?>
+
+<!DOCTYPE hrc PUBLIC
+  "-//Cail Lomecb//DTD Colorer HRC take5//EN"
+  "http://colorer.sf.net/2003/hrc.dtd">
+
+<hrc version="take5" xmlns="http://colorer.sf.net/2003/hrc"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
+
+  <prototype name="cppExt" group="other" description="cpp extended">
+    <filename weight="5">/\.(cpp|h|hpp|c)$/i</filename>
+  </prototype>
+
+  <type name="cppExt">
+
+    <import type="c"/>
+    <import type="cpp"/>
+
+    <scheme name="cppExt">
+
+      <keywords region="def:Operator">
+        <word name="and"/>
+        <word name="or"/>
+        <word name="in"/>
+        <word name="return"/>
+        <word name="if"/>
+        <word name="else"/>
+        <word name="for"/>
+        <word name="pass"/>
+        <symb name=":="/>
+        <symb name="+="/>
+        <symb name="-="/>
+        <symb name="*="/>
+        <symb name="++"/>
+        <symb name="--"/>
+        <symb name="="/>
+      </keywords>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
+        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <inherit scheme="cpp">
+        <virtual scheme="cpp:Expression" subst-scheme="cppExtCPPExpression"/>
+        <virtual scheme="cpp" subst-scheme="cppExt"/>
+      </inherit>
+
+      <inherit scheme="c">
+        <virtual scheme="c:Expression" subst-scheme="cppExtCExpression"/>
+<!--
+        <virtual scheme="c:c" subst-scheme="myC"/>
+        <virtual scheme="def:Path1" subst-scheme="cppPath"/>
+        <virtual scheme="c:c1" subst-scheme="myC"/>
+-->
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="myC">
+      <inherit scheme="c:c"/>
+    </scheme>
+
+    <scheme name="cppExtSymbol">
+
+    </scheme>
+
+    <scheme name="cppExtCExpression">
+      <inherit scheme="c:Expression">
+        <virtual scheme="c:Expression" subst-scheme="cppExt"/>
+      </inherit>
+    </scheme>
+
+    <scheme name="cppExtCPPExpression">
+    </scheme>
+
+  </type>
+
+</hrc>
