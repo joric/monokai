@@ -43,16 +43,12 @@
 
       <inherit scheme="cpp">
         <virtual scheme="cpp:Expression" subst-scheme="cppExtCPPExpression"/>
+        <virtual scheme="def:Path" subst-scheme="cppExtPath"/>
         <virtual scheme="cpp" subst-scheme="cppExt"/>
       </inherit>
 
       <inherit scheme="c">
         <virtual scheme="c:Expression" subst-scheme="cppExtCExpression"/>
-<!--
-        <virtual scheme="c:c" subst-scheme="myC"/>
-        <virtual scheme="def:Path1" subst-scheme="cppPath"/>
-        <virtual scheme="c:c1" subst-scheme="myC"/>
--->
       </inherit>
 
       <regexp match='/\w/' region0="def:Symbol"/>
@@ -63,8 +59,8 @@
       <inherit scheme="c:c"/>
     </scheme>
 
-    <scheme name="cppExtSymbol">
-
+    <scheme name="cppExtPath">
+      <regexp match='/[^\>]+/' region0="def:String"/>
     </scheme>
 
     <scheme name="cppExtCExpression">
