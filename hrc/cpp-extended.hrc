@@ -40,7 +40,7 @@
         region01="def:Directive" region02="def:Identifier" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <regexp match='/(\w+)(\s*\([^\)]+\)\s*\{)?=/' region1="def:Identifier"/>
+      <regexp match='/(\w+)(\s*\([^\)\"]+\)\s*\{)?=/' region1="def:Identifier"/>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
