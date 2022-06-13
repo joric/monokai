@@ -20,15 +20,13 @@
     <scheme name="cppExt">
 
       <keywords region="def:Operator">
-        <word name="and"/>
-        <word name="or"/>
-        <word name="in"/>
         <word name="return"/>
         <word name="if"/>
         <word name="else"/>
         <word name="for"/>
         <word name="while"/>
-        <word name="pass"/>
+        <word name="using"/>
+        <word name="namespace"/>
         <symb name=":="/>
         <symb name="+="/>
         <symb name="-="/>
@@ -37,6 +35,10 @@
         <symb name="--"/>
         <symb name="="/>
       </keywords>
+
+      <block start="/^\s*(#define)\s+(\w+)/" end="/$/" scheme="cppExt"
+        region01="def:Directive" region02="def:Identifier" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
 
       <regexp match='/(\w+)(\s*\([^\)]+\)\s*\{)?=/' region1="def:Identifier"/>
 
