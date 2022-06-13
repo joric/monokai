@@ -52,7 +52,7 @@
         region10="def:Symbol" region11="def:PairEnd"/>
 
       <inherit scheme="cpp">
-        <virtual scheme="c:Expression" subst-scheme="cppExtCExpression"/>
+        <virtual scheme="c:Expression" subst-scheme="cppExtExpression"/>
         <virtual scheme="def:Path" subst-scheme="cppExtPath"/>
         <virtual scheme="cpp" subst-scheme="cppExt"/>
       </inherit>
@@ -65,12 +65,13 @@
       <regexp match='/[^\>]+/' region0="def:String"/>
     </scheme>
 
-    <scheme name="cppExtCExpression">
+    <scheme name="cppExtExpression">
       <inherit scheme="c:Expression">
         <virtual scheme="c:Character" subst-scheme="cppExtCharacter"/>
         <virtual scheme="c:StringContent" subst-scheme="cppExtStringContent"/>
         <virtual scheme="c:Expression" subst-scheme="cppExt"/>
       </inherit>
+      <regexp match='/\w/' region0="def:Symbol"/>
     </scheme>
 
     <scheme name="cppExtCharacter">
@@ -79,6 +80,7 @@
     </scheme>
 
     <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZ]|zu)'/>
+
     <scheme name="cppExtStringContent">
       <regexp match="/\%(%format;|\%)/" region="cppStringEscape"/>
       <regexp match="/\\./" region="cppStringEscape" />
