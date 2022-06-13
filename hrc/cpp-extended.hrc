@@ -44,13 +44,9 @@
         region10="def:Symbol" region11="def:PairEnd"/>
 
       <inherit scheme="cpp">
-        <virtual scheme="cpp:Expression" subst-scheme="cppExtCPPExpression"/>
+        <virtual scheme="c:Expression" subst-scheme="cppExtCExpression"/>
         <virtual scheme="def:Path" subst-scheme="cppExtPath"/>
         <virtual scheme="cpp" subst-scheme="cppExt"/>
-      </inherit>
-
-      <inherit scheme="c">
-        <virtual scheme="c:Expression" subst-scheme="cppExtCExpression"/>
       </inherit>
 
       <regexp match='/\w/' region0="def:Symbol"/>
@@ -69,9 +65,6 @@
       <inherit scheme="c:Expression">
         <virtual scheme="c:Expression" subst-scheme="cppExt"/>
       </inherit>
-    </scheme>
-
-    <scheme name="cppExtCPPExpression">
     </scheme>
 
   </type>
