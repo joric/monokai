@@ -78,8 +78,7 @@
       <regexp match="/'.*?'/" region="def:Error"/>
     </scheme>
 
-    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?[SsCcsuidopxXnEefgGaAZ]'/>
-
+    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZ]|zu)'/>
     <scheme name="cppExtStringContent">
       <regexp match="/\%(%format;|\%)/" region="cppStringEscape"/>
       <regexp match="/\\./" region="cppStringEscape" />
