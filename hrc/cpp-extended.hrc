@@ -27,6 +27,7 @@
         <word name="if"/>
         <word name="else"/>
         <word name="for"/>
+        <word name="while"/>
         <word name="pass"/>
         <symb name=":="/>
         <symb name="+="/>
@@ -37,7 +38,7 @@
         <symb name="="/>
       </keywords>
 
-      <regexp match='/(\s+)?#1(\w+)(\s*\(.*\)\s*\{)?=/' region2="def:Identifier"/>
+      <regexp match='/(\w+)(\s*\([^\)]+\)\s*\{)?=/' region1="def:Identifier"/>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
