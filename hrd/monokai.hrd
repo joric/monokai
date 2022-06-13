@@ -14,7 +14,7 @@
   <assign name="def:String" fore="#E"/>
   <assign name="def:StringContent" fore="#4"/>
   <assign name="def:StringEdge" fore="#E"/>
-  <assign name="def:Character" fore="#C"/>
+  <assign name="def:Character" fore="#E"/>
   <assign name="def:CharacterContent" fore="#C"/>
 
   <assign name="def:Comment" fore="#6"/>

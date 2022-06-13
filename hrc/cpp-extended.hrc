@@ -29,6 +29,9 @@
         <word name="while"/>
         <word name="using"/>
         <word name="namespace"/>
+      </keywords>
+
+      <keywords region="def:Symbol">
         <symb name=":="/>
         <symb name="+="/>
         <symb name="-="/>
@@ -58,19 +61,21 @@
 
     </scheme>
 
-    <scheme name="myC">
-      <inherit scheme="c:c"/>
-    </scheme>
-
     <scheme name="cppExtPath">
       <regexp match='/[^\>]+/' region0="def:String"/>
     </scheme>
 
     <scheme name="cppExtCExpression">
       <inherit scheme="c:Expression">
+        <virtual scheme="c:Character" subst-scheme="cppExtCharacter"/>
         <virtual scheme="c:StringContent" subst-scheme="cppExtStringContent"/>
         <virtual scheme="c:Expression" subst-scheme="cppExt"/>
       </inherit>
+    </scheme>
+
+    <scheme name="cppExtCharacter">
+      <regexp match="/[Ll]?'(\\\D | \\[0-7]{1,3} | \\x[\da-fA-F]{2} | [^\\']){1,4}'/x" region="def:Character"/>
+      <regexp match="/'.*?'/" region="def:Error"/>
     </scheme>
 
     <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?[SsCcsuidopxXnEefgGaAZ]'/>
