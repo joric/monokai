@@ -14,6 +14,8 @@
 
   <type name="cppExt">
 
+    <region name="cppStringEscape" parent="def:BooleanConstant"/>
+
     <import type="c"/>
     <import type="cpp"/>
 
@@ -66,7 +68,18 @@
 
     <scheme name="cppExtCExpression">
       <inherit scheme="c:Expression">
+        <virtual scheme="c:StringContent" subst-scheme="cppExtStringContent"/>
         <virtual scheme="c:Expression" subst-scheme="cppExt"/>
+      </inherit>
+    </scheme>
+
+    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?[SsCcsuidopxXnEefgGaAZ]'/>
+
+    <scheme name="cppExtStringContent">
+      <regexp match="/\%(%format;|\%)/" region="cppStringEscape"/>
+      <regexp match="/\\./" region="cppStringEscape" />
+      <inherit scheme="c:StringContent">
+        <virtual scheme="c:StringContent" subst-scheme="cppExt"/>
       </inherit>
     </scheme>
 
