@@ -67,7 +67,7 @@
   <assign name="def:Error" fore="#0" back="#4"/>
   <assign name="def:ErrorText" fore="#D"/>
 
-  <assign name="def:TODO" fore="#C" back="#6"/>
+  <assign name="def:TODO" fore="#C"/>
   <assign name="def:Debug" fore="#C" back="#6"/>
 
   <assign name="def:URI" fore="#A"/>

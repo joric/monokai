@@ -554,6 +554,8 @@
 
     <scheme name="htmlExt">
 
+
+
       <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
         scheme="htmlExtShaderScript"
         region01="PairStrongStart" region10="PairStrongEnd"
@@ -565,9 +567,33 @@
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
       <inherit scheme="html">
+        <virtual scheme="html:htmlPairs" subst-scheme="htmlExtPairs"/>
         <virtual scheme="html" subst-scheme="htmlExt"/>
       </inherit>
 
+    </scheme>
+
+
+    <scheme name="htmlExtPairs">
+    <!--
+    //TODO: this highlights p,td,tr pairs. disabled for now. Breaks fences in markdown.
+
+    <block start="/((&lt;) \s* \b(%pairedtags;)\M\b (\s* &gt;)?)/ixs" end="/((\/&gt;)|(&lt;\/)(\Y3)(&gt;)|(&lt;\/(%pairedtags;)\b)?=)/ixs"
+      scheme="htmlExtPairInside"
+      region01="PairStart" region11="PairEnd"
+      region02="htmlTagBr" region03="htmlOpenTag"
+
+      region12="htmlTagBr"
+      region13="htmlTagBr" region14="htmlCloseTag" region15="htmlTagBr"
+    />-->
+    </scheme>
+
+    <scheme name="htmlExtPairInside">
+      <block start="/~/" end="/\M(\/?&gt;|[\%\?]?~1&gt;)/" 
+        scheme="htmlCore" region="htmlUnknowParam"
+      />
+      <regexp match="/&gt;/" region="htmlTagBr" />
+      <inherit scheme="html" />
     </scheme>
 
     <scheme name="htmlExtShaderScript">
