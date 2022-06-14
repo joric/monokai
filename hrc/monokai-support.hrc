@@ -604,7 +604,6 @@
     <import type="protobuf"/>
     <import type="shell"/>
     <import type="Batch"/>
-    <import type="jScript"/>
 
     <region name="Text" parent="def:Symbol"/>
 
