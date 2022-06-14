@@ -370,18 +370,12 @@
 
     <scheme name="textExt">
 
-      <block start="/^/" end="/$/" scheme="textExtAll" region="def:DeprecatedKeyword"/>
+      <regexp match="/\b(\d{0,10}[\,\.]?\d{0,10}([eE][\-\+]?\d+)?)\b/" region0="def:Keyword"/>
 
       <inherit scheme="text">
         <virtual scheme="text" subst-scheme="textExt"/>
       </inherit>
 
-    </scheme>
-
-    <scheme name="textExtAll">
-      <!-- number  -->
-      <regexp match="/\b(\d{0,10}[\,\.]?\d{0,10}([eE][\-\+]?\d+)?)\b/" region0="def:Keyword"/>
-      <inherit scheme="text"/>
     </scheme>
 
   </type>
@@ -594,6 +588,8 @@
   <type name="mdExt">
 
     <region name="Label" parent="def:Label"/>
+    <region name="inlineURL" parent="def:URL"/>
+    <region name="listURL" parent="def:URI"/>
 
     <import type="markdown"/>
     <import type="textExt"/>
@@ -605,42 +601,54 @@
     <import type="shell"/>
     <import type="Batch"/>
 
-    <region name="Text" parent="def:Symbol"/>
-
     <scheme name="mdExt">
-
-      <block start="/(```\s*(html))/" end="/(```)/" scheme="htmlExt"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark"/>
-
-      <block start="/(```\s*(python))/" end="/(```)/" scheme="pyExt"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark"/>
 
       <block start="/(```\s*(bash|sh))/" end="/(```)/" scheme="shell.in"
         region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark"/>
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
 
       <block start="/(```\s*(bat|cmd))/" end="/(```)/" scheme="Batch"
         region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark"/>
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
+
+      <block start="/(```\s*(html))/" end="/(```)/" scheme="htmlExt"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
+
+      <block start="/(```\s*(python))/" end="/(```)/" scheme="pyExt"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
 
       <block start="/(```\s*(cpp|c))/" end="/(```)/" scheme="cppExt"
         region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" />
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
+
+      <block start="/(```\s*(proto))/" end="/(```)/" scheme="protobuf"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
 
       <block start="/(```\s*(js))/" end="/(```)/" scheme="jsExt"
         region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
         region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
 
+      <block start="/(```)/" end="/(```)/" scheme="textExt"
+        region00="def:PairStart" region01="markdown:FenceMark"
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
+
       <inherit scheme="markdown">
+        <virtual scheme="markdown:Text" subst-scheme="mdExtText"/>
         <virtual scheme="markdown" subst-scheme="mdExt"/>
       </inherit>
 
     </scheme>
 
-    <scheme name="jsFix">
-      <inherit scheme="jsExt"/>
+    <scheme name="mdExtText">
+      <regexp priority="low" region="inlineURL"><![CDATA[
+       /\b ((about|castanet|ftp|git|gopher|https?|javascript|news|nntp|sop|wais|wysiwyg)
+           \:\/\/  | (www|ftp|fido[0-9]*)\.)
+           [\[\]\@\%\:\+\w\.\/\~\?\-\*=_#&;]+\b\/?/ix]]>
+      </regexp>
+      <inherit scheme="markdown:Text" />
     </scheme>
 
   </type>
