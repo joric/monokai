@@ -83,5 +83,21 @@
   <assign name="def:PairStrongStart" fore="#D" back="#0"/>
   <assign name="def:PairStrongEnd" fore="#D" back="#0"/>
 
-  <assign name="def:Whitespace" fore="#6" back="#8"/>
+  <assign name="def:Whitespace" fore="#6"/>
+
+  <!-- language-specific -->
+
+  <assign name="markdown:Text" fore="#F"/>
+  <assign name="markdown:Code" fore="#F" />
+  <assign name="markdown:ListMark" fore="#D"/>
+  <assign name="markdown:ListText" fore="#7"/>
+  <assign name="markdown:HeadMark" fore="#5"/>
+  <assign name="markdown:HeadText" fore="#F"/>
+  <assign name="markdown:FenceMark" fore="#F"/>
+
+  <assign name="shell:command.sys" fore="#B"/>
+  <assign name="shell:symb" fore="#C"/>
+
+  <assign name="css:DeprecatedPropertyName" fore="#6"/>
+
 </hrd>

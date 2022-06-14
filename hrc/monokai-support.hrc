@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding='utf-8'?>
+
+<!DOCTYPE hrc PUBLIC
+  "-//Cail Lomecb//DTD Colorer HRC take5//EN"
+  "http://colorer.sf.net/2003/hrc.dtd">
+
+<hrc version="take5" xmlns="http://colorer.sf.net/2003/hrc"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://colorer.sf.net/2003/hrc http://colorer.sf.net/2003/hrc.xsd">
+
+  <!-- glsl -->
+
+  <prototype name="glsl" group="extras" description="GLSL (Monokai)">
+    <filename weight="5">/\.glsl$/i</filename>
+  </prototype>
+
+  <type name="glsl">
+
+    <import type="c"/>
+
+    <scheme name="glsl">
+
+      <!--fixes () brackets content in void main(...)  -->
+      <block start="/(\()/" end="/(\))/" scheme="glsl"
+        region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region="def:Directive">
+        <word name='ifdef'/>
+        <word name='endif'/>
+        <word name='else'/>
+        <word name="varying"/>
+        <word name="mediump"/>
+        <word name="attribute"/>
+        <word name="precision"/>
+        <word name="highp"/>
+        <word name='uniform'/>
+        <word name="in"/>
+        <word name="out"/>
+        <word name="return"/>
+      </keywords>
+
+      <keywords region="def:Keyword">
+        <word name="vec2"/>
+        <word name="vec3"/>
+        <word name="vec4"/>
+        <word name="ivec2"/>
+        <word name="ivec3"/>
+        <word name="ivec4"/>
+        <word name="mat4"/>
+        <word name="sampler2D"/>
+        <word name="discard"/>
+      </keywords>
+
+      <keywords region="def:KeywordStrong">
+        <word name="atan"/>
+        <word name="pow"/>
+        <word name="max"/>
+        <word name="dot"/>
+        <word name="sin"/>
+        <word name="cos"/>
+        <word name="cross"/>
+        <word name="normalize"/>
+        <word name="clamp"/>
+      </keywords>
+
+      <keywords region="def:Identifier">
+        <word name="gl_Position"/>
+        <word name="gl_FragColor"/>
+        <word name="gl_FragCoord"/>
+      </keywords>
+      
+
+      <inherit scheme="c">
+        <virtual scheme="c" subst-scheme="glsl"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+  </type>
+
+  <!-- hlsl -->
+
+  <prototype name="hlsl" group="extras" description="HLSL (Monokai)">
+    <filename weight="5">/\.hlsl$/i</filename>
+  </prototype>
+
+  <type name="hlsl">
+    <import type="glsl"/>
+    <scheme name="hlsl">
+
+      <keywords region="def:Keyword">
+        <word name="float1"/>
+        <word name="float2"/>
+        <word name="float3"/>
+        <word name="float4"/>
+        <word name="int1"/>
+        <word name="int2"/>
+        <word name="int3"/>
+        <word name="int4"/>
+      </keywords>
+
+      <keywords region="def:KeywordStrong">
+        <word name="register"/>
+        <word name="sampler"/>
+        <word name="packoffset"/>
+        <word name="TEXCOORD0"/>
+        <word name="COLOR"/>
+        <word name="NORMAL"/>
+        <word name="BINORMAL"/>
+        <word name="POSITION"/>
+        <word name="TANGENT"/>
+        <word name="DEPTH"/>
+        <word name="tex2D"/>
+      </keywords>
+
+      <inherit scheme="glsl">
+        <virtual scheme="glsl" subst-scheme="hlsl"/>
+      </inherit>
+
+    </scheme>
+  </type>
+
+  <!-- protobuf -->
+
+  <prototype name="protobuf" group="extras" description="Protocol Buffers (Monokai)">
+    <filename weight="4">/\.proto$/i</filename>
+  </prototype>
+
+  <type name='protobuf'>
+
+    <import type="c"/>
+
+    <scheme name="protobuf">
+
+      <block start="/^\s*(package)\s+(\w+)/" end="/(\;)/" scheme="protobuf"
+        region01="def:KeywordStrong" region02="def:Identifier" region11="def:Symbol"/>
+
+      <block start="/^\s*(enum)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobufEnum"
+        region01="def:Keyword" region02="def:Identifier"
+        region03="def:PairStart" region04="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/(returns)\s*((\())/" end="/(\))/" scheme="protobufArgs"
+        region01="def:KeywordStrong" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="protobufArgs"
+        region01="def:Identifier" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(oneof|)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobufParam"
+        region01="def:KeywordStrong" region02="def:Identifier"
+        region03="def:PairStart" region04="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/^\s*(\w+)\s+(\w+)\s*((\{))/" end="/(\})/" scheme="protobufParam"
+        region01="def:Keyword" region02="def:Identifier"
+        region03="def:PairStart" region04="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/(\[|\()/" end="/(\]|\))/" scheme="protobuf"
+        region00="def:PairStart" region01="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <keywords region="def:Directive">
+        <word name='syntax'/>
+        <word name='package'/>
+        <word name='returns'/>
+        <word name='import'/>
+        <word name='repeated'/>
+        <word name='oneof'/>
+      </keywords>
+
+      <keywords region="def:Symbol">
+        <word name='google'/>
+        <word name='protobuf'/>
+      </keywords>
+
+      <keywords region="def:Operator">
+        <symb name="="/>
+      </keywords>
+
+      <keywords region="def:BooleanConstant">
+        <word name='true'/>
+        <word name='false'/>
+      </keywords>
+
+      <keywords region="def:Keyword">
+        <word name='option'/>
+        <word name='go_package'/>
+        <word name='rpc'/>
+        <word name='message'/>
+        <word name='service'/>
+        <word name='syntax'/>
+        <word name='map'/>
+        <word name='deprecated'/>
+        <word name='string'/>
+        <word name='bool'/>
+        <word name='int64'/>
+        <word name='uint64'/>
+        <word name='int32'/>
+        <word name='uint32'/>
+        <word name='true'/>
+        <word name='false'/>
+        <word name='Timestamp'/>
+        <word name='Int64Value'/>
+        <word name='Empty'/>
+      </keywords>
+
+      <inherit scheme="c">
+        <virtual scheme="c" subst-scheme="protobuf"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="protobufEnum">
+      <block start="/\s*(\w+)\s*(\=)/" end="/\;/" scheme="protobuf"
+        region01="def:Constant"
+        region02="def:Operator"
+        />
+      <inherit scheme="protobuf"/>
+    </scheme>
+
+    <scheme name="protobufArgs">
+      <regexp match='/\w/' region0="def:Keyword"/>
+      <inherit scheme="protobuf"/>
+    </scheme>
+
+    <scheme name="protobufParam">
+      <block start="/\s*(\w+)\s+(\w+)\s*(\=)/" end="/\;/" scheme="protobuf"
+        region01="def:Keyword"
+        region02="def:Symbol"
+        region03="def:Operator"
+        />
+      <inherit scheme="protobuf"/>
+    </scheme>
+  </type>
+
+  <!-- python -->
+
+  <prototype name="pyExt" group="extras" description="Python Extended (Monokai)">
+    <filename weight="5">/\.py$/i</filename>
+  </prototype>
+
+  <type name="pyExt">
+
+    <region name="FunctionName" parent="def:Identifier"/>
+    <region name="ClassName" parent="def:Identifier"/>
+    <region name="FunctionParameter" parent="def:ParameterStrong"/>
+    <region name="StrongKeyword" parent="def:Operator"/>
+    <region name="ImportKeyword" parent="def:Directive"/>
+    <region name="SelfKeyword" parent="def:ParameterStrong"/>
+
+    <import type="python"/>
+
+    <scheme name="pyExt">
+
+      <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtLineComment"/>
+
+      <block start="/(?:(from)\s+(\w+)\s+)*(import)/" end="/(\s*(as)\s*)*$/" scheme="pyExtDirective"
+        region01="def:Directive" region02="def:DirectiveContent" region03="def:Directive"
+        region10="def:Directive" region12="def:Directive"/>
+
+      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtLambda"
+        region01="def:Keyword"
+        region10="def:Symbol"/>
+
+      <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))/" scheme="pyExtFunctionDefine"
+        region01="def:FunctionKeyword" region02="FunctionName" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pyExt"
+        region01="def:ClassKeyword" region02="ClassName"
+        region10="def:Symbol"/>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExt"
+        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region= "SelfKeyword">
+        <word name="self"/>
+      </keywords>
+
+      <keywords region="StrongKeyword">
+        <word name="and"/>
+        <word name="or"/>
+        <word name="in"/>
+        <word name="return"/>
+        <word name="if"/>
+        <word name="else"/>
+        <word name="for"/>
+        <word name="pass"/>
+        <symb name=":="/>
+        <symb name="="/>
+      </keywords>
+
+      <keywords region="ImportKeyword">
+        <word name="from"/>
+        <word name="import"/>
+        <word name="as"/>
+      </keywords>
+
+      <keywords region= "def:BooleanConstant">
+        <word name="True"/>
+        <word name="False"/>
+        <word name="None"/>
+      </keywords>
+
+      <keywords region= "def:Symbol">
+        <symb name=","/>
+        <symb name=":"/>
+        <symb name="."/>
+        <symb name="`"/>
+      </keywords>
+
+      <inherit scheme="python">
+        <virtual scheme="python" subst-scheme="pyExt"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="pyExtFunctionDefine">
+      <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter"/>
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtLambda">
+      <regexp match='/\w+/' region0="FunctionParameter"/>
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtFunctionCall">
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtDirective">
+      <keywords region= "def:Constant">
+        <symb name="*"/>
+      </keywords>
+      <regexp match='/\w/' region0="def:DirectiveContent"/>
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtLineComment">
+      <keywords region="def:Constant">
+        <word name="python"/>
+        <word name="python3"/>
+      </keywords>
+      <inherit scheme="def:Comment"/>
+    </scheme>
+
+  </type>
+
+  <!-- text -->
+
+  <prototype name="textExt" group="extras" description="Plain text Extended (Monokai)">
+      <filename weight="5">/(\.txt$|\.rus|\.nfo|\.log|.*install.*|.*ChangeLog.*|AUTHORS|COPYING|FAQ|LICENSE|TODO$)/i</filename>
+      <filename weight="5">/\.spo/ix</filename>
+  </prototype>
+
+  <type name="textExt">
+
+    <import type="text"/>
+
+    <scheme name="textExt">
+
+      <block start="/^/" end="/$/" scheme="textExtAll" region="def:DeprecatedKeyword"/>
+
+      <inherit scheme="text">
+        <virtual scheme="text" subst-scheme="textExt"/>
+      </inherit>
+
+    </scheme>
+
+    <scheme name="textExtAll">
+      <!-- number  -->
+      <regexp match="/\b(\d{0,10}[\,\.]?\d{0,10}([eE][\-\+]?\d+)?)\b/" region0="def:Keyword"/>
+      <inherit scheme="text"/>
+    </scheme>
+
+  </type>
+
+  <!-- cpp -->
+
+  <prototype name="cppExt" group="extras" description="CPP Extended (Monokai)">
+    <filename weight="5">/\.(cpp|h|hpp|c)$/i</filename>
+  </prototype>
+
+  <type name="cppExt">
+
+    <region name="cppStringEscape" parent="def:BooleanConstant"/>
+
+    <import type="c"/>
+    <import type="cpp"/>
+
+    <scheme name="cppExt">
+
+      <keywords region="def:Operator">
+        <word name="return"/>
+        <word name="if"/>
+        <word name="else"/>
+        <word name="for"/>
+        <word name="while"/>
+        <word name="using"/>
+        <word name="namespace"/>
+      </keywords>
+
+      <keywords region="def:Symbol">
+        <symb name=":="/>
+        <symb name="+="/>
+        <symb name="-="/>
+        <symb name="*="/>
+        <symb name="++"/>
+        <symb name="--"/>
+        <symb name="="/>
+      </keywords>
+
+      <block start="/^\s*(#define)\s+(\w+)/" end="/$/" scheme="cppExt"
+        region01="def:Directive" region02="def:Identifier" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(struct|class)\s*(\w+)\s*((\{))/" end="/(\})/" scheme="cppExt"
+        region01="def:Keyword" region02="def:Identifier" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <regexp match='/(\w+)(\s*\([^\)\"]*\)\s*\{)?=/' region1="def:Identifier"/>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
+        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <inherit scheme="cpp">
+        <virtual scheme="c:Expression" subst-scheme="cppExtExpression"/>
+        <virtual scheme="def:Path" subst-scheme="cppExtPath"/>
+        <virtual scheme="cpp" subst-scheme="cppExt"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="cppExtPath">
+      <regexp match='/[^\>]+/' region0="def:String"/>
+    </scheme>
+
+    <scheme name="cppExtExpression">
+      <inherit scheme="c:Expression">
+        <virtual scheme="c:Character" subst-scheme="cppExtCharacter"/>
+        <virtual scheme="c:StringContent" subst-scheme="cppExtStringContent"/>
+        <virtual scheme="c:Expression" subst-scheme="cppExt"/>
+      </inherit>
+      <regexp match='/\w/' region0="def:Symbol"/>
+    </scheme>
+
+    <scheme name="cppExtCharacter">
+      <regexp match="/[Ll]?'(\\\D | \\[0-7]{1,3} | \\x[\da-fA-F]{2} | [^\\']){1,4}'/x" region="def:Character"/>
+      <regexp match="/'.*?'/" region="def:Error"/>
+    </scheme>
+
+    <!-- added %zu support -->
+    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZ]|zu)'/>
+
+    <scheme name="cppExtStringContent">
+      <regexp match="/\%(%format;|\%)/" region="cppStringEscape"/>
+      <regexp match="/\\./" region="cppStringEscape" />
+      <inherit scheme="c:StringContent">
+        <virtual scheme="c:StringContent" subst-scheme="cppExt"/>
+      </inherit>
+    </scheme>
+
+  </type>
+
+  <!-- javascript -->
+
+  <prototype name="jsExt" group="extras" description="JavaScript Extended (Monokai)">
+    <filename weight="5">/\.(js)$/i</filename>
+  </prototype>
+
+  <type name="jsExt">
+
+    <region name="FunctionDefine" parent="def:Identifier"/>
+    <region name="FunctionParameter" parent="def:ParameterStrong"/>
+    <region name="FunctionCall" parent="def:Keyword"/>
+    <region name="Operator" parent="def:Operator"/>
+    <region name="SelfKeyword" parent="def:ParameterStrong"/>
+    <region name="LineComment" parent="def:LineComment"/>
+
+    <import type="jScript"/>
+
+    <scheme name="jsExt">
+
+      <block start="/\/\//" end="/$/" scheme="def:Comment" region="LineComment"/>
+
+      <block start="/^\s*(function)\s+(\w+)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
+        region01="def:FunctionKeyword" region02="FunctionDefine" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\()/" end="/(\))/" scheme="jsExt"
+        region00="def:PairStart" region01="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/(\{)/" end="/(\})/" scheme="jsExt"
+        region00="def:PairStart" region01="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/(\[)/" end="/(\])/" scheme="jsExt"
+        region00="def:PairStart" region01="def:Symbol"
+        region10="def:PairEnd" region11="def:Symbol"/>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="jsExt"
+        region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region="SelfKeyword">
+        <word name="this"/>
+      </keywords>
+
+      <keywords region="Operator">
+        <symb name="="/>
+        <symb name="-="/>
+        <symb name="+="/>
+        <symb name=":="/>
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="*"/>
+        <symb name="/"/>
+        <symb name="~"/>
+        <symb name="^"/>
+        <symb name="$"/>
+        <symb name="&amp;"/>
+        <word name="return"/>
+      </keywords>
+
+      <inherit scheme="jsExt">
+        <virtual scheme="jsExt" subst-scheme="jScript"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="jsExtFunctionDefine">
+      <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="jsExt" region01="FunctionParameter"/>
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+
+  </type>
+
+  <!-- html (supports embedded types) -->
+
+  <prototype name="htmlExt" group="extras" description="HTML Extended (Monokai)">
+    <filename weight="5">/\.html$/i</filename>
+  </prototype>
+
+  <type name="htmlExt">
+    <import type="html"/>
+    <import type="glsl"/>
+    <import type="hlsl"/>
+    <import type="jsExt"/>
+
+    <scheme name="htmlExt">
+
+      <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
+        scheme="htmlExtShaderScript"
+        region01="PairStrongStart" region10="PairStrongEnd"
+        region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
+
+      <block start="/ ((&lt;) \s* (script)\M\b \s* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
+        scheme="htmlExtjScript"
+        region01="PairStrongStart" region10="PairStrongEnd"
+        region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
+
+      <inherit scheme="html">
+        <virtual scheme="html" subst-scheme="htmlExt"/>
+      </inherit>
+
+    </scheme>
+
+    <scheme name="htmlExtShaderScript">
+      <block start="/~/" end="/[?%]?~1(&gt;)/" scheme="htmlCore" region11="htmlTagBr"/>
+      <inherit scheme="glsl" />
+      <inherit scheme="hlsl" />
+    </scheme>
+
+    <scheme name="htmlExtjScript">
+      <block start="/~/" end="/[?%]?~1(&gt;)/" scheme="htmlCore" region11="htmlTagBr"/>
+      <inherit scheme="jsExt" />
+    </scheme>
+
+  </type>
+
+
+  <!-- markdown -->
+
+  <prototype name="mdExt" group="extras" description="Markdown Extended (Monokai)">
+      <filename weight="5">/\.md/i</filename>
+  </prototype>
+
+  <type name="mdExt">
+
+    <region name="Label" parent="def:Label"/>
+
+    <import type="markdown"/>
+    <import type="textExt"/>
+    <import type="pyExt"/>
+    <import type="htmlExt"/>
+    <import type="protobuf"/>
+    <import type="shell"/>
+    <import type="Batch"/>
+
+    <region name="Text" parent="def:Symbol"/>
+
+    <scheme name="mdExt">
+
+      <block start="/(```\s*(html))/" end="/(```)/" scheme="htmlExt"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark"/>
+
+      <block start="/(```\s*(python))/" end="/(```)/" scheme="pyExt"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark"/>
+
+      <block start="/(```\s*(bash|sh))/" end="/(```)/" scheme="shell.in"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark"/>
+
+      <block start="/(```\s*(bat|cmd))/" end="/(```)/" scheme="Batch"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark"/>
+
+      <inherit scheme="markdown">
+        <virtual scheme="markdown" subst-scheme="mdExt"/>
+      </inherit>
+
+    </scheme>
+
+  </type>
+
+</hrc>
+
