@@ -482,6 +482,8 @@
     <filename weight="5">/\.(js)$/i</filename>
   </prototype>
 
+  <type name="mdExt"/>
+
   <type name="jsExt">
 
     <region name="FunctionDefine" parent="def:Identifier"/>
@@ -492,26 +494,19 @@
     <region name="LineComment" parent="def:LineComment"/>
 
     <import type="jScript"/>
+    <import type="markdown"/>
 
     <scheme name="jsExt">
 
-      <block start="/\/\//" end="/$/" scheme="def:Comment" region="LineComment"/>
+      <inherit scheme="jsComments" />
+
+      <block start="/(\w+)\s*\=\s*(function)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
+        region01="FunctionDefine" region02="def:FunctionKeyword" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
 
       <block start="/^\s*(function)\s+(\w+)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
         region01="def:FunctionKeyword" region02="FunctionDefine" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
-
-      <block start="/(\()/" end="/(\))/" scheme="jsExt"
-        region00="def:PairStart" region01="def:Symbol"
-        region10="def:PairEnd" region11="def:Symbol"/>
-
-      <block start="/(\{)/" end="/(\})/" scheme="jsExt"
-        region00="def:PairStart" region01="def:Symbol"
-        region10="def:PairEnd" region11="def:Symbol"/>
-
-      <block start="/(\[)/" end="/(\])/" scheme="jsExt"
-        region00="def:PairStart" region01="def:Symbol"
-        region10="def:PairEnd" region11="def:Symbol"/>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="jsExt"
         region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
@@ -537,19 +532,17 @@
         <word name="return"/>
       </keywords>
 
-      <inherit scheme="jsExt">
-        <virtual scheme="jsExt" subst-scheme="jScript"/>
+      <inherit scheme="jScript">
+        <virtual scheme="jScript" subst-scheme="jsExt"/>
       </inherit>
 
       <regexp match='/\w/' region0="def:Symbol"/>
-
     </scheme>
 
     <scheme name="jsExtFunctionDefine">
       <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="jsExt" region01="FunctionParameter"/>
       <inherit scheme="pyExt"/>
     </scheme>
-
 
   </type>
 
@@ -573,7 +566,7 @@
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
       <block start="/ ((&lt;) \s* (script)\M\b \s* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
-        scheme="htmlExtjScript"
+        scheme="jsExt"
         region01="PairStrongStart" region10="PairStrongEnd"
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
@@ -587,11 +580,6 @@
       <block start="/~/" end="/[?%]?~1(&gt;)/" scheme="htmlCore" region11="htmlTagBr"/>
       <inherit scheme="glsl" />
       <inherit scheme="hlsl" />
-    </scheme>
-
-    <scheme name="htmlExtjScript">
-      <block start="/~/" end="/[?%]?~1(&gt;)/" scheme="htmlCore" region11="htmlTagBr"/>
-      <inherit scheme="jsExt" />
     </scheme>
 
   </type>
@@ -611,9 +599,12 @@
     <import type="textExt"/>
     <import type="pyExt"/>
     <import type="htmlExt"/>
+    <import type="jsExt"/>
+    <import type="cppExt"/>
     <import type="protobuf"/>
     <import type="shell"/>
     <import type="Batch"/>
+    <import type="jScript"/>
 
     <region name="Text" parent="def:Symbol"/>
 
@@ -635,10 +626,22 @@
         region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
         region10="def:PairEnd" region11="markdown:FenceMark"/>
 
+      <block start="/(```\s*(cpp|c))/" end="/(```)/" scheme="cppExt"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark" />
+
+      <block start="/(```\s*(js))/" end="/(```)/" scheme="jsExt"
+        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
+        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
+
       <inherit scheme="markdown">
         <virtual scheme="markdown" subst-scheme="mdExt"/>
       </inherit>
 
+    </scheme>
+
+    <scheme name="jsFix">
+      <inherit scheme="jsExt"/>
     </scheme>
 
   </type>

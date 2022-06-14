@@ -99,5 +99,12 @@
   <assign name="shell:symb" fore="#C"/>
 
   <assign name="css:DeprecatedPropertyName" fore="#6"/>
+  <assign name="css:TagName" fore="#A"/>
+  <assign name="css:PropertyName" fore="#B"/>
+  <assign name="css:PropertyValue" fore="#B"/>
+  <assign name="css:UnitSuffix" fore="#B"/>
+  <assign name="css:Symbol" fore="#A"/>
+
+  <assign name="html:htmlOpenTag" fore="#C"/>
 
 </hrd>
