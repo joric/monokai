@@ -571,6 +571,8 @@
         <virtual scheme="html" subst-scheme="htmlExt"/>
       </inherit>
 
+      <regexp match='/\w/' region0="def:Symbol"/>
+
     </scheme>
 
 
