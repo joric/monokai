@@ -554,8 +554,6 @@
 
     <scheme name="htmlExt">
 
-
-
       <block start="/ ((&lt;) \s* (script)\M\b \s* .*shader.* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
         scheme="htmlExtShaderScript"
         region01="PairStrongStart" region10="PairStrongEnd"
@@ -587,7 +585,8 @@
 
       region12="htmlTagBr"
       region13="htmlTagBr" region14="htmlCloseTag" region15="htmlTagBr"
-    />-->
+    />
+    -->
     </scheme>
 
     <scheme name="htmlExtPairInside">
@@ -597,6 +596,7 @@
       <regexp match="/&gt;/" region="htmlTagBr" />
       <inherit scheme="html" />
     </scheme>
+
 
     <scheme name="htmlExtShaderScript">
       <block start="/~/" end="/[?%]?~1(&gt;)/" scheme="htmlCore" region11="htmlTagBr"/>
