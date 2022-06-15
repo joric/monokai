@@ -80,8 +80,8 @@
 
   <assign name="def:PairStart" fore="#4"/>
   <assign name="def:PairEnd" fore="#4" />
-  <assign name="def:PairStrongStart" fore="#D" back="#0"/>
-  <assign name="def:PairStrongEnd" fore="#D" back="#0"/>
+  <assign name="def:PairStrongStart" fore="#4"/>
+  <assign name="def:PairStrongEnd" fore="#4"/>
 
   <assign name="def:Whitespace" fore="#6"/>
 

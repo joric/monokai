@@ -561,7 +561,7 @@
         region01="PairStrongStart" region10="PairStrongEnd"
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
-      <block start="/ ((&lt;) \s* (script)\M\b \s* &gt;?)/ix" end="/(&lt;\/(script)\&gt;)/ix"
+      <block start="/ ((&lt;) \s* (script) \s* &gt;)/ix" end="/(&lt;\/(script)\&gt;)/ix"
         scheme="jsExt"
         region01="PairStrongStart" region10="PairStrongEnd"
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
