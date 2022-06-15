@@ -628,22 +628,22 @@
     <import type="Batch"/>
     <import type="default"/>
 
-    <entity name="m" value="(?{m}(?:`{3,}|\~{3,}))"/>
-    <region name="m" parent="def:Comment"/>
     <region name="s" parent="def:PairStart"/>
     <region name="e" parent="def:PairEnd"/>
-    <region name="l" parent="def:Label"/>
+    <region name="Label" parent="def:Label"/>
+    <region name="Fence" parent="def:Comment"/>
+    <entity name="m" value="(?{Fence}(?:`{3,}|\~{3,}))"/>
 
     <scheme name="mdExt">
 
-      <block start="/(?{s}%m;\s*(?{l}(sh|bash)))/" end="/(?{e}(?{m}\y{m}))/" scheme="shell.in" />
-      <block start="/(?{s}%m;\s*(?{l}(bat|cmd)))/" end="/(?{e}(?{m}\y{m}))/" scheme="Batch" />
-      <block start="/(?{s}%m;\s*(?{l}(html)))/" end="/(?{e}(?{m}\y{m}))/" scheme="htmlExt" />
-      <block start="/(?{s}%m;\s*(?{l}(python)))/" end="/(?{e}(?{m}\y{m}))/" scheme="pyExt" />
-      <block start="/(?{s}%m;\s*(?{l}(cpp|c)))/" end="/(?{e}(?{m}\y{m}))/" scheme="cppExt" />
-      <block start="/(?{s}%m;\s*(?{l}(proto)))/" end="/(?{e}(?{m}\y{m}))/" scheme="protobuf" />
-      <block start="/(?{s}%m;\s*(?{l}(json|js)))/" end="/(?{e}(?{m}\y{m}))/" scheme="jsExt" content-priority="low"/>
-      <block start="/(?{s}%m;)/" end="/(?{e}(?{m}\y{m}))/" scheme="textExt"/>
+      <block start="/(?{s}%m;\s*(?{Label}(sh|bash)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="shell.in" />
+      <block start="/(?{s}%m;\s*(?{Label}(bat|cmd)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="Batch" />
+      <block start="/(?{s}%m;\s*(?{Label}(html)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="htmlExt" />
+      <block start="/(?{s}%m;\s*(?{Label}(python)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="pyExt" />
+      <block start="/(?{s}%m;\s*(?{Label}(cpp|c)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="cppExt" />
+      <block start="/(?{s}%m;\s*(?{Label}(proto)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="protobuf" />
+      <block start="/(?{s}%m;\s*(?{Label}(json|js)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="jsExt" content-priority="low"/>
+      <block start="/(?{s}%m;)/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
         <virtual scheme="markdown:Text" subst-scheme="mdExtText"/>
