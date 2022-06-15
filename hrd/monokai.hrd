@@ -12,7 +12,7 @@
   <assign name="def:NumberSuffix" fore="#3"/>
 
   <assign name="def:String" fore="#E"/>
-  <assign name="def:StringContent" fore="#4"/>
+  <assign name="def:StringContent" fore="#C"/>
   <assign name="def:StringEdge" fore="#E"/>
   <assign name="def:Character" fore="#E"/>
   <assign name="def:CharacterContent" fore="#C"/>
