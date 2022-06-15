@@ -12,9 +12,9 @@
   <assign name="def:NumberSuffix" fore="#04c0db"/>
 
   <assign name="def:String" fore="#f5ef74"/>
-  <assign name="def:StringContent" fore="#aa0000"/>
+  <assign name="def:StringContent" fore="#f92472"/>
   <assign name="def:StringEdge" fore="#f5ef74"/>
-  <assign name="def:Character" fore="#f92472"/>
+  <assign name="def:Character" fore="#f5ef74"/>
   <assign name="def:CharacterContent" fore="#f92472"/>
 
   <assign name="def:Comment" fore="#87836d"/>
@@ -67,7 +67,7 @@
   <assign name="def:Error" fore="#000000" back="#aa0000"/>
   <assign name="def:ErrorText" fore="#ac80ff"/>
 
-  <assign name="def:TODO" fore="#f92472" back="#87836d"/>
+  <assign name="def:TODO" fore="#f92472"/>
   <assign name="def:Debug" fore="#f92472" back="#87836d"/>
 
   <assign name="def:URI" fore="#80ff48"/>
@@ -80,8 +80,31 @@
 
   <assign name="def:PairStart" fore="#aa0000"/>
   <assign name="def:PairEnd" fore="#aa0000" />
-  <assign name="def:PairStrongStart" fore="#ac80ff" back="#000000"/>
-  <assign name="def:PairStrongEnd" fore="#ac80ff" back="#000000"/>
+  <assign name="def:PairStrongStart" fore="#aa0000"/>
+  <assign name="def:PairStrongEnd" fore="#aa0000"/>
 
-  <assign name="def:Whitespace" fore="#87836d" back="#282923"/>
+  <assign name="def:Whitespace" fore="#87836d"/>
+
+  <!-- language-specific -->
+
+  <assign name="markdown:Text" fore="#f8f8f2"/>
+  <assign name="markdown:Code" fore="#f8f8f2" />
+  <assign name="markdown:ListMark" fore="#ac80ff"/>
+  <assign name="markdown:ListText" fore="#f8f8f2"/>
+  <assign name="markdown:HeadMark" fore="#fd9622"/>
+  <assign name="markdown:HeadText" fore="#f8f8f2"/>
+  <assign name="markdown:FenceMark" fore="#f8f8f2"/>
+
+  <assign name="shell:command.sys" fore="#9be7ff"/>
+  <assign name="shell:symb" fore="#f92472"/>
+
+  <assign name="css:DeprecatedPropertyName" fore="#87836d"/>
+  <assign name="css:TagName" fore="#80ff48"/>
+  <assign name="css:PropertyName" fore="#9be7ff"/>
+  <assign name="css:PropertyValue" fore="#9be7ff"/>
+  <assign name="css:UnitSuffix" fore="#9be7ff"/>
+  <assign name="css:Symbol" fore="#80ff48"/>
+
+  <assign name="html:htmlOpenTag" fore="#f92472"/>
+
 </hrd>
