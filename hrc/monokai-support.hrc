@@ -626,40 +626,24 @@
     <import type="protobuf"/>
     <import type="shell"/>
     <import type="Batch"/>
+    <import type="default"/>
+
+    <entity name="m" value="(?{m}(?:`{3,}|\~{3,}))"/>
+    <region name="m" parent="def:Comment"/>
+    <region name="s" parent="def:PairStart"/>
+    <region name="e" parent="def:PairEnd"/>
+    <region name="l" parent="def:Label"/>
 
     <scheme name="mdExt">
 
-      <block start="/(```\s*(bash|sh))/" end="/(```)/" scheme="shell.in"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```\s*(bat|cmd))/" end="/(```)/" scheme="Batch"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```\s*(html))/" end="/(```)/" scheme="htmlExt"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```\s*(python))/" end="/(```)/" scheme="pyExt"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```\s*(cpp|c))/" end="/(```)/" scheme="cppExt"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```\s*(proto))/" end="/(```)/" scheme="protobuf"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```\s*(js))/" end="/(```)/" scheme="jsExt"
-        region00="def:PairStart" region01="markdown:FenceMark" region02="Label"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
-
-      <block start="/(```)/" end="/(```)/" scheme="textExt"
-        region00="def:PairStart" region01="markdown:FenceMark"
-        region10="def:PairEnd" region11="markdown:FenceMark" content-priority="low"/>
+      <block start="/(?{s}%m;\s*(?{l}(sh|bash)))/" end="/(?{e}(?{m}\y{m}))/" scheme="shell.in" />
+      <block start="/(?{s}%m;\s*(?{l}(bat|cmd)))/" end="/(?{e}(?{m}\y{m}))/" scheme="Batch" />
+      <block start="/(?{s}%m;\s*(?{l}(html)))/" end="/(?{e}(?{m}\y{m}))/" scheme="htmlExt" />
+      <block start="/(?{s}%m;\s*(?{l}(python)))/" end="/(?{e}(?{m}\y{m}))/" scheme="pyExt" />
+      <block start="/(?{s}%m;\s*(?{l}(cpp|c)))/" end="/(?{e}(?{m}\y{m}))/" scheme="cppExt" />
+      <block start="/(?{s}%m;\s*(?{l}(proto)))/" end="/(?{e}(?{m}\y{m}))/" scheme="protobuf" />
+      <block start="/(?{s}%m;\s*(?{l}(json|js)))/" end="/(?{e}(?{m}\y{m}))/" scheme="jsExt" content-priority="low"/>
+      <block start="/(?{s}%m;)/" end="/(?{e}(?{m}\y{m}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
         <virtual scheme="markdown:Text" subst-scheme="mdExtText"/>
@@ -669,11 +653,7 @@
     </scheme>
 
     <scheme name="mdExtText">
-      <regexp priority="low" region="inlineURL"><![CDATA[
-       /\b ((about|castanet|ftp|git|gopher|https?|javascript|news|nntp|sop|wais|wysiwyg)
-           \:\/\/  | (www|ftp|fido[0-9]*)\.)
-           [\[\]\@\%\:\+\w\.\/\~\?\-\*=_#&;]+\b\/?/ix]]>
-      </regexp>
+      <inherit scheme="default:NetURL" />
       <inherit scheme="markdown:Text" />
     </scheme>
 
