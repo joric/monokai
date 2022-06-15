@@ -615,10 +615,6 @@
 
   <type name="mdExt">
 
-    <region name="Label" parent="def:Label"/>
-    <region name="inlineURL" parent="def:URL"/>
-    <region name="listURL" parent="def:URI"/>
-
     <import type="markdown"/>
     <import type="textExt"/>
     <import type="pyExt"/>
@@ -655,7 +651,7 @@
     </scheme>
 
     <scheme name="mdExtText">
-      <inherit scheme="default:NetURL" />
+      <inherit scheme="def:NetURL" />
       <inherit scheme="markdown:Text" />
     </scheme>
 
