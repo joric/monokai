@@ -42,4 +42,5 @@ It uses inverted (RGB->BGR) `def:Text` colors and can't be redefined.
 You may download patched colorer with `def:Whitespace` support
 in the [releases](https://github.com/joric/colorer-schemes/releases) section.
 My schemes already support this feature.
+You don't really need it though, default whitespace color in 16-color mode looks fine.
 
