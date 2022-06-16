@@ -35,8 +35,6 @@ With conemu you can use monokai colors both in a console and in an RGB mode. Con
 
 It's also possible to adjust console colors in the Far Manager application shortcut.
 
-To apply color settings use `far /import far-colors.farconfig`.
-
 ## Whitespace
 
 Note that whitespace is buggy in the stock colorer.
