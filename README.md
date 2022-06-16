@@ -52,7 +52,7 @@ You don't really need it though, default whitespace color in 16-color mode looks
 * Python, C/C++, HTML, Proto, GLSL/HLSL (also in HTML tags), JSON, JavaScript, Markdown (fenced code blocks).
 
 Default text is light grey to support stock colorer whitespace color and be readable.
-It kind of supports all languages but you'd have to add monokai coloring scheme to make them look better.
+It kind of supports all Colorer languages but you'd have to add a lot of extra rules to match the original Monokai.
 Pull requests are welcome. 
 
 
