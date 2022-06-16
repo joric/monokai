@@ -88,7 +88,7 @@
   <!-- language-specific -->
 
   <assign name="markdown:Text" fore="#F"/>
-  <assign name="markdown:Code" fore="#F" />
+  <assign name="markdown:Code" fore="#E"/>
   <assign name="markdown:ListMark" fore="#D"/>
   <assign name="markdown:ListText" fore="#F"/>
   <assign name="markdown:HeadMark" fore="#5"/>
