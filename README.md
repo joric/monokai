@@ -37,10 +37,9 @@ It's also possible to adjust console colors in the Far Manager application short
 
 ## Whitespace
 
-Note that whitespace is buggy in the stock colorer.
-It uses inverted (RGB->BGR) `def:Text` colors and can't be redefined.
-You may download patched colorer with `def:Whitespace` support
-in the [releases](https://github.com/joric/colorer-schemes/releases) section.
+Note that whitespace color is buggy in the stock colorer in the RGB mode,
+it uses inverted (RGB->BGR) `def:Text` colors. You may download patched colorer
+with `def:Whitespace` support in the [releases](https://github.com/joric/colorer-schemes/releases) section.
 My schemes already support this feature.
 You don't really need it though, default whitespace color in 16-color mode looks fine.
 
