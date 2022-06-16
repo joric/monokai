@@ -30,12 +30,9 @@ tests = [
     [ ["a",""], [[0,1],[1,0]]],
 ]
 
-def z(v):
-    x = sorted(sorted(p) for p in v) if v else []
-    return x
-
+p = lambda v: sorted(sorted(p) for p in v) if v else []
 for t in tests:
     args, res = t[:-1], t[-1]
     out = getattr(Solution(), dir(Solution)[-1])(*args)
-    print('out "%.40s" expected "%.40s"' % (out, res), 'OK' if z(out)==z(res) else 'FAIL!')
+    print('out "%.40s" expected "%.40s"' % (out, res), 'OK' if p(out)==p(res) else 'FAIL!')
 
