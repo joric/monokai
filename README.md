@@ -39,6 +39,8 @@ With conemu you can use monokai colors both in a console and in an RGB mode. Def
 
 ![shortcut](misc/shortcut.png)
 
+* Alternatively, use Monokai-RGB TrueMod (conemu only). Use `misc/conemu_to_rgb.py` to export conemu colors.
+
 ## Whitespace
 
 Note that whitespace color is buggy in the stock colorer in the RGB mode,
