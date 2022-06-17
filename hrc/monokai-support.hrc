@@ -645,6 +645,7 @@
     <import type="shell"/>
     <import type="Batch"/>
     <import type="default"/>
+    <import type="diff"/>
 
     <region name="s" parent="def:PairStart"/>
     <region name="e" parent="def:PairEnd"/>
@@ -661,6 +662,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(cpp|c)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="cppExt" />
       <block start="/(?{s}%m;\s*(?{Label}(proto)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="protobuf" />
       <block start="/(?{s}%m;\s*(?{Label}(json|js)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="jsExt" content-priority="low"/>
+      <block start="/(?{s}%m;\s*(?{Label}(diff)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="diff" />
       <block start="/(?{s}%m;)/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
