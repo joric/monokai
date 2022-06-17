@@ -24,7 +24,7 @@ copy *.xml %FARHOME%\Plugins\FarColorer\base
 * Set "Users file of color styles" to `%FARHOME%\Plugins\FarColorer\base\catalog-user.xml`
 * Select "Monokai" in schemes.
 
-Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the files (or restart Far).
+Reload colorer: open text editor, then F11 - Far Colorer - Reload (or restart Far).
 
 ### Color settings
 

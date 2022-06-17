@@ -88,7 +88,7 @@
   <!-- language-specific -->
 
   <assign name="markdown:Text" fore="#f8f8f2"/>
-  <assign name="markdown:Code" fore="#f8f8f2" />
+  <assign name="markdown:Code" fore="#f5ef74"/>
   <assign name="markdown:ListMark" fore="#ac80ff"/>
   <assign name="markdown:ListText" fore="#f8f8f2"/>
   <assign name="markdown:HeadMark" fore="#fd9622"/>
