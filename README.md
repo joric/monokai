@@ -35,11 +35,11 @@ With conemu you can use monokai colors both in a console and in an RGB mode. Def
 
 ![conemu](misc/conemu.png)
 
-* Alternatively, adjust RGB values in the Far Manager application shortcut (but I'd rather use Conemu).
+* Alternatively, adjust RGB values in the Far Manager application shortcut (but I'd rather use 16-color Conemu).
 
 ![shortcut](misc/shortcut.png)
 
-* Alternatively, use Monokai-RGB TrueMod (conemu only). Use `misc/conemu_to_rgb.py` to export conemu colors.
+* Alternatively, use Monokai-RGB TrueMod (conemu only). Use `misc/conemu_to_rgb.py` to rebuild RGB scheme.
 
 ## Whitespace
 
@@ -56,5 +56,3 @@ You don't really need it though, default whitespace color in 16-color mode looks
 Default text is light grey to support stock colorer whitespace color and be readable.
 It kind of supports all Colorer languages but you'd have to add a lot of extra rules to match the original Monokai.
 Pull requests are welcome. 
-
-
