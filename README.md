@@ -30,12 +30,12 @@ Reload colorer with F11, Far Colorer, Reload in editor after editing/copying the
 
 With conemu you can use monokai colors both in a console and in an RGB mode. Default 16-color is recommended.
 
-* Use `Far.exe /import far-colors.farconfig` to import color settings
-* Copy/paste color section from `misc/conemu-colors.xml` to `conemu.xml` (you should try [Conemu](https://conemu.github.io/)).
+1. First, use `Far.exe /import far-colors.farconfig` to import color settings for the Far interface ("DN-like" colors).
+2. Copy/paste color section (RGB values) from `misc/conemu-colors.xml` to `conemu.xml` (you should try [Conemu](https://conemu.github.io/)).
 
 ![conemu](misc/conemu.png)
 
-* Alternatively, adjust console color setting in the Far Manager application shortcut (but I'd rather use Conemu).
+* Alternatively, adjust RGB values in the Far Manager application shortcut (but I'd rather use Conemu).
 
 ![shortcut](misc/shortcut.png)
 
