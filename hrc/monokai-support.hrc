@@ -635,6 +635,12 @@
 
   <type name="mdExt">
 
+    <region name="s" parent="def:PairStart"/>
+    <region name="e" parent="def:PairEnd"/>
+    <region name="Label" parent="def:Label"/>
+    <region name="Fence" parent="def:Label"/>
+    <entity name="m" value="(?{Fence}(?:`{3,}|\~{3,}))"/>
+
     <import type="markdown"/>
     <import type="textExt"/>
     <import type="pyExt"/>
@@ -646,12 +652,7 @@
     <import type="Batch"/>
     <import type="default"/>
     <import type="diff"/>
-
-    <region name="s" parent="def:PairStart"/>
-    <region name="e" parent="def:PairEnd"/>
-    <region name="Label" parent="def:Label"/>
-    <region name="Fence" parent="def:Text"/>
-    <entity name="m" value="(?{Fence}(?:`{3,}|\~{3,}))"/>
+    <import type="xml"/>
 
     <scheme name="mdExt">
 
@@ -663,6 +664,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(proto)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="protobuf" />
       <block start="/(?{s}%m;\s*(?{Label}(json|js)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="jsExt" content-priority="low"/>
       <block start="/(?{s}%m;\s*(?{Label}(diff)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="diff" />
+      <block start="/(?{s}%m;\s*(?{Label}(xml)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="xml" />
       <block start="/(?{s}%m;)/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
