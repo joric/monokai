@@ -650,7 +650,7 @@
     <region name="s" parent="def:PairStart"/>
     <region name="e" parent="def:PairEnd"/>
     <region name="Label" parent="def:Label"/>
-    <region name="Fence" parent="def:Comment"/>
+    <region name="Fence" parent="def:Text"/>
     <entity name="m" value="(?{Fence}(?:`{3,}|\~{3,}))"/>
 
     <scheme name="mdExt">
