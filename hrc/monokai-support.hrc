@@ -255,6 +255,7 @@
     <region name="ImportKeyword" parent="def:Directive"/>
     <region name="SelfKeyword" parent="def:ParameterStrong"/>
     <region name="StringEscape" parent="def:StringContent"/>
+    <region name="StringFormat" parent="def:BooleanConstant"/>
 
     <import type="python"/>
 
@@ -278,7 +279,7 @@
         region01="def:ClassKeyword" region02="ClassName"
         region10="def:Symbol"/>
 
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExt"
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExtArguments"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
@@ -323,8 +324,13 @@
         region00="def:PairStart" region01="def:Keyword" region="def:StringEdge"
         region10="def:PairEnd" />
 
+      <block start="/(r)(\')/" end="/\'/" scheme="pyExtRawString"
+        region00="def:PairStart" region01="def:Keyword" region="def:StringEdge"
+        region10="def:PairEnd" />
+
       <inherit scheme="python">
-        <virtual scheme="python:RawStringSingle" subst-scheme="pyExtString"/>
+        <virtual scheme="python:StringSingle" subst-scheme="pyExtString"/>
+        <virtual scheme="python:StringDouble" subst-scheme="pyExtString"/>
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
 
@@ -338,7 +344,15 @@
       <inherit scheme="python:StringSingle"/>
     </scheme>
 
+    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZ]|zu)'/>
+
     <scheme name="pyExtString">
+      <regexp match="/\%(%format;|\%)/" region="StringFormat"/>
+      <regexp match="/\\./" region="StringFormat" />
+      <inherit scheme="python:StringSingle"/>
+    </scheme>
+
+    <scheme name="pyExtRawString">
       <regexp match='/\\[^xX\d]/' region0="StringEscape"/>
       <regexp match='/\{[ \d\-\,]+\}/' region0="StringEscape"/>
       <regexp match='/\^/' region0="StringEscape"/>
@@ -347,6 +361,12 @@
 
     <scheme name="pyExtFunctionDefine">
       <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter"/>
+      <inherit scheme="pyExt"/>
+    </scheme>
+
+    <scheme name="pyExtArguments">
+      <block start="/\s*(\w+)\s*(\=)/" end="/\,|\)?=/" scheme="pyExt"
+        region01="FunctionParameter" region02="def:Operator"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
