@@ -360,7 +360,7 @@
     </scheme>
 
     <scheme name="pyExtFunctionDefine">
-      <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter"/>
+      <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter" region02="def:Symbol"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
