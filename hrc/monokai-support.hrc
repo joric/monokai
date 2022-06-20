@@ -423,6 +423,9 @@
         <word name="while"/>
         <word name="using"/>
         <word name="namespace"/>
+        <word name="switch"/>
+        <word name="case"/>
+        <word name="break"/>
       </keywords>
 
       <keywords region="def:Symbol">
