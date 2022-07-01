@@ -344,7 +344,7 @@
       <inherit scheme="python:StringSingle"/>
     </scheme>
 
-    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZ]|zu)'/>
+    <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZYmHM]|zu)'/>
 
     <scheme name="pyExtString">
       <regexp match="/\%(%format;|\%)/" region="StringFormat"/>
@@ -649,6 +649,147 @@
 
   </type>
 
+  <!-- json : in progress, need to highliht trailing comma as an error -->
+<!--
+  <prototype name="jsonExt" group="extras" description="JSON Extended (Monokai)">
+      <filename weight="5">/(\.json$)/i</filename>
+  </prototype>
+
+  <type name="jsonExt">
+
+    <import type="json"/>
+
+    <scheme name="jsonExt">
+
+      <block start="/(\{)/" end="/(\})/" scheme="jsonVars"/>
+
+      <inherit scheme="json">
+        <virtual scheme="json" subst-scheme="jsonExt"/>
+      </inherit>
+
+    </scheme>
+
+    <scheme name="jsonVars">
+
+      <regexp match='/\,$/' region0="def:Error"/>
+
+      <inherit scheme="json">
+        <virtual scheme="json" subst-scheme="jsonExt"/>
+      </inherit>
+
+    </scheme>
+
+  </type>
+ -->
+
+  <!-- go -->
+
+  <prototype name="goExt" group="extras" description="GO Extended (Monokai)">
+      <filename weight="5">/(\.go$)/i</filename>
+  </prototype>
+
+  <type name="goExt">
+
+    <region name="FunctionName" parent="def:Identifier"/>
+    <region name="FunctionCall" parent="def:Keyword"/>
+    <region name="FunctionParameter" parent="def:ParameterStrong"/>
+
+    <import type="go"/>
+
+    <scheme name="goExt">
+
+      <block start="/\/\//" end="/$/" region="def:Comment" scheme="goExtLineComment"/>
+
+      <keywords region="def:Operator">
+        <word name="import"/>
+        <word name="return"/>
+        <symb name="="/>
+        <symb name="-="/>
+        <symb name="+="/>
+        <symb name=":="/>
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="*"/>
+        <symb name="/"/>
+        <symb name="~"/>
+        <symb name="^"/>
+        <symb name="$"/>
+        <symb name="&amp;"/>
+      </keywords>
+
+      <keywords region="def:Keyword">
+        <word name="bool"/>
+        <word name="string"/>
+      </keywords>
+
+      <keywords region="def:BooleanConstant">
+        <word name="nil"/>
+        <word name="true"/>
+        <word name="false"/>
+      </keywords>
+
+      <regexp match='/(\.)(\w+)/' region1="def:Symbol" region2="def:Keyword"/>
+
+      <block start="/^\s*(package)\s+(\w+)/" end="/$/" scheme="goExt"
+        region01="def:Keyword" region02="def:Identifier" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(func)\s+(\([^\)]+\)\s*)?(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
+        region01="def:FunctionKeyword" region02="def:Symbol" region03="FunctionName" region04="def:Symbol" region05="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+<!--
+      <block start="/^\s*(func)\s+((\()(\w+)\s+([^\)]+)\s*(\))\s*)(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
+        region01="def:FunctionKeyword"
+        region02="def:PairStart"
+        region04="FunctionParameter"
+        region05="def:Keyword"
+        region06="def:PairEnd"
+        region07="FunctionName" region08="def:Symbol" region09="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(func)\s+(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
+        region01="def:FunctionKeyword" region02="FunctionName" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+-->
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="goExt"
+        region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\w+)\s*((\{))/" end="/(\})/" scheme="goExt"
+        region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <inherit scheme="go">
+        <virtual scheme="go:Expression" subst-scheme="goExtExpression"/>
+        <virtual scheme="go" subst-scheme="goExt"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="goExtLineComment">
+      <inherit scheme="def:Comment"/>
+    </scheme>
+
+    <scheme name="goExtFunctionDefine">
+      <block start="/\s*(\w+)(\:*)/" end="/\,|\)?=/" scheme="goExt" region01="FunctionParameter"/>
+      <inherit scheme="goExt"/>
+    </scheme>
+
+    <scheme name="goExtTypeDefine">
+      <inherit scheme="goExt"/>
+    </scheme>
+
+    <scheme name="goExtExpression">
+      <inherit scheme="go:Expression">
+        <virtual scheme="go:Expression" subst-scheme="goExt"/>
+      </inherit>
+    </scheme>
+
+  </type>
 
   <!-- markdown -->
 

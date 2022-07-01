@@ -94,6 +94,7 @@
   <assign name="markdown:HeadMark" fore="#5"/>
   <assign name="markdown:HeadText" fore="#F"/>
   <assign name="markdown:FenceMark" fore="#F"/>
+  <assign name="markdown:StrongText" fore="#F"/>
 
   <assign name="shell:command.sys" fore="#B"/>
   <assign name="shell:symb" fore="#C"/>
