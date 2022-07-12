@@ -296,6 +296,8 @@
         <word name="else"/>
         <word name="for"/>
         <word name="pass"/>
+        <word name="match"/>
+        <word name="case"/>
         <symb name=":="/>
         <symb name="="/>
       </keywords>
@@ -329,8 +331,12 @@
         region10="def:PairEnd" />
 
       <inherit scheme="python">
-        <virtual scheme="python:StringSingle" subst-scheme="pyExtString"/>
-        <virtual scheme="python:StringDouble" subst-scheme="pyExtString"/>
+        <virtual scheme="python:StringSingle" subst-scheme="pyExtStringSingle"/>
+        <virtual scheme="python" subst-scheme="pyExt"/>
+      </inherit>
+
+      <inherit scheme="python">
+        <virtual scheme="python:StringDouble" subst-scheme="pyExtStringDouble"/>
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
 
@@ -338,10 +344,16 @@
 
     </scheme>
 
-    <scheme name="pyExtFmtString">
+    <scheme name="pyExtFmtStringSingle">
       <regexp match='/\{[^\}]+(\:[^\}]+)\}/' region0="def:Symbol" region1="def:Number"/>
       <regexp match='/\{[^\}]+\}/' region0="def:Symbol"/>
       <inherit scheme="python:StringSingle"/>
+    </scheme>
+
+    <scheme name="pyExtFmtStringDouble">
+      <regexp match='/\{[^\}]+(\:[^\}]+)\}/' region0="def:Symbol" region1="def:Number"/>
+      <regexp match='/\{[^\}]+\}/' region0="def:Symbol"/>
+      <inherit scheme="python:StringDouble"/>
     </scheme>
 
     <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZYmHM]|zu)'/>
