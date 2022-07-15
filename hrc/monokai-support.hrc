@@ -321,7 +321,6 @@
         <symb name="`"/>
       </keywords>
 
-
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
         region00="def:PairStart" region01="def:Keyword" region="def:StringEdge"
         region10="def:PairEnd" />
@@ -330,12 +329,10 @@
         region00="def:PairStart" region01="def:Keyword" region="def:StringEdge"
         region10="def:PairEnd" />
 
-      <inherit scheme="python">
-        <virtual scheme="python:StringSingle" subst-scheme="pyExtStringSingle"/>
-        <virtual scheme="python" subst-scheme="pyExt"/>
-      </inherit>
+      <regexp match="/\b\d+([Ee][-+]?\d+)?([jJ])?(\w*)\b/" region0="pyNumber" region1="def:Number" region2="def:Keyword" />
 
       <inherit scheme="python">
+        <virtual scheme="python:StringSingle" subst-scheme="pyExtStringSingle"/>
         <virtual scheme="python:StringDouble" subst-scheme="pyExtStringDouble"/>
         <virtual scheme="python" subst-scheme="pyExt"/>
       </inherit>
@@ -829,6 +826,7 @@
     <import type="default"/>
     <import type="diff"/>
     <import type="xml"/>
+    <import type="sql"/>
 
     <scheme name="mdExt">
 
@@ -841,6 +839,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(json|js)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="jsExt" content-priority="low"/>
       <block start="/(?{s}%m;\s*(?{Label}(diff)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="diff" />
       <block start="/(?{s}%m;\s*(?{Label}(xml)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="xml" />
+      <block start="/(?{s}%m;\s*(?{Label}(sql)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="sql" />
       <block start="/(?{s}%m;)/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
