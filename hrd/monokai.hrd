@@ -108,4 +108,6 @@
 
   <assign name="html:htmlOpenTag" fore="#C"/>
 
+  <assign name="c:KeywordANSI" fore="#C"/>
+
 </hrd>
