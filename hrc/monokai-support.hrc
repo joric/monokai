@@ -444,10 +444,6 @@
 
     <scheme name="cppExt">
 
-      <block start="/^\s*(\w+)\s+(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
-        region01="def:FunctionKeyword" region02="def:Identifier" region03="def:Symbol" region04="def:PairStart"
-        region10="def:Symbol" region11="def:PairEnd"/>
-
       <block start="/^\s*(#define)\s+(\w+)/" end="/$/" scheme="cppExt"
         region01="def:Directive" region02="def:Identifier" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
@@ -456,10 +452,11 @@
         region01="def:Keyword" region02="def:Identifier" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <regexp match='/(\w+)(\s*\([^\)\"]*\)\s*\{)?=/' region1="def:Identifier"/>
+      <!--regexp match='/(\w+)(\s*\([^\)\"]*\)\s*\{)?=/' region1="def:Identifier"/-->
 
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
-        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+      <block start="/^\s*(\w+)\s+(\*)?(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
+        region01="def:FunctionKeyword" region02="def:Symbol" region03="def:Identifier"
+        region04="def:Symbol" region05="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
       <keywords region="def:Keyword">
@@ -501,6 +498,10 @@
         <word name='NULL'/>
         <word name='null'/>
       </keywords>
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
+        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
 
       <inherit scheme="cpp">
         <virtual scheme="c:Expression" subst-scheme="cppExtExpression"/>
