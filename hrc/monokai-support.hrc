@@ -730,6 +730,7 @@
     <scheme name="goExt">
 
       <block start="/\/\//" end="/$/" region="def:Comment" scheme="goExtLineComment"/>
+      <block start="/\/\*/" end="/\\\*/" region="def:Comment" scheme="goExtLineComment"/>
 
       <keywords region="def:Operator">
         <word name="import"/>
