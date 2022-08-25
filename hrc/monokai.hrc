@@ -124,7 +124,7 @@
 
   <!-- protobuf -->
 
-  <prototype name="protobuf" group="extras" description="Protocol Buffers (Monokai)">
+  <prototype name="protobuf" group="extras" description="Proto Extended (Monokai)">
     <filename weight="4">/\.proto$/i</filename>
   </prototype>
 
@@ -425,6 +425,33 @@
         <virtual scheme="text" subst-scheme="textExt"/>
       </inherit>
 
+    </scheme>
+
+  </type>
+
+  <!-- dockerfile -->
+
+  <prototype name="dfExt" group="extras" description="Dockerfile Extended (Monokai)">
+      <filename weight="5">/Dockerfile/ix</filename>
+  </prototype>
+
+  <type name="dfExt">
+
+    <import type="shell"/>
+    <scheme name="dfExt">
+
+      <keywords region="def:Keyword">
+        <word name="FROM"/>
+        <word name="ARG"/>
+        <word name="RUN"/>
+        <word name="ADD"/>
+        <word name="COPY"/>
+        <word name="CMD"/>
+      </keywords>
+
+      <inherit scheme="shell.in">
+        <virtual scheme="shell.in" subst-scheme="dfExt"/>
+      </inherit>
     </scheme>
 
   </type>
