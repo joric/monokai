@@ -458,6 +458,24 @@
 
   </type>
 
+  <!-- .env and other configs (add new extensions if needed) -->
+
+  <prototype name="confExt" group="extras" description="Configs Extended (Monokai)">
+      <filename weight="5">/\.env*/ix</filename>
+  </prototype>
+
+  <type name="confExt">
+
+    <import type="config"/>
+
+    <scheme name="confExt">
+      <inherit scheme="config">
+        <virtual scheme="config" subst-scheme="confExt"/>
+      </inherit>
+    </scheme>
+
+  </type>
+
   <!-- cpp -->
 
   <prototype name="cppExt" group="extras" description="CPP Extended (Monokai)">
