@@ -447,6 +447,8 @@
         <word name="ADD"/>
         <word name="COPY"/>
         <word name="CMD"/>
+        <word name="WORKDIR"/>
+        <word name="ENTRYPOINT"/>
       </keywords>
 
       <inherit scheme="shell.in">
