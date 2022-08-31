@@ -891,6 +891,7 @@
     <import type="htmlExt"/>
     <import type="jsExt"/>
     <import type="cppExt"/>
+    <import type="goExt"/>
     <import type="protobuf"/>
     <import type="shell"/>
     <import type="Batch"/>
@@ -906,6 +907,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(html)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="htmlExt" />
       <block start="/(?{s}%m;\s*(?{Label}(python)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="pyExt" />
       <block start="/(?{s}%m;\s*(?{Label}(cpp|c)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="cppExt" />
+      <block start="/(?{s}%m;\s*(?{Label}(go|golang)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="goExt"  content-priority="low"/>
       <block start="/(?{s}%m;\s*(?{Label}(proto)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="protobuf" />
       <block start="/(?{s}%m;\s*(?{Label}(json|js)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="jsExt" content-priority="low"/>
       <block start="/(?{s}%m;\s*(?{Label}(diff)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="diff" />
