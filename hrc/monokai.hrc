@@ -871,6 +871,19 @@
 
   </type>
 
+  <!-- graphwiz -->
+  <prototype name="gvExt" group="extras" description="Graphwiz Extended (Monokai)">
+      <filename weight="5">/\.(gv|dot)/ix</filename>
+  </prototype>
+  <type name="gvExt">
+    <import type="graphviz"/>
+    <scheme name="gvExt">
+      <inherit scheme="graphviz">
+        <virtual scheme="graphviz" subst-scheme="gvExt"/>
+      </inherit>
+    </scheme>
+  </type>
+
   <!-- markdown -->
 
   <prototype name="mdExt" group="extras" description="Markdown Extended (Monokai)">
