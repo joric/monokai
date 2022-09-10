@@ -283,7 +283,7 @@
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <keywords region= "SelfKeyword">
+      <keywords region="SelfKeyword">
         <word name="self"/>
       </keywords>
 
@@ -300,6 +300,7 @@
         <word name="case"/>
         <symb name=":="/>
         <symb name="="/>
+        <symb name="@"/>
       </keywords>
 
       <keywords region="ImportKeyword">
@@ -319,6 +320,10 @@
         <symb name=":"/>
         <symb name="."/>
         <symb name="`"/>
+      </keywords>
+
+      <keywords region="def:Keyword">
+        <word name="cache"/>
       </keywords>
 
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
