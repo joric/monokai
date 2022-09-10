@@ -360,10 +360,16 @@
 
     <entity name='format' value='[\-\+\#0\x20]*?[\d\*]*(?{}\.[\d\*]+)?(h|l|L|ll|I|I32|I64)?([SsCcsuidopxXnEefgGaAZYmHM]|zu)'/>
 
-    <scheme name="pyExtString">
+    <scheme name="pyExtStringSingle">
       <regexp match="/\%(%format;|\%)/" region="StringFormat"/>
-      <regexp match="/\\./" region="StringFormat" />
+      <regexp match="/\\./" region="StringFormat"/>
       <inherit scheme="python:StringSingle"/>
+    </scheme>
+
+    <scheme name="pyExtStringDouble">
+      <regexp match="/\%(%format;|\%)/" region="StringFormat"/>
+      <regexp match="/\\./" region="StringFormat"/>
+      <inherit scheme="python:StringDouble"/>
     </scheme>
 
     <scheme name="pyExtRawString">

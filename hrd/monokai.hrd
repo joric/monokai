@@ -107,5 +107,4 @@
   <assign name="css:Symbol" fore="#A"/>
 
   <assign name="html:htmlOpenTag" fore="#C"/>
-
 </hrd>
