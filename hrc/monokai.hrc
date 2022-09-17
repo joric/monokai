@@ -624,6 +624,10 @@
 
     <scheme name="jsExt">
 
+      <block start="/(`)/" end="/(`)/"
+        region00="def:Symbol" region01="def:PairStart" region="def:String"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
       <inherit scheme="jsComments" />
 
       <block start="/(\w+)\s*\=\s*(function)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
