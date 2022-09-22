@@ -263,7 +263,7 @@
 
       <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtLineComment"/>
 
-      <block start="/(?:(from)\s+(\w+)\s+)*(import)/" end="/(\s*(as)\s*)*$/" scheme="pyExtDirective"
+      <block start="/(?:(from)\s+(\w+)\s+)*(import)/" end="/(\s+(as)\s+)*$/" scheme="pyExtDirective"
         region01="def:Directive" region02="def:DirectiveContent" region03="def:Directive"
         region10="def:Directive" region12="def:Directive"/>
 
