@@ -279,6 +279,10 @@
         region01="def:ClassKeyword" region02="ClassName"
         region10="def:Symbol"/>
 
+      <keywords region="StrongKeyword">
+        <word name="return"/>
+      </keywords>
+
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExtArguments"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
@@ -291,7 +295,6 @@
         <word name="and"/>
         <word name="or"/>
         <word name="in"/>
-        <word name="return"/>
         <word name="if"/>
         <word name="else"/>
         <word name="for"/>
