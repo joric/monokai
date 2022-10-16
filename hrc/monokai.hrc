@@ -297,6 +297,7 @@
         <word name="in"/>
         <word name="if"/>
         <word name="else"/>
+        <word name="elif"/>
         <word name="for"/>
         <word name="pass"/>
         <word name="match"/>
