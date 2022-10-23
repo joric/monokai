@@ -283,6 +283,8 @@
         <word name="return"/>
         <word name="and"/>
         <word name="or"/>
+        <word name="not"/>
+        <word name="in"/>
       </keywords>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExtArguments"
@@ -294,7 +296,6 @@
       </keywords>
 
       <keywords region="StrongKeyword">
-        <word name="in"/>
         <word name="if"/>
         <word name="else"/>
         <word name="elif"/>
