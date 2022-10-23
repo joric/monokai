@@ -281,6 +281,8 @@
 
       <keywords region="StrongKeyword">
         <word name="return"/>
+        <word name="and"/>
+        <word name="or"/>
       </keywords>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="pyExtArguments"
@@ -292,8 +294,6 @@
       </keywords>
 
       <keywords region="StrongKeyword">
-        <word name="and"/>
-        <word name="or"/>
         <word name="in"/>
         <word name="if"/>
         <word name="else"/>
