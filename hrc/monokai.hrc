@@ -390,7 +390,7 @@
     </scheme>
 
     <scheme name="pyExtArguments">
-      <block start="/\s*(\w+)\s*(\=)/" end="/\,|\)?=/" scheme="pyExt"
+      <block start="/\s*(\w+)\s*(\=(?!\=))/" end="/\,|\)?=/" scheme="pyExt"
         region01="FunctionParameter" region02="def:Operator"/>
       <inherit scheme="pyExt"/>
     </scheme>
