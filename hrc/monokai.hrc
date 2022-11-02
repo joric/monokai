@@ -417,7 +417,7 @@
         <word name="python"/>
         <word name="python3"/>
       </keywords>
-      <inherit scheme="def:Comment"/>
+      <!--inherit scheme="def:Comment"/--> <!-- highlighs URLs -->
     </scheme>
 
   </type>
@@ -517,9 +517,16 @@
 
       <!--regexp match='/(\w+)(\s*\([^\)\"]*\)\s*\{)?=/' region1="def:Identifier"/-->
 
+      <regexp match='/^\s*(struct|class)\s*(\w+)\s*/' region1="def:Symbol" region2="def:Identifier"/>
+
       <block start="/^\s*(\w+)\s+(\*)?(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
         region01="def:FunctionKeyword" region02="def:Symbol" region03="def:Identifier"
         region04="def:Symbol" region05="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(\w+)\s+(\w+)\s*(\:\:)\s*(\w+)\s*((\())/" end="/(\))/" scheme="cppExt"
+        region01="def:FunctionKeyword" region02="def:Symbol" region03="def:Symbol" region04="def:Identifier"
+        region05="def:Symbol" region06="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
       <keywords region="def:Keyword">
