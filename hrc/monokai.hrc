@@ -267,13 +267,13 @@
         region01="def:Directive" region02="def:DirectiveContent" region03="def:Directive"
         region10="def:Directive" region12="def:Directive"/>
 
-      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtLambda"
-        region01="def:Keyword"
-        region10="def:Symbol"/>
-
       <block start="/^\s*(def)\s+(\w+)\s*((\())/" end="/(\))/" scheme="pyExtFunctionDefine"
         region01="def:FunctionKeyword" region02="FunctionName" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(lambda)\s+/" end="/(\:)/" scheme="pyExtLambdaDefine"
+        region01="def:Keyword"
+        region10="def:Symbol"/>
 
       <block start="/^\s*(class)\s+(\w+)/" end="/(\:)/" scheme="pyExt"
         region01="def:ClassKeyword" region02="ClassName"
@@ -330,6 +330,7 @@
       <keywords region="def:Keyword">
         <word name="cache"/>
         <word name="__getitem__"/>
+        <word name="next"/>
       </keywords>
 
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
@@ -391,12 +392,13 @@
     </scheme>
 
     <scheme name="pyExtArguments">
-      <block start="/\s*(\w+)\s*(\=(?!\=))/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter" region02="def:Operator"/>
+      <block start="/\s*(\w+)\s*(\=(?!\=))/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter"
+        region02="def:Operator"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
-    <scheme name="pyExtLambda">
-      <regexp match='/\w+/' region0="FunctionParameter"/>
+    <scheme name="pyExtLambdaDefine">
+      <block start="/\s*(\w+)\s*/" end="/\,|\:?=/" scheme="pyExt" region01="FunctionParameter"/>
       <inherit scheme="pyExt"/>
     </scheme>
 
