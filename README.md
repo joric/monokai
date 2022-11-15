@@ -1,4 +1,4 @@
-# Colorer Schemes
+# Monokai
 
 Monokai-like Far Manager color schemes
 
