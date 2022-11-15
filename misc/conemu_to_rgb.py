@@ -12,7 +12,7 @@ try:
     if elem:
         open(colors_filename,'wb').write(ET.tostring(elem))
 except:
-    print('Scheme not found, converting existing file...')
+    print('Scheme not found, converting', colors_filename, '...')
 
 c={}
 for s in open(colors_filename).read().splitlines():
