@@ -6,10 +6,13 @@ import xml.etree.ElementTree as ET
 
 colors_filename = "./conemu-colors.xml"
 
-tree = ET.parse(os.environ['FARHOME'] + '\\ConEmu.xml')
-elem = tree.getroot().find("./key/key/key/key/value/[@data='Joric Monokai']/..")
-if elem:
-    open(colors_filename,'wb').write(ET.tostring(elem))
+try:
+    tree = ET.parse(os.environ['FARHOME'] + '\\ConEmu.xml')
+    elem = tree.getroot().find("./key/key/key/key/value/[@data='Joric Monokai']/..")
+    if elem:
+        open(colors_filename,'wb').write(ET.tostring(elem))
+except:
+    print('Scheme not found, converting existing file...')
 
 c={}
 for s in open(colors_filename).read().splitlines():
