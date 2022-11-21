@@ -4,6 +4,13 @@ Monokai-like Far Manager color schemes
 
 ![python](misc/solution.png)
 
+## Disclaimer
+
+This is not just a color scheme (`monokai.hrd`). It's also syntax rules (`monokai.hrc`) that support the color scheme
+(default Far syntax rules kind of suck and do not comply with Monokai highlighting).
+There's no sense in using just the color scheme without custom rules and you can't really switch them off
+in settings so you would be pretty much stuck with Monokai. Just sayin'.
+
 ## Installation
 
 ### HRC
