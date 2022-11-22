@@ -1,6 +1,6 @@
 # Monokai
 
-Monokai-like Far Manager color schemes
+Monokai-like color schemes and syntax definitions for the FAR Manager
 
 ![python](misc/solution.png)
 
