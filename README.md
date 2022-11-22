@@ -6,10 +6,10 @@ Monokai-like Far Manager color schemes
 
 ## Disclaimer
 
-This is not just a color scheme (`monokai.hrd`). It's also syntax rules (`monokai.hrc`) that support the color scheme
-(default Far syntax rules kind of suck and do not comply with Monokai highlighting).
-There's no sense in using just the color scheme without custom rules and you can't really switch them off
-in settings so you would be pretty much stuck with Monokai. Just sayin'.
+This is not just a color scheme, it's also syntax rules.
+Default language syntax rules do not fully support Monokai color definitions.
+There's no much sense in using just the color scheme (`monokai.hrd`) without custom rules (`monokai.hrc`),
+it won't work as intended. Also you can't switch them off in settings so you'd have to use Monokai everywhere.
 
 ## Installation
 
