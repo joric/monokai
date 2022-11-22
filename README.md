@@ -8,8 +8,8 @@ Monokai-like color schemes and syntax definitions for the FAR Manager
 
 This is not just a color scheme, it's also syntax rules.
 Default Far syntax rules do not fully support Monokai color definitions so I had to extend them.
-There's no sense in using the color scheme (`monokai.hrd`) without custom syntax (`monokai.hrc`),
-it won't work. Also you can't switch them off in settings so you'd have to use Monokai everywhere.
+There's no sense in using just the color scheme (`monokai.hrd`) without syntax definitions (`monokai.hrc`).
+Also you can't switch them off in settings so you'd have to use Monokai everywhere.
 
 ## Installation
 
