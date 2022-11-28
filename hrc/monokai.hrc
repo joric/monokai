@@ -662,6 +662,9 @@
 
       <keywords region="Operator">
         <symb name="="/>
+        <symb name="=="/>
+        <symb name="==="/>
+        <symb name="!="/>
         <symb name="-="/>
         <symb name="+="/>
         <symb name=":="/>
