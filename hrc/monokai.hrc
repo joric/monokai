@@ -509,19 +509,6 @@
 
     <scheme name="cppExt">
 
-      <keywords region="def:Keyword">
-        <word name="int8_t"/>
-        <word name="int16_t"/>
-        <word name="int32_t"/>
-        <word name="int64_t"/>
-        <word name="uint8_t"/>
-        <word name="uint16_t"/>
-        <word name="uint32_t"/>
-        <word name="uint64_t"/>
-        <word name="void"/>
-      </keywords>
-
-
       <block start="/^\s*(#define)\s+(\w+)/" end="/$/" scheme="cppExt"
         region01="def:Directive" region02="def:Identifier" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
@@ -543,6 +530,18 @@
         region01="def:FunctionKeyword" region02="def:Symbol" region03="def:Symbol" region04="def:Identifier"
         region05="def:Symbol" region06="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
+
+      <keywords region="def:Keyword">
+        <word name="int8_t"/>
+        <word name="int16_t"/>
+        <word name="int32_t"/>
+        <word name="int64_t"/>
+        <word name="uint8_t"/>
+        <word name="uint16_t"/>
+        <word name="uint32_t"/>
+        <word name="uint64_t"/>
+        <word name="void"/>
+      </keywords>
 
       <keywords region="def:Operator">
         <word name="return"/>
