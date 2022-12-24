@@ -541,6 +541,7 @@
         <word name="uint32_t"/>
         <word name="uint64_t"/>
         <word name="void"/>
+        <word name="size_t"/>
       </keywords>
 
       <keywords region="def:Operator">
