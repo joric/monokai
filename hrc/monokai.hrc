@@ -939,6 +939,13 @@
       <keywords region="def:Keyword">
         <word name="TIMESTAMP"/>
         <word name="BOOL"/>
+        <word name="NUMERIC"/>
+        <word name="DATE"/>
+        <word name="STRING"/>
+        <word name="INT32"/>
+        <word name="INT64"/>
+        <word name="BYTES"/>
+        <word name="JSON"/>
       </keywords>
       <keywords region="def:Number">
         <word name="NULL"/>
