@@ -933,9 +933,10 @@
     <import type="sql"/>
     <scheme name="sqlExt">
       <regexp match='/^\s*(CREATE\s+TABLE)\s+(\w+)/' region1="def:KeywordStrong" region2="def:Identifier"/>
-
       <regexp match='/(ON)\s+(\w+)\s+(\()?=/' region1="def:KeywordStrong" region2="def:Identifier"/>
-
+      <keywords region="def:KeywordStrong">
+        <word name="OPTIONS"/>
+      </keywords>
       <keywords region="def:Keyword">
         <word name="TIMESTAMP"/>
         <word name="BOOL"/>
