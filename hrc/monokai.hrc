@@ -936,6 +936,7 @@
       <regexp match='/(ON)\s+(\w+)\s+(\()?=/' region1="def:KeywordStrong" region2="def:Identifier"/>
       <keywords region="def:KeywordStrong">
         <word name="OPTIONS"/>
+        <word name="INTERLEAVE"/>
       </keywords>
       <keywords region="def:Keyword">
         <word name="TIMESTAMP"/>
