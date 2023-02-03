@@ -107,4 +107,6 @@
   <assign name="css:Symbol" fore="#A"/>
 
   <assign name="html:htmlOpenTag" fore="#C"/>
+
+  <assign name="sql:tsqlWord" fore="#C"/>
 </hrd>

@@ -923,6 +923,38 @@
     </scheme>
   </type>
 
+  <!-- sql -->
+
+  <prototype name="sqlExt" group="extras" description="SQL Extended (Monokai)">
+      <filename weight="5">/\.sql*/ix</filename>
+  </prototype>
+
+  <type name="sqlExt">
+    <import type="sql"/>
+    <scheme name="sqlExt">
+      <regexp match='/^\s*(CREATE\s+TABLE)\s+(\w+)/' region1="def:KeywordStrong" region2="def:Identifier"/>
+
+      <regexp match='/(ON)\s+(\w+)\s+(\()?=/' region1="def:KeywordStrong" region2="def:Identifier"/>
+
+      <keywords region="def:Keyword">
+        <word name="TIMESTAMP"/>
+        <word name="BOOL"/>
+      </keywords>
+      <keywords region="def:Number">
+        <word name="NULL"/>
+        <word name="true"/>
+        <word name="false"/>
+      </keywords>
+      <keywords region="def:Operator">
+        <symb name="="/>
+      </keywords>
+      <inherit scheme="sql">
+        <virtual scheme="sql" subst-scheme="sqlExt"/>
+      </inherit>
+      <regexp match='/\w/' region0="def:Symbol"/>
+    </scheme>
+  </type>
+
   <!-- markdown -->
 
   <prototype name="mdExt" group="extras" description="Markdown Extended (Monokai)">
