@@ -940,6 +940,7 @@
       </keywords>
       <keywords region="def:Keyword">
         <word name="TIMESTAMP"/>
+        <word name="CURRENT_TIMESTAMP"/>
         <word name="BOOL"/>
         <word name="NUMERIC"/>
         <word name="DATE"/>
@@ -948,6 +949,7 @@
         <word name="INT64"/>
         <word name="BYTES"/>
         <word name="JSON"/>
+        <word name="FLOAT64"/>
       </keywords>
       <keywords region="def:Number">
         <word name="NULL"/>
