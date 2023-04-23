@@ -427,7 +427,7 @@
   <!-- text -->
 
   <prototype name="textExt" group="extras" description="Plain text Extended (Monokai)">
-      <filename weight="5">/(\.txt$|\.rus|\.nfo|\.log|.*install.*|.*ChangeLog.*|AUTHORS|COPYING|FAQ|LICENSE|TODO$)/i</filename>
+      <filename weight="5">/(\.txt$|\.rus|\.nfo|\.log|.*ChangeLog.*|AUTHORS|COPYING|FAQ|LICENSE|TODO$)/i</filename>
       <filename weight="5">/\.spo/ix</filename>
   </prototype>
 
