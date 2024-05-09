@@ -333,6 +333,8 @@
         <word name="next"/>
       </keywords>
 
+      <block start="/\'\'\'/" end="/\'\'\'/" region="def:Comment" scheme="pyExtLineComment"/>
+
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
         region00="def:PairStart" region01="def:Keyword" region="def:StringEdge"
         region10="def:PairEnd" />
