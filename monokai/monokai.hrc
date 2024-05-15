@@ -688,6 +688,10 @@
         <word name="return"/>
       </keywords>
 
+      <keywords region="def:Keyword">
+        <word name="click"/>
+      </keywords>
+
       <inherit scheme="jScript">
         <virtual scheme="jScript" subst-scheme="jsExt"/>
       </inherit>
