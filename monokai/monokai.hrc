@@ -261,6 +261,8 @@
 
     <scheme name="pyExt">
 
+      <block start="/(u?(?{Delim}&apos;{3}|&quot;{3}))/i" end="/(\y{Delim})/" region="def:Comment" scheme="pyExtLineComment"/>
+
       <block start="/#/" end="/$/" region="def:Comment" scheme="pyExtLineComment"/>
 
       <block start="/(?:(from)\s+(\w+)\s+)*(import\s+)/" end="/(\s+(as)\s+)*$/" scheme="pyExtDirective"
@@ -332,8 +334,6 @@
         <word name="__getitem__"/>
         <word name="next"/>
       </keywords>
-
-      <block start="/\'\'\'/" end="/\'\'\'/" region="def:Comment" scheme="pyExtLineComment"/>
 
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
         region00="def:PairStart" region01="def:Keyword" region="def:StringEdge"
