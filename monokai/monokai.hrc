@@ -308,6 +308,8 @@
         <symb name=":="/>
         <symb name="="/>
         <symb name="@"/>
+        <symb name="and_"/>
+        <symb name="or_"/>
       </keywords>
 
       <keywords region="ImportKeyword">
