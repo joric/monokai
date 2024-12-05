@@ -974,6 +974,32 @@
     </scheme>
   </type>
 
+  <!-- iniExt -->
+  <prototype name="iniExt" group="extras" description="INI Extended (Monokai)">
+    <filename weight="5">/iniExt/ix</filename>
+  </prototype>
+  <type name="iniExt">
+    <scheme name="iniExt">
+      <block start="/^\[/" end="/\]$/" scheme="iniExt"
+        region00="def:PairStart" region="def:Tag" region10="def:PairEnd" />
+      <block start="/\s*([^\s]+)\s*(\=)/" end="/$/" scheme="iniParam"
+        region01="def:Keyword"
+        region02="def:Symbol"
+        />
+      <block start="/\;/" end="/$/" region="def:Comment" scheme="iniExt"/>
+    </scheme>
+    <scheme name="iniParam">
+      <keywords region="def:BooleanConstant">
+        <word name='True'/>
+        <word name='False'/>
+      </keywords>
+      <regexp match='/\d+/' region0="def:Number"/>
+      <regexp match='/\w/' region0="def:String"/>
+      <block start="/\;/" end="/$/" region="def:Comment" scheme="iniExt"/>
+    </scheme>
+  </type>
+
+
   <!-- markdown -->
 
   <prototype name="mdExt" group="extras" description="Markdown Extended (Monokai)">
@@ -1002,6 +1028,7 @@
     <import type="diff"/>
     <import type="xml"/>
     <import type="sql"/>
+    <import type="iniExt"/>
 
     <scheme name="mdExt">
 
@@ -1016,6 +1043,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(diff)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="diff" />
       <block start="/(?{s}%m;\s*(?{Label}(xml)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="xml" />
       <block start="/(?{s}%m;\s*(?{Label}(sql)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="sql" />
+      <block start="/(?{s}%m;\s*(?{Label}(ini)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="iniExt" />
       <block start="/(?{s}%m;)/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
