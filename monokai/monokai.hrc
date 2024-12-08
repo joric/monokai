@@ -1002,7 +1002,8 @@
         <word name='False'/>
       </keywords>
       <regexp match='/[\.\d]/' region0="def:Number"/>
-      <regexp match='/\w+/' region0="def:String"/>
+      <regexp match='/\"\w+\"/' region0="def:String"/>
+      <regexp match='/\w+/' region0="def:Symbol"/>
       <inherit scheme="iniExt"/>
     </scheme>
 
