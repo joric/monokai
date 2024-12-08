@@ -992,7 +992,7 @@
 
       <block start="/^\s*([^\s]+)\s*(\=)/" end="/$/" scheme="iniParam"
         region01="def:Keyword"
-        region02="def:Operator"
+        region02="def:Symbol"
         region="def:Symbol"
         />
     </scheme>
