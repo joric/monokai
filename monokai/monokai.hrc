@@ -1040,6 +1040,7 @@
     <import type="xml"/>
     <import type="sql"/>
     <import type="iniExt"/>
+    <import type="css"/>
 
     <scheme name="mdExt">
 
@@ -1047,7 +1048,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(bat|cmd)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="Batch" />
       <block start="/(?{s}%m;\s*(?{Label}(html)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="htmlExt" />
       <block start="/(?{s}%m;\s*(?{Label}(python)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="pyExt" />
-      <block start="/(?{s}%m;\s*(?{Label}(cpp|c)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="cppExt" />
+      <block start="/(?{s}%m;\s*(?{Label}(cpp|c$)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="cppExt" />
       <block start="/(?{s}%m;\s*(?{Label}(go|golang)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="goExt"  content-priority="low"/>
       <block start="/(?{s}%m;\s*(?{Label}(proto)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="protobuf" />
       <block start="/(?{s}%m;\s*(?{Label}(json|js)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="jsExt" content-priority="low"/>
@@ -1055,6 +1056,7 @@
       <block start="/(?{s}%m;\s*(?{Label}(xml)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="xml" />
       <block start="/(?{s}%m;\s*(?{Label}(sql)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="sql" />
       <block start="/(?{s}%m;\s*(?{Label}(ini)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="iniExt" />
+      <block start="/(?{s}%m;\s*(?{Label}(css)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="css" />
       <block start="/(?{s}%m;)/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="textExt"/>
 
       <inherit scheme="markdown">
