@@ -11,7 +11,7 @@
   <!-- glsl -->
 
   <prototype name="glsl" group="extras" description="GLSL (Monokai)">
-    <filename weight="5">/\.glsl$/i</filename>
+    <filename weight="5">/\.(glsl|shader)$/i</filename>
   </prototype>
 
   <type name="glsl">
