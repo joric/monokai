@@ -708,6 +708,40 @@
 
   </type>
 
+  <!-- css -->
+
+  <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
+      <filename weight="5">/\.css/i</filename>
+  </prototype>
+
+  <type name="cssExt">
+    <import type="css"/>
+    <scheme name="cssExt">
+
+      <inherit scheme="css">
+        <virtual scheme="css:RuleContent" subst-scheme="cssExtRuleContent"/>
+        <virtual scheme="css" subst-scheme="cssExt"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="cssExtRuleContent">
+
+      <keywords region="def:Keyword">
+        <word name="justify-content"/>
+        <word name="all"/>
+        <word name="gap"/>
+        <word name="flex-direction"/>
+        <word name="unset"/>
+      </keywords>
+
+      <inherit scheme="css:RuleContent"/>
+    </scheme>
+
+  </type>
+
   <!-- html (supports embedded types) -->
 
   <prototype name="htmlExt" group="extras" description="HTML Extended (Monokai)">
@@ -1013,40 +1047,6 @@
       <regexp match='/\"\w+\"/' region0="def:String"/>
       <regexp match='/\w+/' region0="def:String"/>
       <inherit scheme="iniExt"/>
-    </scheme>
-
-  </type>
-
-  <!-- css -->
-
-  <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
-      <filename weight="5">/\.css/i</filename>
-  </prototype>
-
-  <type name="cssExt">
-    <import type="css"/>
-    <scheme name="cssExt">
-
-      <inherit scheme="css">
-        <virtual scheme="css:RuleContent" subst-scheme="cssExtRuleContent"/>
-        <virtual scheme="css" subst-scheme="cssExt"/>
-      </inherit>
-
-      <regexp match='/\w/' region0="def:Symbol"/>
-
-    </scheme>
-
-    <scheme name="cssExtRuleContent">
-
-      <keywords region="def:Keyword">
-        <word name="justify-content"/>
-        <word name="all"/>
-        <word name="gap"/>
-        <word name="flex-direction"/>
-        <word name="unset"/>
-      </keywords>
-
-      <inherit scheme="css:RuleContent"/>
     </scheme>
 
   </type>
