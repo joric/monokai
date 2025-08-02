@@ -719,6 +719,7 @@
     <import type="glsl"/>
     <import type="hlsl"/>
     <import type="jsExt"/>
+    <import type="cssExt"/>
 
     <scheme name="htmlExt">
 
@@ -731,6 +732,12 @@
         scheme="jsExt"
         region01="PairStrongStart" region10="PairStrongEnd"
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
+
+      <block start="/ ((&lt;) \s* (style) \s* &gt;)/ix" end="/(&lt;\/(style)\&gt;)/ix"
+        scheme="cssExt"
+        region01="PairStrongStart" region10="PairStrongEnd"
+        region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
+
 
       <inherit scheme="html">
         <virtual scheme="html:htmlPairs" subst-scheme="htmlExtPairs"/>
@@ -1010,6 +1017,39 @@
 
   </type>
 
+  <!-- css -->
+
+  <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
+      <filename weight="5">/\.css/i</filename>
+  </prototype>
+
+  <type name="cssExt">
+    <import type="css"/>
+    <scheme name="cssExt">
+
+      <inherit scheme="css">
+        <virtual scheme="css:RuleContent" subst-scheme="cssExtRuleContent"/>
+        <virtual scheme="css" subst-scheme="cssExt"/>
+      </inherit>
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="cssExtRuleContent">
+
+      <keywords region="def:Keyword">
+        <word name="justify-content"/>
+        <word name="all"/>
+        <word name="gap"/>
+        <word name="flex-direction"/>
+        <word name="unset"/>
+      </keywords>
+
+      <inherit scheme="css:RuleContent"/>
+    </scheme>
+
+  </type>
 
   <!-- markdown -->
 
@@ -1040,7 +1080,7 @@
     <import type="xml"/>
     <import type="sql"/>
     <import type="iniExt"/>
-    <import type="css"/>
+    <import type="cssExt"/>
 
     <scheme name="mdExt">
 
