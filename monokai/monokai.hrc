@@ -733,6 +733,7 @@
         <word name="justify-content"/>
         <word name="all"/>
         <word name="gap"/>
+        <word name="flex"/>
         <word name="flex-direction"/>
         <word name="unset"/>
       </keywords>
