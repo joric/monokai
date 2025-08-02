@@ -720,11 +720,19 @@
 
       <inherit scheme="css">
         <virtual scheme="css:RuleContent" subst-scheme="cssExtRuleContent"/>
+        <virtual scheme="css:PseudoClass" subst-scheme="cssExtPseudoClass"/>
         <virtual scheme="css" subst-scheme="cssExt"/>
       </inherit>
 
       <regexp match='/\w/' region0="def:Symbol"/>
 
+    </scheme>
+
+    <scheme name="cssExtPseudoClass">
+      <keywords region="def:Keyword">
+        <word name="focus-within"/>
+      </keywords>
+      <inherit scheme="css:PseudoClass"/>
     </scheme>
 
     <scheme name="cssExtRuleContent">
