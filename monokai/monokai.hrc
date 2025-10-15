@@ -1024,6 +1024,37 @@
     </scheme>
   </type>
 
+  <!-- lua -->
+
+  <prototype name="luaExt" group="extras" description="Lua Extended (Monokai)">
+      <filename weight="5">/\.lua*/ix</filename>
+  </prototype>
+
+  <type name="luaExt">
+    <import type="lua"/>
+
+    <scheme name="luaExt">
+
+      <inherit scheme="lua">
+        <virtual scheme="lua:LuaBody" subst-scheme="luaExtBody"/>
+        <virtual scheme="lua" subst-scheme="luaExt"/>
+      </inherit>
+
+    </scheme>
+
+    <scheme name="luaExtBody">
+      <keywords region="def:Text">
+        <word name="class"/>
+      </keywords>
+
+      <inherit scheme="lua:LuaBody">
+        <virtual scheme="lua:LuaBody" subst-scheme="luaExtBody"/>
+      </inherit>
+    </scheme>
+
+  </type>
+
+
   <!-- ini -->
 
   <prototype name="iniExt" group="extras" description="INI Extended (Monokai)">
