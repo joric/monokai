@@ -1043,6 +1043,11 @@
     </scheme>
 
     <scheme name="luaExtBody">
+
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="luaExtArguments2"
+        region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
       <keywords region="def:Text">
         <word name="class"/>
         <word name="self"/>
@@ -1052,10 +1057,18 @@
         <word name="local"/>
       </keywords>
 
+      <keywords region="def:Operator">
+        <symb name="="/>
+      </keywords>
 
       <inherit scheme="lua:LuaBody">
         <virtual scheme="lua:LuaBody" subst-scheme="luaExtBody"/>
+        <virtual scheme="lua" subst-scheme="luaExt"/>
       </inherit>
+    </scheme>
+
+    <scheme name="luaExtArguments">
+      <inherit scheme="luaExt"/>
     </scheme>
 
   </type>
