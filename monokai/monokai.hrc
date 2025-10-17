@@ -1044,7 +1044,7 @@
 
     <scheme name="luaExtBody">
 
-      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="luaExtArguments2"
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="luaExtArguments"
         region01="def:Keyword" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
@@ -1059,6 +1059,7 @@
 
       <keywords region="def:Operator">
         <symb name="="/>
+        <word name="end"/>
       </keywords>
 
       <inherit scheme="lua:LuaBody">
@@ -1068,7 +1069,9 @@
     </scheme>
 
     <scheme name="luaExtArguments">
-      <inherit scheme="luaExt"/>
+      <block start="/\s*(\w+)\s*(\=(?!\=))/" end="/\,|\)?=/" scheme="pyExt" region01="FunctionParameter"
+        region02="def:Operator"/>
+      <inherit scheme="luaExtBody"/>
     </scheme>
 
   </type>
