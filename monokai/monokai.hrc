@@ -1045,7 +1045,13 @@
     <scheme name="luaExtBody">
       <keywords region="def:Text">
         <word name="class"/>
+        <word name="self"/>
       </keywords>
+
+      <keywords region="def:Keyword">
+        <word name="local"/>
+      </keywords>
+
 
       <inherit scheme="lua:LuaBody">
         <virtual scheme="lua:LuaBody" subst-scheme="luaExtBody"/>
