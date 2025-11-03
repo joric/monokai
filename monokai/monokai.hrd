@@ -43,7 +43,7 @@
   <assign name="def:Function" fore="#B" />
   <assign name="def:Register" fore="#C"/>
   <assign name="def:Constant" fore="#D"/>
-  <assign name="def:Var" fore="#F"/>
+  <assign name="def:Var" fore="#E"/> <!--yellow, because json:Key doesn't work-->
   <assign name="def:VarStrong" fore="#E"/>
   <assign name="def:Identifier" fore="#A"/>
   <assign name="def:BooleanConstant" fore="#D"/>

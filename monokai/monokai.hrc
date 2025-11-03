@@ -825,7 +825,6 @@
   </type>
 
   <!-- json : in progress, need to highliht trailing comma as an error -->
-<!--
   <prototype name="jsonExt" group="extras" description="JSON Extended (Monokai)">
       <filename weight="5">/(\.json$)/i</filename>
   </prototype>
@@ -836,7 +835,7 @@
 
     <scheme name="jsonExt">
 
-      <block start="/(\{)/" end="/(\})/" scheme="jsonVars"/>
+      <!--block start="/(\{)/" end="/(\})/" scheme="jsonVars"/-->
 
       <inherit scheme="json">
         <virtual scheme="json" subst-scheme="jsonExt"/>
@@ -846,7 +845,7 @@
 
     <scheme name="jsonVars">
 
-      <regexp match='/\,$/' region0="def:Error"/>
+      <!--regexp match='/\,$/' region0="def:Error"/-->
 
       <inherit scheme="json">
         <virtual scheme="json" subst-scheme="jsonExt"/>
@@ -855,7 +854,6 @@
     </scheme>
 
   </type>
- -->
 
   <!-- go -->
 
