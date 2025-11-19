@@ -692,6 +692,8 @@
 
       <keywords region="def:Keyword">
         <word name="click"/>
+        <word name="Object"/>
+        <word name="Array"/>
       </keywords>
 
       <inherit scheme="jScript">
@@ -744,9 +746,24 @@
         <word name="flex"/>
         <word name="flex-direction"/>
         <word name="unset"/>
+        <word name="flex-wrap"/>
+        <word name="backdrop-filter"/>
+        <word name="blur"/>
+        <word name="scrollbar-width"/>
+        <word name="scrollbar-height"/>
+        <word name="scrollbar-color"/>
+
+        <symb name="flex"/>
+        <symb name="wrap"/>
+        <symb name="blur"/>
+        <symb name="flex-grow"/>
+        <symb name="ellipsis"/>
+
       </keywords>
 
       <inherit scheme="css:RuleContent"/>
+
+
     </scheme>
 
   </type>
