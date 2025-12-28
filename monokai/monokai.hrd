@@ -44,9 +44,10 @@
   <assign name="def:Register" fore="#C"/>
   <assign name="def:Constant" fore="#D"/>
 
-  <assign name="def:Var" fore="#F"/> <!--yellow, because json:Key doesn't work. or maybe white -->
+  <assign name="def:Var" fore="#F"/> <!--white, because json:Key doesn't work -->
 
   <assign name="def:VarStrong" fore="#E"/>
+
   <assign name="def:Identifier" fore="#A"/>
   <assign name="def:BooleanConstant" fore="#D"/>
 

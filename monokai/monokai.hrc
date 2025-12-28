@@ -852,7 +852,7 @@
 
     <scheme name="jsonExt">
 
-      <!--block start="/(\{)/" end="/(\})/" scheme="jsonVars"/-->
+      <block start="/(\{)/" end="/(\})/" scheme="jsonVars" region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
 
       <inherit scheme="json">
         <virtual scheme="json" subst-scheme="jsonExt"/>
@@ -864,8 +864,10 @@
 
       <!--regexp match='/\,$/' region0="def:Error"/-->
 
-      <inherit scheme="json">
-        <virtual scheme="json" subst-scheme="jsonExt"/>
+      <block start="/(\{)/" end="/(\})/" scheme="jsonVars" region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+
+      <inherit scheme="jsonExt">
+        <virtual scheme="jsonExt" subst-scheme="jsonExt"/>
       </inherit>
 
     </scheme>
