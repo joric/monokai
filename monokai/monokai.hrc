@@ -1130,6 +1130,20 @@
 
   </type>
 
+  <!-- yml -->
+
+  <prototype name="ymlExt" group="extras" description="YML Extended (Monokai)">
+      <filename weight="11">/\.(yml|ksy)/ix</filename>
+  </prototype>
+  <type name="ymlExt">
+    <import type="yaml"/>
+    <scheme name="ymlExt">
+      <inherit scheme="yaml">
+        <virtual scheme="yaml" subst-scheme="ymlExt"/>
+      </inherit>
+    </scheme>
+  </type>
+
   <!-- markdown -->
 
   <prototype name="mdExt" group="extras" description="Markdown Extended (Monokai)">
@@ -1160,9 +1174,11 @@
     <import type="sql"/>
     <import type="iniExt"/>
     <import type="cssExt"/>
+    <import type="ymlExt"/>
 
     <scheme name="mdExt">
 
+      <block start="/(?{s}%m;\s*(?{Label}(yml|yaml)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="ymlExt" />
       <block start="/(?{s}%m;\s*(?{Label}(sh|bash)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="shell.in" />
       <block start="/(?{s}%m;\s*(?{Label}(bat|cmd)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="Batch" />
       <block start="/(?{s}%m;\s*(?{Label}(html)))/" end="/(?{e}(?{Fence}\y{Fence}))/" scheme="htmlExt" />

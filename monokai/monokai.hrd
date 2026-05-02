@@ -113,4 +113,6 @@
 
   <assign name="sql:tsqlWord" fore="#C"/>
 
+  <assign name="yaml:KeyName" fore="#C"/>
+
 </hrd>
