@@ -843,7 +843,7 @@
 
   <!-- json : in progress, need to highliht trailing comma as an error -->
   <prototype name="jsonExt" group="extras" description="JSON Extended (Monokai)">
-      <filename weight="5">/(\.json$)/i</filename>
+      <filename weight="5">/(\.json$|\.geojson$)/i</filename>
   </prototype>
 
   <type name="jsonExt">
@@ -1142,6 +1142,130 @@
         <virtual scheme="yaml" subst-scheme="ymlExt"/>
       </inherit>
     </scheme>
+  </type>
+
+  <!-- puzzlescript -->
+
+  <prototype name="pzExt" group="extras" description="Puzzlescript Extended (Monokai)">
+    <filename weight="11">/\.(pz)/ix</filename>
+  </prototype>
+
+  <type name="pzExt">
+
+    <scheme name="pzExtComment">
+      <inherit scheme="def:Comment"/>
+    </scheme>
+
+    <scheme name="pzExt">
+
+      <block start="/\(/" end="/\)/" region="def:Comment" scheme="pzExtComment"/>
+
+      <block start="/(\[)/" end="/(\])/" scheme="pzExt" region00="def:PairStart" region10="def:PairEnd"/>
+
+
+      <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Number"/>
+
+      <regexp match="/={4,}/" region="def:Comment"/>
+
+
+      <regexp match="/^[0-9\.]{5}$/" region="def:Comment"/> <!--use def:Parameter for green-->
+
+      <regexp match="/(^|[^A-Za-z_0-9])([0-9]+(\.[0-9]+)?)([^A-Za-z_0-9]|$)/" region2="def:Number"/>
+
+      <keywords region="def:Operator" ignorecase="yes">
+        <symb name="="/>
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="|"/>
+        <symb name=">"/>
+        <word name="and"/>
+        <word name="or"/>
+        <word name="on"/>
+      </keywords>
+
+
+      <keywords region="def:Keyword" ignorecase="yes">
+        <word name="action"/>
+        <word name="again"/>
+        <word name="all"/>
+        <word name="and"/>
+        <word name="author"/>
+        <word name="background_color"/>
+        <word name="black"/>
+        <word name="blue"/>
+        <word name="brown"/>
+        <word name="cancel"/>
+        <word name="checkpoint"/>
+        <word name="collisionlayers"/>
+        <word name="darkblue"/>
+        <word name="darkbrown"/>
+        <word name="darkgray"/>
+        <word name="darkgreen"/>
+        <word name="down"/>
+        <word name="flickscreen"/>
+        <word name="green"/>
+        <word name="grey"/>
+        <word name="horizontal"/>
+        <word name="late"/>
+        <word name="left"/>
+        <word name="legend"/>
+        <word name="levels"/>
+        <word name="lightblue"/>
+        <word name="lightbrown"/>
+        <word name="lightgray"/>
+        <word name="lightgreen"/>
+        <word name="magenta"/>
+        <word name="message"/>
+        <word name="moving"/>
+        <word name="no"/>
+        <word name="norestart"/>
+        <word name="noundo"/>
+        <word name="objects"/>
+        <word name="orange"/>
+        <word name="orthogonal"/>
+        <word name="pink"/>
+        <word name="player"/>
+        <word name="random"/>
+        <word name="randomdir"/>
+        <word name="red"/>
+        <word name="restart"/>
+        <word name="right"/>
+        <word name="rigid"/>
+        <word name="rules"/>
+        <word name="sfx0"/>
+        <word name="sfx1"/>
+        <word name="sfx2"/>
+        <word name="sfx3"/>
+        <word name="sfx4"/>
+        <word name="sfx5"/>
+        <word name="sfx6"/>
+        <word name="sfx7"/>
+        <word name="sfx8"/>
+        <word name="sfx9"/>
+        <word name="some"/>
+        <word name="sounds"/>
+        <word name="stationary"/>
+        <word name="text_color"/>
+        <word name="title"/>
+        <word name="transparent"/>
+        <word name="up"/>
+        <word name="vertical"/>
+        <word name="white"/>
+        <word name="win"/>
+        <word name="winconditions"/>
+        <word name="yellow"/>
+        <word name="zoomscreen"/>
+
+        <word name="key_repeat_interval"/>
+        <word name="run_rules_on_level_start"/>
+
+      </keywords>
+
+
+      <regexp match='/\w/' region0="def:Symbol"/>
+
+    </scheme>
+
   </type>
 
   <!-- markdown -->
