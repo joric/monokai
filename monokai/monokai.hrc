@@ -1184,6 +1184,10 @@
         <word name="and"/>
         <word name="or"/>
         <word name="on"/>
+
+        <word name="startloop"/>
+        <word name="endloop"/>
+
       </keywords>
 
       <keywords region="def:Keyword" ignorecase="yes">
