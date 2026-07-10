@@ -1164,7 +1164,7 @@
 
       <block start="/(\[)/" end="/(\])/" scheme="pzExt" region00="def:PairStart" region10="def:PairEnd"/>
 
-      <block start="/message\s+/i" end="/$/" region00="def:Keyword" region="def:String" scheme="pzExtComment"/>
+      <block start="/(message|title|author)\s+/i" end="/$/" region00="def:Keyword" region="def:String" scheme="pzExtComment"/>
 
       <regexp match="/={4,}/" region="def:Comment"/>
 
@@ -1248,21 +1248,26 @@
 
       <!-- puzzlescript plus -->
       <keywords region="def:ParameterStrong" ignorecase="yes">
+        <word name="sprite_size"/>
+        <word name="nosave"/>
+        <word name="undo"/>
+        <word name="quit"/>
+        <word name="goto"/>
         <word name="level_select"/>
         <word name="section"/>
-        <word name="mouse_clicks"/>
-        <word name="lclick"/>
-        <word name="rclick"/>
-      </keywords>
-
-      <!-- puzzlescript next -->
-      <keywords region="def:Register" ignorecase="yes">
         <word name="mouse_up"/>
         <word name="mouse_rup"/>
         <word name="mouse_left"/>
         <word name="mouse_right"/>
         <word name="mouse_drag"/>
         <word name="mouse_rdrag"/>
+        <word name="lclick"/>
+        <word name="rclick"/>
+      </keywords>
+
+      <!-- puzzlescript next -->
+      <keywords region="def:Parameter" ignorecase="yes">
+        <word name="mouse_clicks"/>
       </keywords>
 
       <!-- xxuurruuii fork -->
