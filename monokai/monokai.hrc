@@ -1176,6 +1176,8 @@
         <symb name="="/>
         <symb name="+"/>
         <symb name="-"/>
+        <symb name="/"/>
+        <symb name="|"/>
         <symb name="&gt;"/>
         <symb name="&lt;"/>
         <symb name="^"/>
