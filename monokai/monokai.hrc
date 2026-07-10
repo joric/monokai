@@ -1180,7 +1180,7 @@
         <symb name=">"/>
         <symb name="&lt;"/>
         <symb name="^"/>
-        <symb name="v"/>
+        <word name="v"/>
         <word name="and"/>
         <word name="or"/>
         <word name="on"/>
