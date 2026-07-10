@@ -1178,9 +1178,13 @@
         <symb name="-"/>
         <symb name="|"/>
         <symb name=">"/>
+        <symb name="&lt;"/>
+        <symb name="^"/>
+        <symb name="v"/>
         <word name="and"/>
         <word name="or"/>
         <word name="on"/>
+
         <word name="startloop"/>
         <word name="endloop"/>
       </keywords>
