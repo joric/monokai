@@ -1247,7 +1247,7 @@
       </keywords>
 
       <!-- puzzlescript plus -->
-      <keywords region="def:KeywordStrong" ignorecase="yes">
+      <keywords region="def:ParameterStrong" ignorecase="yes">
         <word name="level_select"/>
         <word name="section"/>
         <word name="mouse_clicks"/>
@@ -1256,7 +1256,7 @@
       </keywords>
 
       <!-- puzzlescript next -->
-      <keywords region="def:FunctionKeyword" ignorecase="yes">
+      <keywords region="def:Register" ignorecase="yes">
         <word name="mouse_up"/>
         <word name="mouse_rup"/>
         <word name="mouse_left"/>
@@ -1266,7 +1266,7 @@
       </keywords>
 
       <!-- xxuurruuii fork -->
-      <keywords region="def:InterfaceKeyword" ignorecase="yes">
+      <keywords region="def:DeprecatedKeyword" ignorecase="yes">
         <word name="render_height"/>
         <word name="default_height"/>
         <word name="actionkey"/>
