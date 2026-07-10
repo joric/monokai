@@ -1158,13 +1158,13 @@
 
     <scheme name="pzExt">
 
+      <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Number"/>
+
       <block start="/\(/" end="/\)/" region="def:Comment" scheme="pzExtComment"/>
 
       <block start="/(\[)/" end="/(\])/" scheme="pzExt" region00="def:PairStart" region10="def:PairEnd"/>
 
-      <block start="/message\s+/" end="/$/" region00="def:Keyword" region="def:String" scheme="pzExtComment"/>
-
-      <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Register"/>
+      <block start="/message\s+/i" end="/$/" region00="def:Keyword" region="def:String" scheme="pzExtComment"/>
 
       <regexp match="/={4,}/" region="def:Comment"/>
 
@@ -1242,7 +1242,7 @@
         <word name="message"/>
       </keywords>
 
-      <keywords region="def:Register" ignorecase="yes">
+      <keywords region="def:Number" ignorecase="yes">
         <word name="black"/>
         <word name="blue"/>
         <word name="brown"/>
@@ -1266,7 +1266,6 @@
         <word name="white"/>
         <word name="yellow"/>
       </keywords>
-
 
       <regexp match='/\w/' region0="def:Symbol"/>
 
