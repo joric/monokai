@@ -1183,38 +1183,23 @@
         <word name="on"/>
       </keywords>
 
-
       <keywords region="def:Keyword" ignorecase="yes">
         <word name="action"/>
         <word name="again"/>
         <word name="all"/>
         <word name="and"/>
         <word name="author"/>
-        <word name="background_color"/>
-        <word name="black"/>
-        <word name="blue"/>
-        <word name="brown"/>
         <word name="cancel"/>
         <word name="checkpoint"/>
         <word name="collisionlayers"/>
-        <word name="darkblue"/>
-        <word name="darkbrown"/>
-        <word name="darkgray"/>
-        <word name="darkgreen"/>
         <word name="down"/>
         <word name="flickscreen"/>
-        <word name="green"/>
-        <word name="grey"/>
         <word name="horizontal"/>
+        <word name="key_repeat_interval"/>
         <word name="late"/>
         <word name="left"/>
         <word name="legend"/>
         <word name="levels"/>
-        <word name="lightblue"/>
-        <word name="lightbrown"/>
-        <word name="lightgray"/>
-        <word name="lightgreen"/>
-        <word name="magenta"/>
         <word name="message"/>
         <word name="moving"/>
         <word name="cantmove"/>
@@ -1222,17 +1207,15 @@
         <word name="norestart"/>
         <word name="noundo"/>
         <word name="objects"/>
-        <word name="orange"/>
         <word name="orthogonal"/>
-        <word name="pink"/>
         <word name="player"/>
         <word name="random"/>
         <word name="randomdir"/>
-        <word name="red"/>
         <word name="restart"/>
         <word name="right"/>
         <word name="rigid"/>
         <word name="rules"/>
+        <word name="run_rules_on_level_start"/>
         <word name="sfx0"/>
         <word name="sfx1"/>
         <word name="sfx2"/>
@@ -1246,20 +1229,37 @@
         <word name="some"/>
         <word name="sounds"/>
         <word name="stationary"/>
-        <word name="text_color"/>
         <word name="title"/>
-        <word name="transparent"/>
         <word name="up"/>
         <word name="vertical"/>
-        <word name="white"/>
         <word name="win"/>
         <word name="winconditions"/>
-        <word name="yellow"/>
         <word name="zoomscreen"/>
+      </keywords>
 
-        <word name="key_repeat_interval"/>
-        <word name="run_rules_on_level_start"/>
-
+      <keywords region="def:Parameter" ignorecase="yes">
+        <word name="background_color"/>
+        <word name="black"/>
+        <word name="blue"/>
+        <word name="brown"/>
+        <word name="darkblue"/>
+        <word name="darkbrown"/>
+        <word name="darkgray"/>
+        <word name="darkgreen"/>
+        <word name="green"/>
+        <word name="grey"/>
+        <word name="lightblue"/>
+        <word name="lightbrown"/>
+        <word name="lightgray"/>
+        <word name="lightgreen"/>
+        <word name="magenta"/>
+        <word name="orange"/>
+        <word name="pink"/>
+        <word name="red"/>
+        <word name="text_color"/>
+        <word name="transparent"/>
+        <word name="white"/>
+        <word name="yellow"/>
       </keywords>
 
 
