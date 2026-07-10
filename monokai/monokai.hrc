@@ -1176,15 +1176,14 @@
         <symb name="="/>
         <symb name="+"/>
         <symb name="-"/>
-        <symb name="|"/>
-        <symb name=">"/>
+        <symb name="&gt;"/>
         <symb name="&lt;"/>
         <symb name="^"/>
         <word name="v"/>
         <word name="and"/>
         <word name="or"/>
         <word name="on"/>
-
+        <word name="no"/>
         <word name="startloop"/>
         <word name="endloop"/>
       </keywords>
@@ -1209,7 +1208,6 @@
         <word name="message"/>
         <word name="moving"/>
         <word name="cantmove"/>
-        <word name="no"/>
         <word name="norestart"/>
         <word name="noundo"/>
         <word name="objects"/>
