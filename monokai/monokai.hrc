@@ -1270,6 +1270,7 @@
       <!-- puzzlescript next -->
       <keywords region="def:Parameter" ignorecase="yes">
         <word name="mouse_clicks"/>
+        <word name="load_images"/>
       </keywords>
 
       <!-- xxuurruuii fork -->
