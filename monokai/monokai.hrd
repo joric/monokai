@@ -4,8 +4,23 @@
 <hrd xmlns="http://colorer.sf.net/2003/hrd">
 
   <!--
+    Base Monokai Colors:
+
+    Background: (46, 46, 46); #2e2e2e
+    Comments: (121, 121, 121); #797979
+    White: (214, 214, 214); #d6d6d6
+    Yellow: (229, 181, 103); #e5b567
+    Green: (180, 210, 115); #b4d273
+    Orange: (232, 125, 62); #e87d3e
+    Purple: (158, 134, 200); #9e86c8
+    Pink: (176, 82, 121); #b05279
+    Blue: (108, 153, 187); #6c99bb
+
+  -->
+
+  <!--
     #0 - Black
-    #1 - Purple
+    #1 - DarkBlue
     #2 - Green
     #3 - Cyan
     #4 - DarkRed
@@ -17,9 +32,11 @@
     #A - LightGreen
     #B - LightCyan
     #C - Pink
-    #D - LightPurple
+    #D - LightPurple (constants and numbers)
     #E - Yellow
     #F - White
+
+    See https://github.com/joric/monokai for pictures
   -->
 
   <assign name="def:Text" fore="#7" back="#8"/>
@@ -51,10 +68,10 @@
   <assign name="def:Operator" fore="#C"/>
 
   <assign name="def:Keyword"       fore="#B"/>
-  <assign name="def:KeywordStrong" fore="#C"/>
-  <assign name="def:FunctionKeyword" fore="#B"/>
+  <assign name="def:KeywordStrong" fore="#5"/>
+  <assign name="def:FunctionKeyword" fore="#A"/>
+  <assign name="def:InterfaceKeyword" fore="#2"/>
   <assign name="def:DeprecatedKeyword" fore="#7"/>
-  <assign name="def:InterfaceKeyword" fore="#7"/>
   <assign name="def:ClassKeyword" fore="#B"/>
   <assign name="def:StructKeyword" fore="#F"/>
   <assign name="def:TypeKeyword" fore="#B"/>

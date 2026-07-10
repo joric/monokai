@@ -1242,9 +1242,41 @@
         <word name="background_color"/>
         <word name="text_color"/>
         <word name="message"/>
+        <word name="realtime_interval"/>
+        <word name="throttle_movement"/>
       </keywords>
 
-      <keywords region="def:Number" ignorecase="yes">
+      <!-- puzzlescript plus -->
+      <keywords region="def:KeywordStrong" ignorecase="yes">
+        <word name="level_select"/>
+        <word name="section"/>
+        <word name="mouse_clicks"/>
+        <word name="lclick"/>
+        <word name="rclick"/>
+      </keywords>
+
+      <!-- puzzlescript next -->
+      <keywords region="def:FunctionKeyword" ignorecase="yes">
+        <word name="mouse_up"/>
+        <word name="mouse_rup"/>
+        <word name="mouse_left"/>
+        <word name="mouse_right"/>
+        <word name="mouse_drag"/>
+        <word name="mouse_rdrag"/>
+      </keywords>
+
+      <!-- xxuurruuii fork -->
+      <keywords region="def:InterfaceKeyword" ignorecase="yes">
+        <word name="render_height"/>
+        <word name="default_height"/>
+        <word name="actionkey"/>
+        <word name="layer"/>
+        <word name="runtime_border_twiddling"/>
+        <word name="hide_labeled_levels"/>
+        <word name="hidden"/>
+      </keywords>
+
+      <keywords region="def:Constant" ignorecase="yes">
         <word name="black"/>
         <word name="blue"/>
         <word name="brown"/>
