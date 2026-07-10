@@ -1248,29 +1248,48 @@
         <word name="throttle_movement"/>
       </keywords>
 
+      <!-- see keywords here https://www.puzzlescriptnext.polyomino.com/Documentation/prelude.html -->
       <!-- puzzlescript plus -->
       <keywords region="def:ParameterStrong" ignorecase="yes">
+        <word name="level_select"/>
+        <word name="level_select_lock"/>
+        <word name="level_select_symbol"/>
+        <word name="level_select_unlocked_ahead"/>
+        <word name="section"/>
         <word name="sprite_size"/>
         <word name="nosave"/>
         <word name="undo"/>
         <word name="quit"/>
         <word name="goto"/>
-        <word name="level_select"/>
-        <word name="section"/>
+        <word name="lclick"/>
+        <word name="rclick"/>
+        <word name="font_size"/>
+        <word name="homepage"/>
+        <word name="keyhint_color"/>
+        <word name="local_radius"/>
+        <word name="message_text_align"/>
         <word name="mouse_up"/>
         <word name="mouse_rup"/>
         <word name="mouse_left"/>
         <word name="mouse_right"/>
         <word name="mouse_drag"/>
         <word name="mouse_rdrag"/>
-        <word name="lclick"/>
-        <word name="rclick"/>
       </keywords>
 
       <!-- puzzlescript next -->
       <keywords region="def:Parameter" ignorecase="yes">
         <word name="mouse_clicks"/>
         <word name="load_images"/>
+        <word name="enable_pause"/>
+        <word name="export_options"/>
+        <word name="notitle"/>
+        <word name="nofooter"/>
+        <word name="nopadding"/>
+        <word name="level_select_unlocked_rollover"/>
+        <word name="runtime_metadata_twiddling"/>
+        <word name="status_line"/>
+        <word name="text_controls"/>
+        <word name=""/>
       </keywords>
 
       <!-- xxuurruuii fork -->
