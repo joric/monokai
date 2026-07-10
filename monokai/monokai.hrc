@@ -1163,10 +1163,13 @@
       <block start="/(\[)/" end="/(\])/" scheme="pzExt" region00="def:PairStart" region10="def:PairEnd"/>
 
 
+      <block start="/message\s+/" end="/$/" region00="def:Keyword" region="def:String" scheme="pzExtComment"/>
+
+
+
       <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Number"/>
 
       <regexp match="/={4,}/" region="def:Comment"/>
-
 
       <regexp match="/^[0-9\.]{5}$/" region="def:Comment"/> <!--use def:Parameter for green-->
 
@@ -1237,6 +1240,7 @@
         <word name="zoomscreen"/>
         <word name="background_color"/>
         <word name="text_color"/>
+        <word name="message"/>
       </keywords>
 
       <keywords region="def:Parameter" ignorecase="yes">
