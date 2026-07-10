@@ -1217,6 +1217,7 @@
         <word name="magenta"/>
         <word name="message"/>
         <word name="moving"/>
+        <word name="cantmove"/>
         <word name="no"/>
         <word name="norestart"/>
         <word name="noundo"/>
