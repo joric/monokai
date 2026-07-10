@@ -4,7 +4,22 @@
 <hrd xmlns="http://colorer.sf.net/2003/hrd">
 
   <!--
-    
+    #0 - Black
+    #1 - Purple
+    #2 - Green
+    #3 - Cyan
+    #4 - DarkRed
+    #5 - Orange
+    #6 - Brown (comments)
+    #7 - Grey
+    #8 - DarkGrey
+    #9 - Blue
+    #A - LightGreen
+    #B - LightCyan
+    #C - Pink
+    #D - LightPurple
+    #E - Yellow
+    #F - White
   -->
 
   <assign name="def:Text" fore="#7" back="#8"/>
