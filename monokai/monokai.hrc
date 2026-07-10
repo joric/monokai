@@ -1235,10 +1235,11 @@
         <word name="win"/>
         <word name="winconditions"/>
         <word name="zoomscreen"/>
+        <word name="background_color"/>
+        <word name="text_color"/>
       </keywords>
 
       <keywords region="def:Parameter" ignorecase="yes">
-        <word name="background_color"/>
         <word name="black"/>
         <word name="blue"/>
         <word name="brown"/>
@@ -1256,7 +1257,6 @@
         <word name="orange"/>
         <word name="pink"/>
         <word name="red"/>
-        <word name="text_color"/>
         <word name="transparent"/>
         <word name="white"/>
         <word name="yellow"/>
