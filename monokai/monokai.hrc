@@ -1162,12 +1162,9 @@
 
       <block start="/(\[)/" end="/(\])/" scheme="pzExt" region00="def:PairStart" region10="def:PairEnd"/>
 
-
       <block start="/message\s+/" end="/$/" region00="def:Keyword" region="def:String" scheme="pzExtComment"/>
 
-
-
-      <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Number"/>
+      <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Register"/>
 
       <regexp match="/={4,}/" region="def:Comment"/>
 
@@ -1184,10 +1181,8 @@
         <word name="and"/>
         <word name="or"/>
         <word name="on"/>
-
         <word name="startloop"/>
         <word name="endloop"/>
-
       </keywords>
 
       <keywords region="def:Keyword" ignorecase="yes">
@@ -1247,7 +1242,7 @@
         <word name="message"/>
       </keywords>
 
-      <keywords region="def:Parameter" ignorecase="yes">
+      <keywords region="def:Register" ignorecase="yes">
         <word name="black"/>
         <word name="blue"/>
         <word name="brown"/>
@@ -1257,9 +1252,11 @@
         <word name="darkgreen"/>
         <word name="green"/>
         <word name="grey"/>
+        <word name="gray"/>
         <word name="lightblue"/>
         <word name="lightbrown"/>
         <word name="lightgray"/>
+        <word name="lightgrey"/>
         <word name="lightgreen"/>
         <word name="magenta"/>
         <word name="orange"/>
