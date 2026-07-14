@@ -1278,6 +1278,7 @@
 
       <!-- puzzlescript next -->
       <keywords region="def:Parameter" ignorecase="yes">
+        <word name="once"/>
         <word name="mouse_clicks"/>
         <word name="load_images"/>
         <word name="enable_pause"/>
