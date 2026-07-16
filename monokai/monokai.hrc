@@ -1158,7 +1158,7 @@
 
     <scheme name="pzExt">
 
-      <regexp match="/#[0-9A-Fa-f]{6}/" region="def:Number"/>
+      <regexp match="/#[0-9A-Fa-f]{3,6}/" region="def:Number"/>
 
       <block start="/\(/" end="/\)/" region="def:Comment" scheme="pzExtComment"/>
 
