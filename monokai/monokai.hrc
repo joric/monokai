@@ -1253,6 +1253,7 @@
       <!-- sounds helpers -->
       <keywords region="def:Register" ignorecase="yes">
         <word name="cantmove"/>
+        <word name="cancel"/>
         <word name="closemessage"/>
         <word name="create"/>
         <word name="destroy"/>
