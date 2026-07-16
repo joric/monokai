@@ -1209,7 +1209,6 @@
         <word name="levels"/>
         <word name="message"/>
         <word name="moving"/>
-        <word name="cantmove"/>
         <word name="norestart"/>
         <word name="noundo"/>
         <word name="objects"/>
@@ -1222,16 +1221,6 @@
         <word name="rigid"/>
         <word name="rules"/>
         <word name="run_rules_on_level_start"/>
-        <word name="sfx0"/>
-        <word name="sfx1"/>
-        <word name="sfx2"/>
-        <word name="sfx3"/>
-        <word name="sfx4"/>
-        <word name="sfx5"/>
-        <word name="sfx6"/>
-        <word name="sfx7"/>
-        <word name="sfx8"/>
-        <word name="sfx9"/>
         <word name="some"/>
         <word name="sounds"/>
         <word name="stationary"/>
@@ -1247,6 +1236,37 @@
         <word name="realtime_interval"/>
         <word name="throttle_movement"/>
       </keywords>
+
+      <keywords region="def:Keyword" ignorecase="yes">
+        <word name="sfx0"/>
+        <word name="sfx1"/>
+        <word name="sfx2"/>
+        <word name="sfx3"/>
+        <word name="sfx4"/>
+        <word name="sfx5"/>
+        <word name="sfx6"/>
+        <word name="sfx7"/>
+        <word name="sfx8"/>
+        <word name="sfx9"/>
+      </keywords>
+
+      <!-- sounds helpers -->
+      <keywords region="def:Register" ignorecase="yes">
+        <word name="cantmove"/>
+        <word name="closemessage"/>
+        <word name="create"/>
+        <word name="destroy"/>
+        <word name="endgame"/>
+        <word name="endlevel"/>
+        <word name="move"/>
+        <word name="showmessage"/>
+        <word name="restart"/>
+        <word name="startgame"/>
+        <word name="startlevel"/>
+        <word name="titlescreen"/>
+        <word name="undo"/>
+      </keywords>
+
 
       <!-- see keywords here https://www.puzzlescriptnext.polyomino.com/Documentation/prelude.html -->
       <!-- puzzlescript plus -->
@@ -1274,6 +1294,7 @@
         <word name="mouse_right"/>
         <word name="mouse_drag"/>
         <word name="mouse_rdrag"/>
+        <word name="level"/>
       </keywords>
 
       <!-- puzzlescript next -->
@@ -1307,19 +1328,20 @@
       <keywords region="def:Constant" ignorecase="yes">
         <word name="black"/>
         <word name="blue"/>
-        <word name="brown"/>
-        <word name="darkblue"/>
-        <word name="darkbrown"/>
-        <word name="darkgray"/>
-        <word name="darkgreen"/>
-        <word name="green"/>
-        <word name="grey"/>
-        <word name="gray"/>
         <word name="lightblue"/>
+        <word name="darkblue"/>
+        <word name="brown"/>
         <word name="lightbrown"/>
-        <word name="lightgray"/>
+        <word name="darkbrown"/>
+        <word name="grey"/>
         <word name="lightgrey"/>
+        <word name="darkgrey"/>
+        <word name="gray"/>
+        <word name="lightgray"/>
+        <word name="darkgrayn"/>
+        <word name="green"/>
         <word name="lightgreen"/>
+        <word name="darkgreen"/>
         <word name="magenta"/>
         <word name="orange"/>
         <word name="pink"/>
