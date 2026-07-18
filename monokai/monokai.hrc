@@ -335,6 +335,7 @@
         <word name="cache"/>
         <word name="__getitem__"/>
         <word name="next"/>
+        <word name="rfind"/>
       </keywords>
 
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
