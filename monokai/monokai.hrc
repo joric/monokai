@@ -336,6 +336,8 @@
         <word name="__getitem__"/>
         <word name="next"/>
         <word name="rfind"/>
+        <word name="bisect_left"/>
+        <word name="bisect_right"/>
       </keywords>
 
       <block start="/(f)(\')/" end="/\'/" scheme="pyExtFmtString"
