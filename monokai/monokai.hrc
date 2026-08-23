@@ -648,6 +648,8 @@
 
     <scheme name="jsExt">
 
+      <regexp match='/\/[^\/]+\//' region0="def:String"/>
+
       <block start="/(`)/" end="/(`)/"
         region00="def:Symbol" region01="def:PairStart" region="def:String"
         region10="def:Symbol" region11="def:PairEnd"/>
