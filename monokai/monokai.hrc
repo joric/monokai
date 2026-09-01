@@ -697,6 +697,7 @@
         <word name="click"/>
         <word name="Object"/>
         <word name="Array"/>
+        <word name="Math"/>
       </keywords>
 
       <inherit scheme="jScript">
