@@ -629,7 +629,7 @@
   <!-- javascript -->
 
   <prototype name="jsExt" group="extras" description="JavaScript Extended (Monokai)">
-    <filename weight="5">/\.(js)$/i</filename>
+    <filename weight="5">/\.(js|mjs)$/i</filename>
   </prototype>
 
   <type name="mdExt"/>
@@ -661,6 +661,8 @@
       <block start="/^\s*(function)\s+(\w+)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
         region01="def:FunctionKeyword" region02="FunctionDefine" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
+
+      <regexp match='/\/[^\/]+\/[gi]+/' region0="def:String"/>
 
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="jsExt"
         region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
@@ -703,8 +705,6 @@
       <inherit scheme="jScript">
         <virtual scheme="jScript" subst-scheme="jsExt"/>
       </inherit>
-
-      <regexp match='/\/[^\/]+\//' region0="def:String"/>
 
       <regexp match='/\w/' region0="def:Symbol"/>
     </scheme>
