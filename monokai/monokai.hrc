@@ -1124,7 +1124,7 @@
     </scheme>
 
     <scheme name="iniParam">
-      <keywords region="def:BooleanConstant">
+      <keywords region="def:BooleanConstant" ignorecase="yes">
         <word name='True'/>
         <word name='False'/>
       </keywords>
