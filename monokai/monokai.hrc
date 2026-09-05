@@ -672,6 +672,11 @@
         <word name="this"/>
       </keywords>
 
+      <keywords region="def:Identifier">
+        <word name="src"/>
+        <word name="type"/>
+      </keywords>
+
       <keywords region="Operator">
         <symb name="="/>
         <symb name="=="/>
@@ -800,7 +805,7 @@
         region02="htmlTagBr" region03="htmlOpenTag" region11="htmlTagBr" region12="htmlCloseTag"/>
 
       <inherit scheme="html">
-        <virtual scheme="html:htmlPairs" subst-scheme="htmlExtPairs"/>
+        <!--virtual scheme="html:htmlPairs" subst-scheme="htmlExtPairs"/-->
         <virtual scheme="html:htmljScript" subst-scheme="jsExt"/>
         <virtual scheme="html" subst-scheme="htmlExt"/>
       </inherit>
