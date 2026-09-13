@@ -756,7 +756,7 @@
     <scheme name="cssExtPropertyValues">
       <regexp match="/(--)([\w\-]+)/" region1="def:ParameterStrong" region2="def:ParameterStrong"/>
 
-      <keywords region="def:Operator">
+      <keywords region="def:Operator" worddiv='%css:worddiv-class;'>
         <symb name="+"/>
         <symb name="-"/>
         <symb name="*"/>
