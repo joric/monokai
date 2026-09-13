@@ -722,64 +722,6 @@
   </type>
 
   <!-- css -->
-
-  <!--
-  <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
-      <filename weight="5">/\.css/i</filename>
-  </prototype>
-
-  <type name="cssExt">
-    <import type="css"/>
-    <scheme name="cssExt">
-
-      <inherit scheme="css">
-        <virtual scheme="css:Property" subst-scheme="cssExtProperty"/>
-        <virtual scheme="css:RuleContent" subst-scheme="cssExtRuleContent"/>
-        <virtual scheme="css:PseudoClass" subst-scheme="cssExtPseudoClass"/>
-        <virtual scheme="css" subst-scheme="cssExt"/>
-      </inherit>
-
-      <regexp match='/\w/' region0="def:Symbol"/>
-
-    </scheme>
-
-    <scheme name="cssExtPseudoClass">
-      <keywords region="def:Keyword">
-        <word name="focus-within"/>
-      </keywords>
-      <inherit scheme="css:PseudoClass"/>
-    </scheme>
-
-    <scheme name="cssExtRuleContent">
-      <keywords region="def:Keyword">
-
-        <word name="justify-content"/>
-        <word name="all"/>
-        <word name="gap"/>
-        <word name="flex"/>
-        <word name="flex-direction"/>
-        <word name="unset"/>
-        <word name="flex-wrap"/>
-        <word name="backdrop-filter"/>
-        <word name="blur"/>
-        <word name="scrollbar-width"/>
-        <word name="scrollbar-height"/>
-        <word name="scrollbar-color"/>
-        <word name="max-content"/>
-
-        <symb name="flex"/>
-        <symb name="wrap"/>
-        <symb name="blur"/>
-        <symb name="flex-grow"/>
-        <symb name="ellipsis"/>
-
-      </keywords>
-      <inherit scheme="css:RuleContent"/>
-    </scheme>
-
-  </type>
-  -->
-
   <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
       <filename weight="5">/\.css/i</filename>
   </prototype>
@@ -812,7 +754,6 @@
     </scheme>
 
     <scheme name="cssExtPropertyValues">
-
       <regexp match="/(--)([\w\-]+)/" region1="def:ParameterStrong" region2="def:ParameterStrong"/>
 
       <keywords region="def:Operator">
@@ -888,7 +829,7 @@
       </keywords>
 
       <!-- css sizing level 3 -->
-      <keywords region="def:DeprecatedKeyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
         <word name="max-content"/>
         <word name="min-content"/>
         <word name="fit-content"/>
