@@ -749,6 +749,7 @@
         <word name="gap"/>
         <word name="justify-content"/>
         <word name="backdrop-filter"/>
+        <word name="touch-action"/>
       </keywords>
 
       <inherit scheme="css:PropertyNames"/>
@@ -833,6 +834,9 @@
         <word name="ease-out"/>
         <word name="ease-in-out"/>
         <word name="cubic-besier"/>
+        <word name="pan-x"/>
+        <word name="pan-y"/>
+        <word name="pinch-zoom"/>
       </keywords>
 
       <keywords region="def:Operator">
