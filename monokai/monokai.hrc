@@ -750,22 +750,15 @@
         <word name="justify-content"/>
         <word name="backdrop-filter"/>
       </keywords>
+
       <inherit scheme="css:PropertyNames"/>
     </scheme>
 
     <scheme name="cssExtPropertyValues">
       <regexp match="/(--)([\w\-]+)/" region1="def:ParameterStrong" region2="def:ParameterStrong"/>
 
-      <keywords region="def:Operator">
-        <symb name="+"/>
-        <symb name="-"/>
-        <symb name="*"/>
-        <symb name="/"/>
-      </keywords>
-
-
       <!-- css2.1 / flexbox era -->
-      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+      <keywords region="def:Keyword" ignorecase="yes">
         <word name="flex"/>
         <word name="wrap"/>
         <word name="nowrap"/>
@@ -785,7 +778,7 @@
       </keywords>
 
       <!-- css3 / modern modules -->
-      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+      <keywords region="def:Keyword" ignorecase="yes">
         <word name="flex-flow"/>
         <word name="flex-shrink"/>
         <word name="flex-basis"/>
@@ -829,17 +822,31 @@
       </keywords>
 
       <!-- css sizing level 3 -->
-      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+      <keywords region="def:Keyword" ignorecase="yes">
         <word name="max-content"/>
         <word name="min-content"/>
         <word name="fit-content"/>
+      </keywords>
+
+      <keywords region="def:Keyword" ignorecase="yes">
+        <word name="ease-in"/>
+        <word name="ease-out"/>
+        <word name="ease-in-out"/>
+        <word name="cubic-besier"/>
+      </keywords>
+
+      <keywords region="def:Operator">
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="*"/>
+        <symb name="/"/>
       </keywords>
 
       <inherit scheme="css:PropertyValue"/>
     </scheme>
 
     <scheme name="cssExtPseudoClass">
-      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+      <keywords region="def:Keyword" ignorecase="yes">
         <word name="focus-within"/>
       </keywords>
       <inherit scheme="css:PseudoClass"/>
