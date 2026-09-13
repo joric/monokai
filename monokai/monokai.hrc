@@ -723,6 +723,7 @@
 
   <!-- css -->
 
+  <!--
   <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
       <filename weight="5">/\.css/i</filename>
   </prototype>
@@ -732,6 +733,7 @@
     <scheme name="cssExt">
 
       <inherit scheme="css">
+        <virtual scheme="css:Property" subst-scheme="cssExtProperty"/>
         <virtual scheme="css:RuleContent" subst-scheme="cssExtRuleContent"/>
         <virtual scheme="css:PseudoClass" subst-scheme="cssExtPseudoClass"/>
         <virtual scheme="css" subst-scheme="cssExt"/>
@@ -749,8 +751,8 @@
     </scheme>
 
     <scheme name="cssExtRuleContent">
-
       <keywords region="def:Keyword">
+
         <word name="justify-content"/>
         <word name="all"/>
         <word name="gap"/>
@@ -763,6 +765,7 @@
         <word name="scrollbar-width"/>
         <word name="scrollbar-height"/>
         <word name="scrollbar-color"/>
+        <word name="max-content"/>
 
         <symb name="flex"/>
         <symb name="wrap"/>
@@ -771,13 +774,150 @@
         <symb name="ellipsis"/>
 
       </keywords>
-
       <inherit scheme="css:RuleContent"/>
-
-
     </scheme>
 
   </type>
+  -->
+
+  <prototype name="cssExt" group="extras" description="CSS Extended (Monokai)">
+      <filename weight="5">/\.css/i</filename>
+  </prototype>
+
+  <type name="cssExt">
+    <import type="css"/>
+
+    <scheme name="cssExt">
+      <inherit scheme="css">
+        <virtual scheme="css:PropertyNames" subst-scheme="cssExtPropertyNames"/>
+        <virtual scheme="css:PropertyValue" subst-scheme="cssExtPropertyValues"/>
+        <virtual scheme="css:PseudoClass"   subst-scheme="cssExtPseudoClass"/>
+        <virtual scheme="css:CssFunctions" subst-scheme="cssExtFunctions"/>
+      </inherit>
+    </scheme>
+
+    <scheme name="cssExtPropertyNames">
+      <regexp match="/(--)([\w\-]+)/" region1="def:ParameterStrong" region2="def:ParameterStrong"/>
+
+      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+        <word name="flex"/>
+        <word name="flex-direction"/>
+        <word name="flex-wrap"/>
+        <word name="flex-flow"/>
+        <word name="gap"/>
+        <word name="justify-content"/>
+        <word name="backdrop-filter"/>
+      </keywords>
+      <inherit scheme="css:PropertyNames"/>
+    </scheme>
+
+    <scheme name="cssExtPropertyValues">
+
+      <regexp match="/(--)([\w\-]+)/" region1="def:ParameterStrong" region2="def:ParameterStrong"/>
+
+      <keywords region="def:Operator">
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="*"/>
+        <symb name="/"/>
+      </keywords>
+
+
+      <!-- css2.1 / flexbox era -->
+      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+        <word name="flex"/>
+        <word name="wrap"/>
+        <word name="nowrap"/>
+        <word name="blur"/>
+        <word name="flex-grow"/>
+        <word name="ellipsis"/>
+        <word name="unset"/>
+        <word name="justify-content"/>
+        <word name="all"/>
+        <word name="gap"/>
+        <word name="flex-direction"/>
+        <word name="flex-wrap"/>
+        <word name="backdrop-filter"/>
+        <word name="scrollbar-width"/>
+        <word name="scrollbar-height"/>
+        <word name="scrollbar-color"/>
+      </keywords>
+
+      <!-- css3 / modern modules -->
+      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+        <word name="flex-flow"/>
+        <word name="flex-shrink"/>
+        <word name="flex-basis"/>
+        <word name="align-items"/>
+        <word name="align-content"/>
+        <word name="align-self"/>
+        <word name="place-items"/>
+        <word name="place-content"/>
+        <word name="place-self"/>
+        <word name="row-gap"/>
+        <word name="column-gap"/>
+        <word name="space-between"/>
+        <word name="space-around"/>
+        <word name="space-evenly"/>
+        <word name="flex-start"/>
+        <word name="flex-end"/>
+        <word name="stretch"/>
+        <word name="aspect-ratio"/>
+        <word name="inset"/>
+        <word name="inset-block"/>
+        <word name="inset-inline"/>
+        <word name="margin-block"/>
+        <word name="margin-inline"/>
+        <word name="padding-block"/>
+        <word name="padding-inline"/>
+        <word name="contain"/>
+        <word name="content-visibility"/>
+        <word name="will-change"/>
+        <word name="isolation"/>
+        <word name="mix-blend-mode"/>
+        <word name="overflow-anchor"/>
+        <word name="scrollbar-gutter"/>
+        <word name="revert"/>
+        <word name="revert-layer"/>
+        <word name="initial"/>
+        <word name="inherit"/>
+        <word name="none"/>
+        <word name="auto"/>
+        <word name="clip"/>
+        <word name="content"/>
+      </keywords>
+
+      <!-- css sizing level 3 -->
+      <keywords region="def:DeprecatedKeyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+        <word name="max-content"/>
+        <word name="min-content"/>
+        <word name="fit-content"/>
+      </keywords>
+
+      <inherit scheme="css:PropertyValue"/>
+    </scheme>
+
+    <scheme name="cssExtPseudoClass">
+      <keywords region="def:Keyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+        <word name="focus-within"/>
+      </keywords>
+      <inherit scheme="css:PseudoClass"/>
+    </scheme>
+
+
+    <scheme name="cssExtFunctions">
+      <keywords region="def:FunctionKeyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+        <word name="calc"/>
+        <word name="var"/>
+        <word name="clamp"/>
+        <word name="min"/>
+        <word name="max"/>
+      </keywords>
+      <inherit scheme="css:CssFunctions"/>
+    </scheme>
+
+  </type>
+
 
   <!-- html (supports embedded types) -->
 

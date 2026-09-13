@@ -144,6 +144,7 @@
   <assign name="css:PropertyValue" fore="#B"/>
   <assign name="css:UnitSuffix" fore="#B"/>
   <assign name="css:Symbol" fore="#A"/>
+  <assign name="css:w3cColors" fore="#D"/>
 
   <assign name="html:htmlOpenTag" fore="#C"/>
 
