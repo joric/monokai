@@ -756,7 +756,7 @@
     <scheme name="cssExtPropertyValues">
       <regexp match="/(--)([\w\-]+)/" region1="def:ParameterStrong" region2="def:ParameterStrong"/>
 
-      <keywords region="def:Operator" worddiv='%css:worddiv-class;'>
+      <keywords region="def:Operator">
         <symb name="+"/>
         <symb name="-"/>
         <symb name="*"/>
@@ -847,7 +847,7 @@
 
 
     <scheme name="cssExtFunctions">
-      <keywords region="def:FunctionKeyword" ignorecase="yes" worddiv='%css:worddiv-class;'>
+      <keywords region="def:FunctionKeyword" ignorecase="yes">
         <word name="calc"/>
         <word name="var"/>
         <word name="clamp"/>
