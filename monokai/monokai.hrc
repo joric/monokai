@@ -750,6 +750,7 @@
         <word name="justify-content"/>
         <word name="backdrop-filter"/>
         <word name="touch-action"/>
+        <word name="place-items"/>
       </keywords>
 
       <inherit scheme="css:PropertyNames"/>
@@ -761,6 +762,7 @@
       <!-- css2.1 / flexbox era -->
       <keywords region="def:Keyword" ignorecase="yes">
         <word name="flex"/>
+        <word name="grid"/>
         <word name="wrap"/>
         <word name="nowrap"/>
         <word name="blur"/>
@@ -837,6 +839,7 @@
         <word name="pan-x"/>
         <word name="pan-y"/>
         <word name="pinch-zoom"/>
+        <word name="outline"/>
       </keywords>
 
       <keywords region="def:Operator">
