@@ -147,6 +147,7 @@
   <assign name="css:w3cColors" fore="#D"/>
 
   <assign name="html:htmlOpenTag" fore="#C"/>
+  <assign name="html:htmlUnknowParam" fore="#A"/>
 
   <assign name="sql:tsqlWord" fore="#C"/>
 
