@@ -705,6 +705,7 @@
         <word name="Object"/>
         <word name="Array"/>
         <word name="Math"/>
+        <word name="crossorigin"/>
       </keywords>
 
       <inherit scheme="jScript">
