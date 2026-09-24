@@ -658,7 +658,7 @@
         region01="FunctionDefine" region02="def:FunctionKeyword" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-      <block start="/^\s*(function)\s+(\w+)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
+      <block start="/\s*(function)\s+(\w+)\s*((\())/" end="/(\))/" scheme="jsExtFunctionDefine"
         region01="def:FunctionKeyword" region02="FunctionDefine" region03="def:Symbol" region04="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
