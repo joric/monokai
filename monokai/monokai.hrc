@@ -956,6 +956,7 @@
                 region10='def:ParameterStrong' region11='def:PairEnd'/>
       </scheme>
 
+      <!-- MAP context: string after a comma is a key -->
       <scheme name="jsonGap">
           <regexp match="/\s+/"/>
           <regexp match="/[\}\]\,]/" region="def:Error"/>
@@ -968,7 +969,29 @@
                 region00="def:Symbol"/>
       </scheme>
 
+      <!-- ARRAY context: string after a comma is a value -->
+      <scheme name="jsonGapArr">
+          <regexp match="/\s+/"/>
+          <regexp match="/[\}\]\,]/" region="def:Error"/>
+      </scheme>
+
+      <scheme name="jsonCommaArr">
+          <block start="/,/" end="/\M[^\s\}\]\,]/"
+                scheme="jsonGapArr"
+                region00="def:Symbol"/>
+      </scheme>
+
+      <!-- array body (also the type entry scheme) -->
       <scheme name="jsonExt">
+          <inherit scheme="jsonCommaArr"/>
+          <inherit scheme="json">
+              <virtual scheme="json"   subst-scheme="jsonExt"/>
+              <virtual scheme="Object" subst-scheme="jsonVars"/>
+          </inherit>
+      </scheme>
+
+      <!-- value after ":" inside a map: map-style comma, but nested arrays go back to jsonExt -->
+      <scheme name="jsonVal">
           <inherit scheme="jsonComma"/>
           <inherit scheme="json">
               <virtual scheme="json"   subst-scheme="jsonExt"/>
@@ -981,8 +1004,9 @@
           <regexp match="/\s+/"/>
 
           <block start="/:/" end="/\M,|\}/"
-                region00="SymbolStrong"
-                scheme="jsonExt"/>
+                region00="def:SymbolStrong"
+                scheme="jsonVal"
+                priority="high"/>
 
           <inherit scheme="jsonKey"/>
 
@@ -992,6 +1016,7 @@
       </scheme>
 
   </type>
+
 
   <!-- go -->
 
