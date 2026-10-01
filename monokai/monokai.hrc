@@ -940,45 +940,58 @@
 
   <!-- json : in progress, need to highliht trailing comma as an error -->
 
-  <prototype name="jsonExt" group="extras" description="JSON Extended (Monokai)">
-      <filename weight="5">/(\.json$|\.geojson$)/i</filename>
-  </prototype>
+<prototype name="jsonExt" group="extras" description="JSON Extended (Monokai)">
+    <filename weight="5">/(\.json$|\.geojson$)/i</filename>
+</prototype>
 
-  <type name="jsonExt">
+<type name="jsonExt">
 
-      <import type="json"/>
+    <import type="json"/>
 
-      <scheme name="jsonExt">
-          <inherit scheme="json">
-              <virtual scheme="json"   subst-scheme="jsonExt"/>
-              <virtual scheme="Object" subst-scheme="jsonVars"/>
-          </inherit>
-      </scheme>
+    <scheme name="jsonKey">
+        <block start="/(&quot;)/" end="/(&quot;)/"
+              scheme="Key"
+              region="def:ParameterStrong"
+              region00='def:ParameterStrong' region01='def:PairStart'
+              region10='def:ParameterStrong' region11='def:PairEnd'/>
+    </scheme>
 
-      <scheme name="jsonVars">
-          <regexp match="/\s+/"/>
-          <inherit scheme="jsonComment"/>
+    <scheme name="jsonGap">
+        <regexp match="/\s+/"/>
+        <regexp match="/[\}\]\,]/" region="def:Error"/>
+        <inherit scheme="jsonKey"/>
+    </scheme>
 
-          <!-- object value -->
-          <block start="/:/" end="/\M,|\}/"
-                region00="SymbolStrong"
-                scheme="jsonExt"/>
+    <scheme name="jsonComma">
+        <block start="/,/" end="/\M[^\s\}\]\,]/"
+               scheme="jsonGap"
+               region00="def:Symbol"/>
+    </scheme>
 
-          <!-- object key: text and quotes both def:Identifier -->
-          <block start="/(&quot;)/" end="/(&quot;)/"
-                scheme="Key"
-                region="def:ParameterStrong"
-                region00='def:ParameterStrong' region01='def:PairStart'
-                region10='def:ParameterStrong' region11='def:PairEnd'/>
+    <scheme name="jsonExt">
+        <inherit scheme="jsonComma"/>
+        <inherit scheme="json">
+            <virtual scheme="json"   subst-scheme="jsonExt"/>
+            <virtual scheme="Object" subst-scheme="jsonVars"/>
+        </inherit>
+    </scheme>
 
-          <keywords region="def:Symbol">
-              <symb name=","/>
-          </keywords>
+    <scheme name="jsonVars">
 
-          <regexp match="/[^\}]/" region="def:Error" priority="low"/>
-      </scheme>
+        <regexp match="/\s+/"/>
 
-  </type>
+        <block start="/:/" end="/\M,|\}/"
+              region00="SymbolStrong"
+              scheme="jsonExt"/>
+
+        <inherit scheme="jsonKey"/>
+
+        <inherit scheme="jsonComma"/>
+
+        <regexp match="/[^\}]/" region="def:Error" priority="low"/>
+    </scheme>
+
+</type>
 
   <!-- go -->
 
