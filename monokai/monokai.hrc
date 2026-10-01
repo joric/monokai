@@ -939,35 +939,44 @@
   </type>
 
   <!-- json : in progress, need to highliht trailing comma as an error -->
+
   <prototype name="jsonExt" group="extras" description="JSON Extended (Monokai)">
       <filename weight="5">/(\.json$|\.geojson$)/i</filename>
   </prototype>
 
   <type name="jsonExt">
 
-    <import type="json"/>
+      <import type="json"/>
 
-    <scheme name="jsonExt">
+      <scheme name="jsonExt">
+          <inherit scheme="json">
+              <virtual scheme="json"   subst-scheme="jsonExt"/>
+              <virtual scheme="Object" subst-scheme="jsonVars"/>
+          </inherit>
+      </scheme>
 
-      <block start="/(\{)/" end="/(\})/" scheme="jsonVars" region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
+      <scheme name="jsonVars">
+          <regexp match="/\s+/"/>
+          <inherit scheme="jsonComment"/>
 
-      <inherit scheme="json">
-        <virtual scheme="json" subst-scheme="jsonExt"/>
-      </inherit>
+          <!-- object value -->
+          <block start="/:/" end="/\M,|\}/"
+                region00="SymbolStrong"
+                scheme="jsonExt"/>
 
-    </scheme>
+          <!-- object key: text and quotes both def:Identifier -->
+          <block start="/(&quot;)/" end="/(&quot;)/"
+                scheme="Key"
+                region="def:ParameterStrong"
+                region00='def:ParameterStrong' region01='def:PairStart'
+                region10='def:ParameterStrong' region11='def:PairEnd'/>
 
-    <scheme name="jsonVars">
+          <keywords region="def:Symbol">
+              <symb name=","/>
+          </keywords>
 
-      <!--regexp match='/\,$/' region0="def:Error"/-->
-
-      <block start="/(\{)/" end="/(\})/" scheme="jsonVars" region00="def:Symbol" region01="def:PairStart" region10="def:Symbol" region11="def:PairEnd"/>
-
-      <inherit scheme="jsonExt">
-        <virtual scheme="jsonExt" subst-scheme="jsonExt"/>
-      </inherit>
-
-    </scheme>
+          <regexp match="/[^\}]/" region="def:Error" priority="low"/>
+      </scheme>
 
   </type>
 

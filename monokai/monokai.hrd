@@ -80,7 +80,7 @@
   <assign name="def:Register" fore="#9"/>
   <assign name="def:Constant" fore="#D"/>
 
-  <assign name="def:Var" fore="#F"/> <!--white, because json:Key doesn't work -->
+  <assign name="def:Var" fore="#F"/>
 
   <assign name="def:VarStrong" fore="#E"/>
 
@@ -152,5 +152,4 @@
   <assign name="sql:tsqlWord" fore="#C"/>
 
   <assign name="yaml:KeyName" fore="#C"/>
-
 </hrd>
