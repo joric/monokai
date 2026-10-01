@@ -963,13 +963,39 @@
       </scheme>
 
       <scheme name="jsonComma">
-          <block start="/,/" end="/\M[^\s\}\]\,]/"
+          <block start="/,/" end="/\M[^\s\}\]\,&quot;]/"
                 scheme="jsonGap"
                 region00="def:Symbol"/>
       </scheme>
 
+      <!-- after } or ]: whitespace/newlines are fine, a quote (missing comma) is an error -->
+      <scheme name="jsonAfterClose">
+          <regexp match="/\s+/"/>
+          <regexp match="/&quot;/" region="def:Error"/>
+      </scheme>
+
+      <scheme name="jsonClose">
+          <block start="/\}/" end="/\M[^\s&quot;]/"
+                scheme="jsonAfterClose"
+                region00="SymbolStrong"/>
+          <block start="/\]/" end="/\M[^\s&quot;]/"
+                scheme="jsonAfterClose"
+                region00="Symbol"/>
+      </scheme>
+
       <scheme name="jsonExt">
           <inherit scheme="jsonComma"/>
+
+          <!-- own object/array blocks: the closer is NOT consumed, so jsonClose can see it -->
+          <block start="/(\{)/" end="/\M\}/" scheme="jsonVars"
+                region00="SymbolStrong" region01="PairStart"
+                priority="high"/>
+          <block start="/(\[)/" end="/\M\]/" scheme="jsonExt"
+                region00="Symbol" region01="PairStart"
+                priority="high"/>
+
+          <inherit scheme="jsonClose"/>
+
           <inherit scheme="json">
               <virtual scheme="json"   subst-scheme="jsonExt"/>
               <virtual scheme="Object" subst-scheme="jsonVars"/>
