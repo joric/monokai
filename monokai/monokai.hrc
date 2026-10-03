@@ -708,6 +708,10 @@
         <word name="Math"/>
       </keywords>
 
+      <keywords region="def:Symbol">
+        <word name="item"/>
+      </keywords>
+
       <inherit scheme="jScript">
         <virtual scheme="jScript" subst-scheme="jsExt"/>
       </inherit>
