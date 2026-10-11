@@ -1022,6 +1022,21 @@
   </type>
 
 
+<!--
+      <block start="/^\s*(func)\s+((\()(\w+)\s+([^\)]+)\s*(\))\s*)(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
+        region01="def:FunctionKeyword"
+        region02="def:PairStart"
+        region04="FunctionParameter"
+        region05="def:Keyword"
+        region06="def:PairEnd"
+        region07="FunctionName" region08="def:Symbol" region09="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/^\s*(func)\s+(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
+        region01="def:FunctionKeyword" region02="FunctionName" region03="def:Symbol" region04="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+-->
+
   <!-- go -->
 
   <prototype name="goExt" group="extras" description="GO Extended (Monokai)">
@@ -1080,21 +1095,6 @@
         region01="def:FunctionKeyword" region02="def:Symbol" region03="FunctionName" region04="def:Symbol" region05="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
 
-<!--
-      <block start="/^\s*(func)\s+((\()(\w+)\s+([^\)]+)\s*(\))\s*)(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
-        region01="def:FunctionKeyword"
-        region02="def:PairStart"
-        region04="FunctionParameter"
-        region05="def:Keyword"
-        region06="def:PairEnd"
-        region07="FunctionName" region08="def:Symbol" region09="def:PairStart"
-        region10="def:Symbol" region11="def:PairEnd"/>
-
-      <block start="/^\s*(func)\s+(\w+)\s*((\())/" end="/(\))/" scheme="goExtFunctionDefine"
-        region01="def:FunctionKeyword" region02="FunctionName" region03="def:Symbol" region04="def:PairStart"
-        region10="def:Symbol" region11="def:PairEnd"/>
--->
-
       <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="goExt"
         region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
         region10="def:Symbol" region11="def:PairEnd"/>
@@ -1132,6 +1132,211 @@
     </scheme>
 
   </type>
+
+  <!-- jai -->
+  <prototype name="jaiExt" group="extras" description="JAI Extended (Monokai)">
+      <filename weight="5">/(\.jai$)/i</filename>
+  </prototype>
+
+  <type name="jaiExt">
+
+    <region name="FunctionName" parent="def:Identifier"/>
+    <region name="FunctionCall" parent="def:Keyword"/>
+    <region name="FunctionParameter" parent="def:ParameterStrong"/>
+    <region name="TypeName" parent="def:Identifier"/>
+    <region name="Note" parent="def:Directive"/>
+
+    <scheme name="jaiExt">
+
+      <block start="/\/\//" end="/$/" region="def:Comment" scheme="jaiExtLineComment"/>
+
+      <!-- block comments nest in jai -->
+      <block start="/\/\*/" end="/\*\//" region="def:Comment" scheme="jaiExtBlockComment"/>
+
+      <!-- here-strings: #string DELIM ... DELIM -->
+      <block start="/#string\s+(\w+)/" end="/^\s*\y1/" region="def:String" scheme="jaiExtHereString"
+        region01="def:Directive"/>
+
+      <block start="/&quot;/" end="/&quot;/" region="def:String" scheme="jaiExtString"
+        region00="def:PairStart" region10="def:PairEnd"/>
+
+      <regexp match="/\b0x[\da-fA-F_]+\b/" region0="def:NumberHex"/>
+      <regexp match="/\b0b[01_]+\b/" region0="def:NumberBin"/>
+      <regexp match="/\b\d[\d_]*(\.\d[\d_]*)?([eE][+-]?\d+)?\b/" region0="def:NumberDec"/>
+
+      <!-- #directives and @notes -->
+      <regexp match="/#\w+/" region0="def:Directive"/>
+      <regexp match="/@\w+/" region0="Note"/>
+
+      <keywords region="def:Operator">
+        <word name="return"/>
+        <word name="cast"/>
+        <word name="xx"/>
+        <word name="using"/>
+        <word name="defer"/>
+        <word name="remove"/>
+        <word name="new"/>
+        <word name="delete"/>
+        <symb name="::"/>
+        <symb name=":="/>
+        <symb name="-&gt;"/>
+        <symb name="=="/>
+        <symb name="!="/>
+        <symb name="&lt;="/>
+        <symb name="&gt;="/>
+        <symb name="&amp;&amp;"/>
+        <symb name="||"/>
+        <symb name="&lt;&lt;"/>
+        <symb name="&gt;&gt;"/>
+        <symb name="+="/>
+        <symb name="-="/>
+        <symb name="*="/>
+        <symb name="/="/>
+        <symb name="%="/>
+        <symb name="|="/>
+        <symb name="&amp;="/>
+        <symb name="^="/>
+        <symb name="="/>
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="*"/>
+        <symb name="/"/>
+        <symb name="%"/>
+        <symb name="~"/>
+        <symb name="^"/>
+        <symb name="$$"/>
+        <symb name="$"/>
+        <symb name="&amp;"/>
+        <symb name="|"/>
+        <symb name="!"/>
+        <symb name="&lt;"/>
+        <symb name="&gt;"/>
+        <symb name="?"/>
+      </keywords>
+
+      <keywords region="def:Symbol">
+        <symb name=";"/>
+        <symb name=","/>
+        <symb name=":"/>
+        <symb name=".."/>
+      </keywords>
+
+      <keywords region="def:Keyword">
+        <word name="if"/>
+        <word name="ifx"/>
+        <word name="else"/>
+        <word name="then"/>
+        <word name="case"/>
+        <word name="for"/>
+        <word name="while"/>
+        <word name="break"/>
+        <word name="continue"/>
+        <word name="inline"/>
+        <word name="no_inline"/>
+        <word name="push_context"/>
+        <word name="context"/>
+        <word name="struct"/>
+        <word name="union"/>
+        <word name="enum"/>
+        <word name="enum_flags"/>
+        <word name="size_of"/>
+        <word name="type_of"/>
+        <word name="type_info"/>
+        <word name="initializer_of"/>
+        <word name="it"/>
+        <word name="it_index"/>
+        <word name="operator"/>
+        <word name="interface"/>
+        <word name="bool"/>
+        <word name="string"/>
+        <word name="void"/>
+        <word name="int"/>
+        <word name="float"/>
+        <word name="float32"/>
+        <word name="float64"/>
+        <word name="s8"/>
+        <word name="s16"/>
+        <word name="s32"/>
+        <word name="s64"/>
+        <word name="u8"/>
+        <word name="u16"/>
+        <word name="u32"/>
+        <word name="u64"/>
+        <word name="Any"/>
+        <word name="Type"/>
+        <word name="Code"/>
+      </keywords>
+
+      <keywords region="def:BooleanConstant">
+        <word name="null"/>
+        <word name="true"/>
+        <word name="false"/>
+      </keywords>
+
+      <!-- Name :: struct / union / enum -->
+      <regexp match="/(\w+)\s*(::)\s*(struct|union|enum_flags|enum)\b/"
+        region1="TypeName" region2="def:Operator" region3="def:Keyword"/>
+
+      <!-- member access: .name -->
+      <regexp match="/(\.)(\w+)/" region1="def:Symbol" region2="def:Keyword"/>
+
+      <!-- Name :: (params) -> ret { }  : procedure definition -->
+      <block start="/(\w+)\s*(::)\s*(inline\s+|no_inline\s+)?((\())/" end="/(\))/" scheme="jaiExtFunctionDefine"
+        region01="FunctionName" region02="def:Operator" region03="def:Keyword" region04="def:Symbol" region05="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <!-- call: name(...) -->
+      <block start="/(\w+)\s*((\())/" end="/(\))/" scheme="jaiExt"
+        region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <!-- struct literal: Name.{...} / name{...} -->
+      <block start="/(\w+)\s*((\{))/" end="/(\})/" scheme="jaiExt"
+        region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\{)/" end="/(\})/" scheme="jaiExt"
+        region00="def:Symbol" region01="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\[)/" end="/(\])/" scheme="jaiExt"
+        region00="def:Symbol" region01="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <block start="/(\()/" end="/(\))/" scheme="jaiExt"
+        region00="def:Symbol" region01="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <regexp match="/\w/" region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="jaiExtLineComment">
+      <inherit scheme="def:Comment"/>
+    </scheme>
+
+    <scheme name="jaiExtBlockComment">
+      <block start="/\/\*/" end="/\*\//" region="def:Comment" scheme="jaiExtBlockComment"/>
+      <inherit scheme="def:Comment"/>
+    </scheme>
+
+    <scheme name="jaiExtString">
+      <regexp match="/\\(.|$)/" region0="def:StringEdge"/>
+      <regexp match="/%\d*(\.\d+)?[sdifxXc%]/" region0="def:StringContent"/>
+    </scheme>
+
+    <scheme name="jaiExtHereString">
+    </scheme>
+
+    <scheme name="jaiExtFunctionDefine">
+      <!-- parameter:  name : type = default -->
+      <block start="/\s*(\$?\$?\w+)\s*(:)/" end="/,|(?=\))/" scheme="jaiExt"
+        region01="FunctionParameter" region02="def:Operator"/>
+      <inherit scheme="jaiExt"/>
+    </scheme>
+
+  </type>
+
 
   <!-- graphwiz -->
   <prototype name="gvExt" group="extras" description="Graphwiz Extended (Monokai)">
