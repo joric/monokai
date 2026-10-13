@@ -1486,7 +1486,7 @@
   <!-- yml -->
 
   <prototype name="ymlExt" group="extras" description="YML Extended (Monokai)">
-      <filename weight="11">/\.(yml|ksy)/ix</filename>
+      <filename weight="11">/\.(yml|ksy|level_set|level_manifest)/ix</filename>
   </prototype>
   <type name="ymlExt">
     <import type="yaml"/>
