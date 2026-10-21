@@ -629,7 +629,7 @@
   <!-- javascript -->
 
   <prototype name="jsExt" group="extras" description="JavaScript Extended (Monokai)">
-    <filename weight="5">/\.(js|mjs)$/i</filename>
+    <filename weight="5">/\.(js|mjs|cjs|ts)$/i</filename>
   </prototype>
 
   <type name="mdExt"/>
