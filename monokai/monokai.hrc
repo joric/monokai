@@ -1711,6 +1711,215 @@
 
   </type>
 
+  <!-- ahk (AutoHotkey v2) -->
+
+  <prototype name="ahkExt" group="extras" description="AutoHotkey Extended (Monokai)">
+    <filename weight="5">/\.ahk$/i</filename>
+  </prototype>
+
+  <type name="ahkExt">
+
+    <region name="FunctionName" parent="def:Identifier"/>
+    <region name="FunctionCall" parent="def:Keyword"/>
+    <region name="FunctionParameter" parent="def:ParameterStrong"/>
+    <region name="ControlKeyword" parent="def:Operator"/>
+    <region name="DeclKeyword" parent="def:Directive"/>
+    <region name="SelfKeyword" parent="def:ParameterStrong"/>
+    <region name="StringEscape" parent="def:BooleanConstant"/>
+    <region name="BuiltinVar" parent="def:Constant"/>
+    <region name="Hotkey" parent="def:Directive"/>
+
+    <scheme name="ahkExt">
+
+      <!-- /* block comment */ -->
+      <block start="/\/\*/" end="/\*\//" region="def:Comment" scheme="ahkExtComment"/>
+
+      <!-- ; line comment -->
+      <block start="/;/" end="/$/" region="def:Comment" scheme="ahkExtComment"/>
+
+      <!-- #Requires, #SingleInstance, #HotIf ... -->
+      <block start="/^\s*(#\w+)/" end="/$/" scheme="ahkExtDirective"
+        region01="def:Directive"/>
+
+      <!-- hotstrings  :*:btw::by the way  -->
+      <regexp match="/^\s*(:[\w\*\?]*:)([^:]+)(::)/"
+        region1="Hotkey" region2="def:String" region3="def:Symbol"/>
+
+      <!-- hotkeys  F5::  ~Esc::  ^j::  a &amp; b::  -->
+      <regexp match="/^\s*([~\*\$!\+\^#&lt;&gt;]*\w+(\s+&amp;\s+[~\*\$!\+\^#&lt;&gt;]*\w+)?(\s+up)?)\s*(::)/"
+        region1="Hotkey" region4="def:Symbol"/>
+
+      <!-- strings -->
+      <block start="/&quot;/" end="/&quot;/" region="def:String" scheme="ahkExtString"
+        region00="def:StringEdge" region10="def:StringEdge"/>
+      <block start="/&apos;/" end="/&apos;/" region="def:String" scheme="ahkExtString"
+        region00="def:StringEdge" region10="def:StringEdge"/>
+
+      <!-- control words MUST come before the function blocks: at the same position
+           the earlier rule wins, so  if (x) {  /  while (y)  stay keywords -->
+      <keywords region="ControlKeyword" ignorecase="yes">
+        <word name="if"/>
+        <word name="else"/>
+        <word name="while"/>
+        <word name="loop"/>
+        <word name="for"/>
+        <word name="in"/>
+        <word name="until"/>
+        <word name="try"/>
+        <word name="catch"/>
+        <word name="finally"/>
+        <word name="throw"/>
+        <word name="return"/>
+        <word name="break"/>
+        <word name="continue"/>
+        <word name="switch"/>
+        <word name="case"/>
+        <word name="default"/>
+        <word name="goto"/>
+        <word name="as"/>
+        <word name="and"/>
+        <word name="or"/>
+        <word name="not"/>
+        <word name="is"/>
+        <word name="contains"/>
+        <word name="exit"/>
+        <word name="exitapp"/>
+      </keywords>
+
+      <!-- function definition:  Name(params) {   (the { must be on the same line) -->
+      <block start="/(\w+)\s*((\())\M([^()]|\([^()]*\))*\)\s*\{/"
+        end="/(\))/" scheme="ahkExtFunctionDefine"
+        region01="FunctionName" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <!-- function call:  Name(...)  (control words excluded so  if (x)  stays a keyword) -->
+      <block start="/(\w+)\s*((\())/"
+        end="/(\))/" scheme="ahkExtArguments"
+        region01="FunctionCall" region02="def:Symbol" region03="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <!-- member access  obj.Prop  obj.Method(  -->
+      <regexp match="/(\.)(\w+)/" region1="def:Symbol" region2="FunctionCall"/>
+
+      <!-- ByRef argument  &amp;var  -->
+      <regexp match="/(?:^|[\s(,])(&amp;)(\w+)/" region1="def:Operator" region2="FunctionParameter"/>
+
+      <keywords region="DeclKeyword" ignorecase="yes">
+        <word name="global"/>
+        <word name="local"/>
+        <word name="static"/>
+        <word name="class"/>
+        <word name="extends"/>
+      </keywords>
+
+      <keywords region="SelfKeyword" ignorecase="yes">
+        <word name="this"/>
+        <word name="super"/>
+      </keywords>
+
+      <keywords region="def:BooleanConstant" ignorecase="yes">
+        <word name="true"/>
+        <word name="false"/>
+        <word name="unset"/>
+      </keywords>
+
+      <keywords region="def:Operator">
+        <symb name=":="/>
+        <symb name="::="/>
+        <symb name="=&gt;"/>
+        <symb name="="/>
+        <symb name="=="/>
+        <symb name="!="/>
+        <symb name="!=="/>
+        <symb name="=~"/>
+        <symb name="&lt;="/>
+        <symb name="&gt;="/>
+        <symb name="&lt;"/>
+        <symb name="&gt;"/>
+        <symb name="+="/>
+        <symb name="-="/>
+        <symb name="*="/>
+        <symb name="/="/>
+        <symb name="//="/>
+        <symb name=".="/>
+        <symb name="|="/>
+        <symb name="&amp;="/>
+        <symb name="^="/>
+        <symb name="&lt;&lt;="/>
+        <symb name="&gt;&gt;="/>
+        <symb name="&amp;&amp;"/>
+        <symb name="||"/>
+        <symb name="??"/>
+        <symb name="??="/>
+        <symb name="++"/>
+        <symb name="--"/>
+        <symb name="+"/>
+        <symb name="-"/>
+        <symb name="*"/>
+        <symb name="/"/>
+        <symb name="//"/>
+        <symb name="!"/>
+        <symb name="~"/>
+        <symb name="^"/>
+        <symb name="|"/>
+        <symb name="&amp;"/>
+        <symb name="?"/>
+      </keywords>
+
+      <keywords region="def:Symbol">
+        <symb name=","/>
+        <symb name=":"/>
+      </keywords>
+
+      <!-- A_ScriptDir, A_Index, ... -->
+      <regexp match="/\bA_\w+/i" region0="BuiltinVar"/>
+
+      <!-- numbers: hex, decimal, float, exponent -->
+      <regexp match="/\b(0[xX][\da-fA-F]+|\d+(\.\d+)?([eE][\-\+]?\d+)?)\b/" region0="def:Number"/>
+
+      <!-- pairs -->
+      <block start="/(\()/" end="/(\))/" scheme="ahkExt"
+        region00="def:Symbol" region01="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+      <block start="/(\[)/" end="/(\])/" scheme="ahkExt"
+        region00="def:Symbol" region01="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+      <block start="/(\{)/" end="/(\})/" scheme="ahkExt"
+        region00="def:Symbol" region01="def:PairStart"
+        region10="def:Symbol" region11="def:PairEnd"/>
+
+      <regexp match="/\w/" region0="def:Symbol"/>
+
+    </scheme>
+
+    <scheme name="ahkExtComment">
+      <inherit scheme="def:Comment"/>
+    </scheme>
+
+    <scheme name="ahkExtDirective">
+      <block start="/;/" end="/$/" region="def:Comment" scheme="ahkExtComment"/>
+      <regexp match="/[^\s;]+/" region0="def:DirectiveContent"/>
+    </scheme>
+
+    <!-- backtick escapes (`n `t `" `` `;) -->
+    <scheme name="ahkExtString">
+      <regexp match="/`./" region0="StringEscape"/>
+    </scheme>
+
+    <scheme name="ahkExtFunctionDefine">
+      <!-- parameter:  [&amp;]name [:= default] [*] -->
+      <block start="/\s*(&amp;?)(\w+)/" end="/,|(?=\))/" scheme="ahkExt"
+        region01="def:Operator" region02="FunctionParameter"/>
+      <inherit scheme="ahkExt"/>
+    </scheme>
+
+    <scheme name="ahkExtArguments">
+      <inherit scheme="ahkExt"/>
+    </scheme>
+
+  </type>
+
+
   <!-- markdown -->
 
   <prototype name="mdExt" group="extras" description="Markdown Extended (Monokai)">
